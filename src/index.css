@@ -1,69 +1,187 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --color-white-100: white;
+  --color-white-200: whitesmoke;
+  --color-white-300: rgb(238, 238, 238);;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --color-gray-100: lightgray;
+  --color-gray-200: rgb(111, 111, 111);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --color-black-100: rgb(21, 21, 21);
+
+  --color-clear: rgba(0, 0, 0, 0);
+  --color-clear-100: rgba(0, 0, 0, 0.15)
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+p, h1, h2, h3, h4, h5, h6, label, input {
+  margin: 0;
+  padding: 0;
 }
-a:hover {
-  color: #535bf2;
+
+root, body, html, .App {
+  width: 100%;
+  height: 100%;
 }
 
 body {
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.tab-group {
   display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-white-200);
+
+  padding: 1rem;
+}
+
+.tab-group__tab-list {
+  height: fit-content;
+  padding-left: 1rem;
+
+  z-index: 1;
+  margin-bottom: -1px;
+}
+
+.tab {
+  padding: 1rem 1.5rem;
+  box-sizing:content-box;
+  border: 1px solid var(--color-clear);
+
+  background-color: var(--color-clear);
+  color: var(--color-gray-200);
+
+  font-size: 14pt;
+
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+.tab:hover {
+  color: rgb(21, 21, 21);
+  transform: scale(1.05);
+}
+
+.tab--active {
+  border-top: 1px solid var(--color-gray-100);
+  border-inline: 1px solid var(--color-gray-100);
+  border-bottom: 2px solid var(--color-white-100);
+
+  background-color: var(--color-white-100);
+  color: var(--color-black);
+
+  border-radius: 0.3rem 0.3rem 0  0;
+}
+
+.tab--active:hover {
+  transform: none;
+}
+
+
+.tab-group__panel {
+  position: relative;
+  min-height: 16rem;
+  height: fit-content;
+  padding: 0.7rem;
+  box-sizing: border-box;
+
+  background-color: var(--color-white-100);
+
+  z-index: 0;
+
+  border: 1px solid var(--color-gray-100);
+  border-radius: 0.3rem;
+}
+
+.md-output {
+  background-color: var(--color-clear);
+}
+
+.md-input {
+  width: 100%;
+  min-height: 16rem;
+  resize: vertical;
+  box-sizing: border-box;
+
+  padding: 0.5rem;
+
+  background-color: var(--color-white-300);
+  border: 1px solid var(--color-gray-100);
+  border-radius: 0.3rem;
+
+  font-size: 12pt;
+}
+
+.md-input:focus {
+  outline: none;
+  
+  /* background-color: rgb(245, 245, 245); */
+  box-shadow: inset 0 0 0.5rem 0 var(--color-clear-100);
+}
+
+.action-bar {
+  position: relative;
+  display: flex;
+
+  align-items: center;
+
+  padding-block: 0.2rem;
+}
+
+.icon-button {
+  margin: 0;
+
+  display: grid;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+
+  height: 2rem;
+  width: 2rem;
+  
+  padding: 0;
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 0.2rem;
+  background-color: var(--color-clear);
+
+  transition: transform 0.07s ease-in-out;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.icon-button:active {
+  transform: scale(0.95);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.icon-button:hover {
+  background-color: var(--color-white-300);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.icon-button__img {
+  aspect-ratio: 1/1;
+
+  height: 1.8rem;
+
+  transition: transform 0.1s ease-in-out;
+}
+
+.divider {
+  margin-inline: 1rem;
+  display: inline-block;
+
+  /* border: 1px solid var(--color-gray-100); */
+
+  height: 16px;
+  width: 0px;
+  border-radius: 2px;
 }

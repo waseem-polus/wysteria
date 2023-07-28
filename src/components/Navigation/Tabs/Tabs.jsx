@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
-import Tab from './Tab'
+import './Tabs.css'
 
-export default function TabGroup({
-  children,
-  tabs = ['Tab 1', 'Tab 2', 'Tab 3'],
-}) {
+export function TabGroup({ children }) {
   const [activeTab, setActiveTab] = useState(0)
 
   return (
@@ -20,8 +17,12 @@ export default function TabGroup({
           </button>
         ))}
       </div>
-      
+
       {children[activeTab]}
     </div>
   )
+}
+
+export function Tab({ children }) {
+  return <section className="tab-group__panel">{children}</section>
 }

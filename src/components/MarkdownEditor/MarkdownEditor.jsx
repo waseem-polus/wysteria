@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { TabGroup, Tab } from '../Navigation/Tabs/Tabs'
 import MDEditor from '@uiw/react-md-editor'
-import { ActionBar } from '../ActionBar'
 import './MarkdownEditor.css'
+import { ActionBar } from '../ActionBar/ActionBar'
 
 export const MarkdownEditor = () => {
   const [value, setValue] = useState('')

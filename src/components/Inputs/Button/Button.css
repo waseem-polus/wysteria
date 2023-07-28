@@ -1,0 +1,23 @@
+.button {
+    font-size: 14pt;
+    padding: 0.35rem 1rem;
+
+    border-radius: 0.3rem;
+}
+
+.button--text {
+    background-color: var(--color-clear);
+    border: none;
+}
+
+.button--outlined {
+    background-color: var(--color-clear);
+    border: 2px solid var(--color-grn-500);
+}
+
+.button--filled {
+    background-color: var(--color-grn-500);
+    border: 2px solid var(--color-grn-500);
+
+    color: var(--color-white-100);
+}

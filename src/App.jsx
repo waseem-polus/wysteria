@@ -1,13 +1,7 @@
-import { useState } from 'react'
-import { MarkdownEditor } from "./components/MDEditor/MarkdownEditor";
-import './App.css'
+import { MarkdownEditor } from './components/MarkdownEditor/MarkdownEditor'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <MarkdownEditor></MarkdownEditor>
-  )
+  return <MarkdownEditor></MarkdownEditor>
 }
 
 export default App

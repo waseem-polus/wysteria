@@ -17,33 +17,29 @@ import {
   Underline,
 } from 'lucide-react'
 import React from 'react'
+import './ActionBar.css'
 
-const wrapSelectionWith = (
-  { value, setValue, mdInput },
-  open,
-  close = null,
+const wrapSelectionWith = (text, selStart, selEnd, openTag, closeTag) => {
+  const preSelection = text.substring(0, selStart)
+  const midSelection =
+    selStart != selEnd ? text.substring(selStart, selEnd) : ' '
+  const postSelection = text.substring(selEnd)
+
+  return preSelection + openTag + midSelection + closeTag + postSelection
+}
+
+const setSelection = (
+  textarea,
+  selStart,
+  selEnd = selStart,
+  startOffset = 0,
+  endOffset = 0,
 ) => {
-  const cursor = {
-    start: mdInput.current.selectionStart,
-    end: mdInput.current.selectionEnd,
-  }
-
-  let midSection = ' '
-  if (cursor.start != cursor.end) {
-    midSection = value.substring(cursor.start, cursor.end)
-  }
-
-  setValue(
-    value.substring(0, cursor.start) +
-      `${open}${midSection}${close ? close : open}` +
-      value.substring(cursor.end),
-  )
-
   setTimeout(() => {
-    mdInput.current.focus()
-    mdInput.current.setSelectionRange(
-      cursor.start + open.length,
-      cursor.end + open.length,
+    textarea.current.focus()
+    textarea.current.setSelectionRange(
+      selStart + startOffset,
+      selEnd + endOffset,
     )
   }, 0)
 }
@@ -57,12 +53,9 @@ const addToStartOfLine = ({ value, setValue, mdInput }, symbol) => {
 
 const doHyperLink = ({ value, setValue, mdInput }) => {
   const endCursor = mdInput.current.selectionEnd
-  wrapSelectionWith({ value, setValue, mdInput }, '[', '](url)')
+  handleWrap('[', '](url)')
 
-  setTimeout(() => {
-    mdInput.current.focus()
-    mdInput.current.setSelectionRange(endCursor + 3, endCursor + 6)
-  }, 0)
+  setSelection(mdInput, endCursor, endCursor, 3, 6)
 }
 
 const findStartOfLine = (string, position) => {
@@ -81,36 +74,58 @@ const findStartOfLine = (string, position) => {
 export const ActionBar = (props) => {
   const iconSize = 20 // px
   const iconStroke = 1.5 // px
+
+  const handleWrap = (openTag, closeTag = openTag) => {
+    const start = props.mdInput.current.selectionStart
+    const end = props.mdInput.current.selectionEnd
+
+    props.setValue(
+      wrapSelectionWith(props.value, start, end, openTag, closeTag),
+    )
+
+    setSelection(props.mdInput, start, end, openTag.length, openTag.length)
+  }
+
+  const handleHyperlink = () => {
+    const endCursor = props.mdInput.current.selectionEnd
+    handleWrap('[', '](url)')
+
+    setSelection(props.mdInput, endCursor, endCursor, 3, 6)
+  }
+
   return (
     <span className="action-bar">
       <button
         className="icon-button"
         onClick={() => {
-          wrapSelectionWith(props, '**')
+          handleWrap('**')
         }}
       >
         <Bold size={iconSize} strokeWidth={iconStroke}></Bold>
       </button>
+
       <button
         className="icon-button"
         onClick={() => {
-          wrapSelectionWith(props, '*')
+          handleWrap('*')
         }}
       >
         <Italic size={iconSize} strokeWidth={iconStroke}></Italic>
       </button>
+
       <button
         className="icon-button"
         onClick={() => {
-          wrapSelectionWith(props, '<u>', '</u>')
+          handleWrap('<u>', '</u>')
         }}
       >
         <Underline size={iconSize} strokeWidth={iconStroke}></Underline>
       </button>
+
       <button
         className="icon-button"
         onClick={() => {
-          wrapSelectionWith(props, '~')
+          handleWrap('~')
         }}
       >
         <Strikethrough size={iconSize} strokeWidth={iconStroke}></Strikethrough>
@@ -121,19 +136,21 @@ export const ActionBar = (props) => {
       <button
         className="icon-button"
         onClick={() => {
-          doHyperLink(props)
+          handleHyperlink(props)
         }}
       >
         <Link size={iconSize} strokeWidth={iconStroke}></Link>
       </button>
+
       <button
         className="icon-button"
         onClick={() => {
-          wrapSelectionWith(props, '``')
+          handleWrap('``')
         }}
       >
         <Code2 size={iconSize} strokeWidth={iconStroke}></Code2>
       </button>
+
       <button
         className="icon-button"
         onClick={() => {

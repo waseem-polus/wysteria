@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
-import TabGroup from '../Tabs/TabGroup'
-import Tab from '../Tabs/Tab'
+import { TabGroup, Tab } from '../Navigation/Tabs/Tabs'
 import MDEditor from '@uiw/react-md-editor'
 import { ActionBar } from '../ActionBar'
+import './MarkdownEditor.css'
 
 export const MarkdownEditor = () => {
   const [value, setValue] = useState('')
@@ -11,11 +11,14 @@ export const MarkdownEditor = () => {
   return (
     <TabGroup>
       <Tab label="Write">
-        <ActionBar value={value} setValue={setValue} mdInput={mdInputRef}></ActionBar>
+        <ActionBar
+          value={value}
+          setValue={setValue}
+          mdInput={mdInputRef}
+        ></ActionBar>
         <textarea
           ref={mdInputRef}
-          className="md-input"
-          id=""
+          className="markdown-editor__md-input"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         ></textarea>
@@ -23,7 +26,7 @@ export const MarkdownEditor = () => {
 
       <Tab label="Preview">
         <MDEditor.Markdown
-          className="md-output"
+          className="markdown-editor__md-output"
           source={value}
         ></MDEditor.Markdown>
       </Tab>

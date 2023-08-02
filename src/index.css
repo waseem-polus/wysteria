@@ -6,16 +6,28 @@
   --color-gray-100: lightgray;
   --color-gray-200: rgb(111, 111, 111);
 
-  --color-black-100: rgb(21, 21, 21);
+  --color-black-100: #2C2C2C;
 
   --color-clear: rgba(0, 0, 0, 0);
   --color-clear-100: rgba(0, 0, 0, 0.15);
 
-  --color-grn-500: #86ae82;
+  --color-red-1000: #2A1313;
+  --color-red-500: #FF6A6A;
+
   --color-grn-400: #a0c49d;
   --color-grn-300: #c4d7b2;
   --color-grn-200: #e1ecc8;
   --color-grn-100: #f7ffe5;
+
+  --color-primary-900: #250752;
+  --color-primary-800: #390c7d;
+  --color-primary-700: #4c0fa8;
+  --color-primary-600: #5C15C6;
+  --color-primary-500: #7736d9;
+  --color-primary-400: #8b53df;
+  --color-primary-300: #9e67ef;
+  --color-primary-200: #bf9ff0;
+  --color-primary-100: #e0cffa;
 }
 
 p,
@@ -40,7 +52,7 @@ html,
 }
 
 ::selection {
-  background-color: var(--color-grn-400);
+  background-color: var(--color-primary-200);
 }
 
 body {
@@ -81,7 +93,7 @@ code {
 }
 
 .icon-button:hover {
-  background-color: var(--color-white-300);
+  background-color: var(--color-primary-100);
 }
 
 .icon-button__img {

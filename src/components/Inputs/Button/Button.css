@@ -1,25 +1,45 @@
 .button {
+    display: flex;
+    align-items: center;
+
     font-size: 14pt;
-    padding: 0.35rem 1rem;
+    padding: 0.35rem 0.7rem;
+    gap: 0.5rem;
 
     border-radius: 0.3rem;
 
     color: var(--color-grn-500);
+
+    cursor: pointer;
+
+    transition: filter 100ms ease-in-out, transform 75ms ease-in-out;
+}
+
+.button:hover {
+    filter: brightness(1.1);
+}
+
+.button:active {
+    transform: scale(0.95);
 }
 
 .button--text {
-    background-color: var(--color-clear);
+    background-color: var(--color-primary-100);
     border: none;
+
+    color: var(--color-primary-700);
 }
 
 .button--outlined {
     background-color: var(--color-clear);
-    border: 1px solid var(--color-grn-500);
+    border: 1px solid var(--color-primary-500);
+
+    color: var(--color-primary-500);
 }
 
 .button--filled {
-    background-color: var(--color-grn-500);
-    border: 1px solid var(--color-grn-500);
+    background-color: var(--color-primary-500);
+    border: 1px solid var(--color-primary-500);
     
     color: var(--color-white-100);
 }

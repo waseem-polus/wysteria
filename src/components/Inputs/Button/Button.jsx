@@ -1,8 +1,13 @@
 import React from 'react'
 import './Button.css'
+import Icon from '../../Icon'
 
-export const Button = ({variant, children}) => {
+export const Button = ({children, onClick, variant, leftIcon=null, rightIcon=null}) => {
   return (
-    <button className={`button button--${variant}`}>{children}</button>
+    <button className={`button button--${variant}`} onClick={onClick}>
+      {leftIcon != null && <Icon size={18} strokeWidth={2} name={leftIcon} />}
+      {children}
+      {rightIcon != null && <Icon size={18} strokeWidth={2} name={rightIcon} />}
+      </button>
   )
 }

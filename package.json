@@ -1,8 +1,20 @@
 {
-  "name": "wui-design",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@waseem-polus/wui-design",
   "type": "module",
+  "private": true,
+  "version": "0.0.1",
+  "author": "Waseem Polus (https://github.com/waseem-polus)",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/wui-design.umd.cjs",
+  "module": "./dist/wui-design.js",
+  "exports": {
+    ".": {
+      "import": "./dist/wui-design.js",
+      "require": "./dist/wui-design.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

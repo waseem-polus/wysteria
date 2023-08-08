@@ -6,3 +6,48 @@
 
   padding-block: 0.2rem;
 }
+
+
+.icon-button {
+  margin: 0;
+
+  display: grid;
+  place-items: center;
+
+  height: 1.6rem;
+  width: 1.6rem;
+
+  padding: 0;
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 0.2rem;
+  background-color: var(--wui-color-clear);
+
+  transition: transform 0.07s ease-in-out;
+}
+
+.icon-button:active {
+  transform: scale(0.95);
+}
+
+.icon-button:hover {
+  background-color: var(--wui-color-base-200);
+}
+
+.icon-button__img {
+  aspect-ratio: 1/1;
+
+  height: 1.8rem;
+
+  transition: transform 0.1s ease-in-out;
+}
+
+.divider {
+  margin-inline: 1rem;
+  display: inline-block;
+
+  height: 16px;
+  width: 0px;
+  border-radius: 2px;
+}

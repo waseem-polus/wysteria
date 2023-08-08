@@ -1,2 +1,2 @@
-export * from './components/MarkdownEditor/MarkdownEditor'
-export * from './components/Navigation/Tabs/Tabs'
+export * from './MarkdownEditor'
+export * from './Tabs'

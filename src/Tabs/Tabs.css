@@ -35,6 +35,7 @@
   background-color: var(--wui-color-clear);
   color: var(--wui-color-base-700);
 
+  font-family: 'Work Sans', sans-serif;
   font-size: 14pt;
   margin-bottom: -1px;
 
@@ -55,6 +56,8 @@
 .tab--active {
   border-radius: 0.25rem 0.25rem 0rem 0rem;
   border-bottom: 2px solid var(--wui-color-accent-300);
+
+  font-weight: 500;
 
   color: var(--wui-color-accent-600);
 }

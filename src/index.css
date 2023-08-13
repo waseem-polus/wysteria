@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital@0;1&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Work+Sans:ital,wght@0,400;0,500;1,400&display=swap');
 :root {
   --wui-color-black-100: rgb(21, 21, 21);
 
@@ -30,7 +29,7 @@
   --wui-color-success-500: #35C76F;
   --wui-color-success-900: #016027;
 
-  --wui-color-danger-100: #600101;
+  --wui-color-danger-100: hsl(0, 98%, 19%);
   --wui-color-danger-500: #D24343;
   --wui-color-danger-900: #FD9595;
 
@@ -50,9 +49,11 @@ label,
 input {
   margin: 0;
   padding: 0;
+
+  font-family: 'Work Sans', sans-serif;
 }
 
-root,
+:root,
 body,
 html,
 .App {
@@ -61,17 +62,16 @@ html,
 }
 
 ::selection {
-  background-color: var(--color-grn-400);
+  background-color: var(--wui-color-accent-100);
 }
 
 body {
   margin: 0;
-  font-family: 'Work Sans', sans-serif;;
+  font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Space Mono', monospace;
 }

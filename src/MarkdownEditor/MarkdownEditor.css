@@ -10,15 +10,19 @@
 
   padding: 0.5rem;
 
-  background-color: var(--color-white-200);
-  border: 1px solid var(--color-gray-100);
+  background-color: var(--wui-color-base-300);
+  border: 1px solid var(--wui-color-clear);
+  outline: none;
+  /* border: none; */
   border-radius: 0.3rem;
 
   font-size: 12pt;
 }
 
-.markdown-editor__md-input:focus {
-  outline: none;
+.markdown-editor__md-input:hover {
+  border: 1px solid var(--wui-color-base-500);
+}
 
-  border: 2px solid var(--color-grn-300);
+.markdown-editor__md-input:focus {
+  border: 1px solid var(--wui-color-accent-300);
 }

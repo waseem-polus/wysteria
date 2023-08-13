@@ -8,5 +8,8 @@ export default defineConfig({
       name: 'WUI Design',
       fileName: 'wui-design',
     },
+    css: {
+      modules: true, // Enable CSS Modules if needed
+    },
   }
 })

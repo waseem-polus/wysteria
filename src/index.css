@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Work+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+
 :root {
-  --wui-color-black-100: rgb(21, 21, 21);
+  --wui-color-black: rgb(21, 21, 21);
+  --wui-color-white: #FFF;
 
   --wui-color-clear: rgba(0, 0, 0, 0);
 
-  --wui-color-accent-50: #F5F1FC;
-  --wui-color-accent-100: #D2BAF6;
-  --wui-color-accent-200: #B68FF0;
-  --wui-color-accent-300: #9966E5;
-  --wui-color-accent-400: #7F43DA;
-  --wui-color-accent-500: #8346DE;
-  --wui-color-accent-600: #5619B4;
-  --wui-color-accent-700: #440D97;
-  --wui-color-accent-800: #350978;
-  --wui-color-accent-900: #250554;
+  --wui-color-accent-50: #F3ECFE;
+  --wui-color-accent-100: #BB93F7;
+  --wui-color-accent-200: #A879EF;
+  --wui-color-accent-300: #945EE6;
+  --wui-color-accent-400: #8647E6;
+  --wui-color-accent-500: #7738D5;
+  --wui-color-accent-600: #672EBD;
+  --wui-color-accent-700: #4A1895;
+  --wui-color-accent-800: #3A0C7F;
 
   --wui-color-base-100: #FCFCFC;
   --wui-color-base-200: #F3F3F3;
@@ -25,17 +26,19 @@
   --wui-color-base-800: #202122;
   --wui-color-base-900: #141414;
 
-  --wui-color-success-100: #78F2AB;
-  --wui-color-success-500: #35C76F;
-  --wui-color-success-900: #016027;
+  --wui-color-success-100: #B9F9D2;
+  --wui-color-success-500: #15EA69;
+  --wui-color-success-700: #0EA44A;
+  --wui-color-success-900: #006B2A;
 
-  --wui-color-danger-100: hsl(0, 98%, 19%);
-  --wui-color-danger-500: #D24343;
-  --wui-color-danger-900: #FD9595;
+  --wui-color-danger-100: #F9B9B9;
+  --wui-color-danger-500: #EB1414;
+  --wui-color-danger-900: #A40E0E;
 
-  --wui-color-warning-100: #605600;
-  --wui-color-warning-500: #DBC81B;
-  --wui-color-warning-900: #F2E678;
+  --wui-color-warning-100: #F9E7B9;
+  --wui-color-warning-500: #EBAE14;
+  --wui-color-warning-700: #A47A0E;
+  --wui-color-warning-900: #805C00;
 }
 
 p,

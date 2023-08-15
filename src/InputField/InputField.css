@@ -1,0 +1,179 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.text-field__wrapper {
+    --notation-position: -0.9rem;
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        top: 0;
+    }
+
+    to {
+        opacity: 1;
+        top: var(--notation-position);   
+    }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        bottom: 0;
+    }
+
+    to {
+        opacity: 1;
+        bottom: var(--notation-position);   
+    }
+}
+
+.text-field__wrapper {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.2rem;
+
+    width: fit-content;
+}
+
+.text-field {
+    position: relative;
+
+    display: flex;
+    width: fit-content;
+    min-width: 8rem;
+    min-height: 1.5rem;
+    padding: 0.5rem;
+    align-items: center;
+    gap: 0.5rem;
+    
+    border-radius: 0.25rem;
+    border: 1px solid var(--wui-color-base-500);
+
+    color: var(--wui-color-base-800, #202122);
+    font-family: Work Sans, sans-serif;
+    font-size: 1rem;
+
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtdGV4dC1jdXJzb3IiPjxwYXRoIGQ9Ik0xNyAyMmgtMWE0IDQgMCAwIDEtNC00VjZhNCA0IDAgMCAxIDQtNGgxIi8+PHBhdGggZD0iTTcgMjJoMWE0IDQgMCAwIDAgNC00di0xIi8+PHBhdGggZD0iTTcgMmgxYTQgNCAwIDAgMSA0IDR2MSIvPjwvc3ZnPg=='), text;
+}
+
+.text-field__notation {
+    position: absolute;
+    display: none;
+
+    font-size: 0.7rem;
+    margin-left: 0.5rem;
+
+    transform-origin: 0 0;
+    animation: slide-up 100ms ease-in-out reverse;
+}
+
+.text-field__error-tip {
+    display: inline-block;
+    bottom: var(--notation-position);
+
+    color: var(--wui-color-danger-500);
+    animation: slide-down 100ms ease-in-out forwards;
+}
+
+.text-field__label--visible {
+    display: inline-block;
+    top: var(--notation-position);
+
+    color: var(--wui-color-base-700);
+
+    animation: slide-up 100ms ease-in-out forwards;
+}
+
+.text-field__label--active {
+    color: var(--wui-color-accent-500);
+}
+
+.text-field__label--error {
+    color: var(--wui-color-danger-500);
+}
+
+.text-field__label--error::before {
+    content: url();
+}
+
+.text-field__label--disabled {
+    color: var(--wui-color-base-400);
+}
+
+.text-field::placeholder {
+    font-family: Work Sans, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    
+    color: var(--wui-color-base-500);
+}
+
+.text-field--hover {
+    border: 1px solid var(--wui-color-accent-400);
+    background: var(--wui-color-accent-50);
+}
+
+.text-field--hover::placeholder {
+    color: var(--wui-color-accent-200);
+}
+
+.text-field--active {
+    border: 1px solid var(--wui-color-accent-400);
+
+    outline: none;
+}
+
+.text-field--error {
+    border: 1px solid var(--wui-color-danger-500);
+}
+
+.text-field--disabled {
+    border: 1px dashed var(--wui-color-base-400);
+    border-spacing: 5px;
+    background: var(--wui-color-base-200);
+
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtY2lyY2xlLW9mZiI+PHBhdGggZD0ibTIgMiAyMCAyMCIvPjxwYXRoIGQ9Ik04LjM1IDIuNjlBMTAgMTAgMCAwIDEgMjEuMyAxNS42NSIvPjxwYXRoIGQ9Ik0xOS4wOCAxOS4wOEExMCAxMCAwIDEgMSA0LjkyIDQuOTIiLz48L3N2Zz4='), not-allowed;
+}
+
+.input-field__right {
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+    
+    height: 100%;
+    padding: 0;
+    
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.input-field__btn {
+    width: fit-content;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+
+    background-color: var(--wui-color-clear);
+    border: none;
+
+    cursor: pointer;
+}
+
+.input-field__btn svg {
+    stroke: var(--wui-color-base-600);
+}
+
+.input-field__btn:hover svg {
+    stroke: var(--wui-color-accent-400);
+}

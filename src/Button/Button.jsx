@@ -1,6 +1,7 @@
 import React from 'react'
+import Icon from '../Icon/Icon'
+
 import './Button.css'
-import Icon from '../../Icon'
 
 export const Button = ({children, onClick, variant, leftIcon=null, rightIcon=null}) => {
   return (
@@ -8,6 +9,6 @@ export const Button = ({children, onClick, variant, leftIcon=null, rightIcon=nul
       {leftIcon != null && <Icon size={18} strokeWidth={2} name={leftIcon} />}
       {children}
       {rightIcon != null && <Icon size={18} strokeWidth={2} name={rightIcon} />}
-      </button>
+    </button>
   )
 }

@@ -1,45 +1,75 @@
 .button {
     display: flex;
     align-items: center;
-
-    font-size: 14pt;
-    padding: 0.35rem 0.7rem;
+    justify-content: center;
+    padding: 0.5rem 0.7rem;
     gap: 0.5rem;
 
-    border-radius: 0.3rem;
-
-    color: var(--color-grn-500);
-
+    width: fit-content;
+    min-width: 4rem;
+    
+    border-radius: var(--wui-br);
+    border: 1px solid currentColor;
+    
+    font-family: Work Sans, sans-serif;
+    font-size: 1rem;
+    
     cursor: pointer;
-
     transition: filter 100ms ease-in-out, transform 75ms ease-in-out;
-}
-
-.button:hover {
-    filter: brightness(1.1);
 }
 
 .button:active {
     transform: scale(0.95);
 }
 
-.button--text {
-    background-color: var(--color-primary-100);
-    border: none;
+.button--progressive {
+    background-color: var(--wui-color-accent-500);
+    color: var(--wui-color-accent-600);
+}
 
-    color: var(--color-primary-700);
+.button--progressive:not(.button--filled):hover {
+    background-color: var(--wui-color-accent-25);
+}
+
+.button--progressive.button--filled:hover {
+    box-shadow: 0 0 0.7rem 0 var(--wui-color-accent-100)
+}
+
+.button--destructive {
+    background-color: var(--wui-color-danger-500);
+    color: var(--wui-color-danger-500);
+}
+
+.button--destructive:not(.button--filled):hover {
+    background-color: var(--wui-color-danger-50);
+}
+
+.button--destructive.button--filled:hover {
+    box-shadow: 0 0 0.7rem 0 var(--wui-color-danger-100)
+}
+
+.button--neutral {
+    background-color: var(--wui-color-base-800);
+    color: var(--wui-color-black);
+}
+
+.button--neutral:not(.button--filled):hover {
+    background-color: var(--wui-color-base-200);
+}
+
+.button--neutral.button--filled:hover {
+    box-shadow: 0 0 0.7rem 0 var(--wui-color-base-500)
+}
+
+.button--text {
+    background-color: var(--wui-color-clear);
+    border: none;
 }
 
 .button--outlined {
-    background-color: var(--color-clear);
-    border: 1px solid var(--color-primary-500);
-
-    color: var(--color-primary-500);
+    background-color: var(--wui-color-clear);
 }
 
 .button--filled {
-    background-color: var(--color-primary-500);
-    border: 1px solid var(--color-primary-500);
-    
-    color: var(--color-white-100);
+    color: var(--wui-color-white);
 }

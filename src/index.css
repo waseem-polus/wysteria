@@ -1,33 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Work+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+
 :root {
-  --color-white-100: rgb(246, 246, 246);
-  --color-white-200: rgb(234, 234, 234);
-  --color-white-300: rgb(225, 225, 225);
+  --wui-color-black: rgb(21, 21, 21);
+  --wui-color-white: #FFF;
 
-  --color-gray-100: lightgray;
-  --color-gray-200: rgb(111, 111, 111);
+  --wui-color-clear: rgba(0, 0, 0, 0);
 
-  --color-black-100: #2C2C2C;
+  --wui-color-accent-50: #F3ECFE;
+  --wui-color-accent-100: #BB93F7;
+  --wui-color-accent-200: #A879EF;
+  --wui-color-accent-300: #945EE6;
+  --wui-color-accent-400: #8647E6;
+  --wui-color-accent-500: #7738D5;
+  --wui-color-accent-600: #672EBD;
+  --wui-color-accent-700: #4A1895;
+  --wui-color-accent-800: #3A0C7F;
 
-  --color-clear: rgba(0, 0, 0, 0);
-  --color-clear-100: rgba(0, 0, 0, 0.15);
+  --wui-color-base-100: #FCFCFC;
+  --wui-color-base-200: #F3F3F3;
+  --wui-color-base-300: #E5E7EB;
+  --wui-color-base-400: #C8CCD1;
+  --wui-color-base-500: #A2A9B1;
+  --wui-color-base-600: #72777D;
+  --wui-color-base-700: #54595D;
+  --wui-color-base-800: #202122;
+  --wui-color-base-900: #141414;
 
-  --color-red-1000: #2A1313;
-  --color-red-500: #FF6A6A;
+  --wui-color-success-100: #B9F9D2;
+  --wui-color-success-500: #15EA69;
+  --wui-color-success-700: #0EA44A;
+  --wui-color-success-900: #006B2A;
 
-  --color-grn-400: #a0c49d;
-  --color-grn-300: #c4d7b2;
-  --color-grn-200: #e1ecc8;
-  --color-grn-100: #f7ffe5;
+  --wui-color-danger-100: #F9B9B9;
+  --wui-color-danger-500: #EB1414;
+  --wui-color-danger-900: #A40E0E;
 
-  --color-primary-900: #250752;
-  --color-primary-800: #390c7d;
-  --color-primary-700: #4c0fa8;
-  --color-primary-600: #5C15C6;
-  --color-primary-500: #7736d9;
-  --color-primary-400: #8b53df;
-  --color-primary-300: #9e67ef;
-  --color-primary-200: #bf9ff0;
-  --color-primary-100: #e0cffa;
+  --wui-color-warning-100: #F9E7B9;
+  --wui-color-warning-500: #EBAE14;
+  --wui-color-warning-700: #A47A0E;
+  --wui-color-warning-900: #805C00;
 }
 
 p,
@@ -41,9 +52,11 @@ label,
 input {
   margin: 0;
   padding: 0;
+
+  font-family: 'Work Sans', sans-serif;
 }
 
-root,
+:root,
 body,
 html,
 .App {
@@ -52,21 +65,18 @@ html,
 }
 
 ::selection {
-  background-color: var(--color-primary-200);
+  background-color: var(--wui-color-accent-100);
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Space Mono', monospace;
 }
 
 .icon-button {

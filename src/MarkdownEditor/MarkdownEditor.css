@@ -1,0 +1,28 @@
+.markdown-editor__md-output {
+  background-color: var(--color-clear);
+}
+
+.markdown-editor__md-input {
+  width: 100%;
+  min-height: 16rem;
+  resize: vertical;
+  box-sizing: border-box;
+
+  padding: 0.5rem;
+
+  background-color: var(--wui-color-base-300);
+  border: 1px solid var(--wui-color-clear);
+  outline: none;
+  /* border: none; */
+  border-radius: 0.3rem;
+
+  font-size: 12pt;
+}
+
+.markdown-editor__md-input:hover {
+  border: 1px solid var(--wui-color-base-500);
+}
+
+.markdown-editor__md-input:focus {
+  border: 1px solid var(--wui-color-accent-300);
+}

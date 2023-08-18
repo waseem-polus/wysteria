@@ -12,11 +12,12 @@ export function TabGroup({ children, filled = true }) {
       <div className="tab-group__tab-list">
         {
           children.map((tab, index) => 
-            <TabButton 
+            <Tab 
               key={index}
 
               leftIcon = {tab.props.leftIcon}
               label = {tab.props.label}
+              padding = {tab.props.padding}
               
               index = {index}
               setActiveTab = {setActiveTab}
@@ -24,21 +25,17 @@ export function TabGroup({ children, filled = true }) {
               
               filled = {tab.props.filled}
               disabled = {tab.props.disabled}
-            ></TabButton>
+            ></Tab>
           )
         }
       </div>
 
-      {children[activeTab]}
+      <section className="tab-group__panel">{children[activeTab].props.children}</section>
     </div>
   )
 }
 
-export function Tab({ children }) {
-  return <section className="tab-group__panel">{children}</section>
-}
-
-const TabButton = ({leftIcon, index, setActiveTab, activeTab, filled = true, disabled = false, label = null, padding = "md"}) => {
+export const Tab = ({leftIcon, index, setActiveTab, activeTab, filled = true, disabled = false, label = null, padding = "md"}) => {
   const [isHovering, setIsHovering] = useState(false)
 
   let tabClass = classNames(

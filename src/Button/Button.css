@@ -1,0 +1,94 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+    min-width: 4rem;
+    
+    border-radius: var(--wui-br);
+    
+    font-family: Work Sans, sans-serif;
+    font-size: 1rem;
+    
+    cursor: pointer;
+    transition: filter 100ms ease-in-out, transform 75ms ease-in-out;
+}
+
+.button--active {
+    transform: scale(0.95) !important; 
+}
+
+.button--icon-only {
+    aspect-ratio: 1/1;
+
+    min-width: 0;
+}
+
+.button--progressive {
+    background-color: var(--wui-color-accent-500);
+    color: var(--wui-color-accent-600);
+
+    border: 1px solid var(--wui-color-accent-600);
+}
+
+.button--hover.button--progressive:not(.button--filled) {
+    background-color: var(--wui-color-accent-25);
+}
+
+.button--hover.button--progressive.button--filled {
+    box-shadow: 0 0 0.7rem 0 var(--wui-color-accent-100);
+}
+
+.button--destructive {
+    background-color: var(--wui-color-danger-500);
+    color: var(--wui-color-danger-500);
+
+    border: 1px solid var(--wui-color-danger-500);
+}
+
+.button--hover.button--destructive:not(.button--filled) {
+    background-color: var(--wui-color-danger-50);
+}
+
+.button--hover.button--destructive.button--filled {
+    box-shadow: 0 0 0.7rem 0 var(--wui-color-danger-100)
+}
+
+.button--neutral {
+    background-color: var(--wui-color-base-800);
+    color: var(--wui-color-black);
+
+    border: 1px solid var(--wui-color-base-800);
+}
+
+.button--hover.button--neutral:not(.button--filled) {
+    background-color: var(--wui-color-base-200);
+}
+
+.button--hover.button--neutral.button--filled {
+    box-shadow: 0 0 0.7rem 0 var(--wui-color-base-500)
+}
+
+.button--text {
+    background-color: var(--wui-color-clear);
+    border: none;
+}
+
+.button--outlined {
+    background-color: var(--wui-color-clear);
+}
+
+.button--filled {
+    color: var(--wui-color-white);
+}
+
+.button:disabled {
+    border: 1px dashed var(--wui-color-base-400);
+    border-spacing: 5px;
+    background: var(--wui-color-base-200);
+
+    color: var(--wui-color-base-400);
+
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtY2lyY2xlLW9mZiI+PHBhdGggZD0ibTIgMiAyMCAyMCIvPjxwYXRoIGQ9Ik04LjM1IDIuNjlBMTAgMTAgMCAwIDEgMjEuMyAxNS42NSIvPjxwYXRoIGQ9Ik0xOS4wOCAxOS4wOEExMCAxMCAwIDEgMSA0LjkyIDQuOTIiLz48L3N2Zz4='), not-allowed;
+}

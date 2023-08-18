@@ -13,8 +13,7 @@
   background-color: var(--wui-color-base-300);
   border: 1px solid var(--wui-color-clear);
   outline: none;
-  /* border: none; */
-  border-radius: 0.3rem;
+  border-radius: var(--wui-br);
 
   font-size: 12pt;
 }

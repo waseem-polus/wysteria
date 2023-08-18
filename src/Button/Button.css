@@ -17,7 +17,7 @@
 }
 
 .button:active {
-    transform: scale(0.95);
+    transform: scale(0.95) !important; 
 }
 
 .button--icon-only {
@@ -36,7 +36,7 @@
 }
 
 .button--progressive.button--filled:hover {
-    box-shadow: 0 0 0.7rem 0 var(--wui-color-accent-100)
+    box-shadow: 0 0 0.7rem 0 var(--wui-color-accent-100);
 }
 
 .button--destructive {

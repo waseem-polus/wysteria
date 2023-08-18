@@ -57,29 +57,29 @@ export const InputField = forwardRef(
         right = null
     }, ref) {
         let textFieldClass = classNames({
-            'text-field': true, 
-            'text-field--hover': isHovering && !(isActive || error || disabled),
-            'text-field--active': isActive,
-            'text-field--error': error,
-            'text-field--disabled': disabled
+            'input-field': true, 
+            'input-field--hover': isHovering && !(isActive || error || disabled),
+            'input-field--active': isActive,
+            'input-field--error': error,
+            'input-field--disabled': disabled
         });
 
         let labelClass = classNames({
-            'text-field__notation' : true,
-            'text-field__label--active': isActive,
-            'text-field__label--visible': value.length > 0 || isActive,
-            'text-field__label--hidden': !(value.length > 0 || isActive), 
-            'text-field__label--error': error,
-            'text-field__label--disabled': disabled
+            'input-field__notation' : true,
+            'input-field__label--active': isActive,
+            'input-field__label--visible': value.length > 0 || isActive,
+            'input-field__label--hidden': !(value.length > 0 || isActive), 
+            'input-field__label--error': error,
+            'input-field__label--disabled': disabled
         })
         
         let errorTipClass = classNames({
-            'text-field__notation': true,
-            'text-field__error-tip': error
+            'input-field__notation': true,
+            'input-field__error-tip': error
         })
 
         return (
-            <div className='text-field__wrapper'>
+            <div className='input-field__wrapper'>
                 <label className={labelClass}>{label}</label>
                 <input 
                     type={variant}

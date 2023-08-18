@@ -15,6 +15,7 @@ export const Button = ({
   disabled = false
 }) => {
   const [isHovering, setIsHovering] = useState(false)
+  const [isClicking, setIsClicking] = useState(false)
   const [isActive, setIsActive] = useState(false)
   
   let buttonClass = classNames(
@@ -24,7 +25,8 @@ export const Button = ({
     { 
       'button--icon-only': children === null,
       'button--hover': !disabled && isHovering,
-      'button--active': !disabled && isActive
+      'button--active': !disabled && isActive,
+      'button--click': !disabled && isClicking
     }
   )
 
@@ -35,8 +37,8 @@ export const Button = ({
       
       disabled={disabled}
 
-      onFocus={() => setIsActive(true)} 
-      onBlur={() => setIsActive(false)}
+      onMouseDown={() => setIsClicking(true)}
+      onMouseUp={() => setIsClicking(false)}
 
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)} 

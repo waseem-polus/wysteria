@@ -119,6 +119,7 @@
     border: 1px dashed var(--wui-color-base-400);
     border-spacing: 5px;
 
+    box-shadow: none;
     background: var(--wui-color-base-200);
     color: var(--wui-color-base-400);
 

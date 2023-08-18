@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Work+Sans:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
+  --wui-padding-lg: 0.7rem;
+  --wui-padding-md: 0.5rem;
+  --wui-padding-sm: 0.3rem;
+  --wui-padding-xs: 0.1rem;
+
+
   --wui-br: 0.25rem;
 
   --wui-color-black: rgb(21, 21, 21);
@@ -80,4 +86,24 @@ body {
 
 code {
   font-family: 'Space Mono', monospace;
+}
+
+.padding-lg {
+  padding: var(--wui-padding-lg);
+  gap: var(--wui-padding-lg);
+}
+
+.padding-md {
+  padding: var(--wui-padding-md);
+  gap: var(--wui-padding-md);
+}
+
+.padding-sm {
+  padding: var(--wui-padding-sm);
+  gap: var(--wui-padding-sm);
+}
+
+.padding-xs {
+  padding: var(--wui-padding-xs);
+  gap: var(--wui-padding-xs);
 }

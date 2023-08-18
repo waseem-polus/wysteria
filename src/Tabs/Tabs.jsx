@@ -4,11 +4,16 @@ import { Icon } from '../Icon'
 
 import './Tabs.css'
 
-export function TabGroup({ children, filled = true }) {
+export function TabGroup({ children, filled = true, vertical = false }) {
   const [activeTab, setActiveTab] = useState(0)
 
+  let tabGroupClass = classNames(
+    'tab-group',
+    { 'tab-group--vertical': vertical }
+  )
+
   return (
-    <div className="tab-group"> 
+    <div className={tabGroupClass}> 
       <div className="tab-group__tab-list">
         {
           children.map((tab, index) => 
@@ -23,7 +28,7 @@ export function TabGroup({ children, filled = true }) {
               setActiveTab = {setActiveTab}
               activeTab = {activeTab}
               
-              filled = {tab.props.filled}
+              filled = {filled}
               disabled = {tab.props.disabled}
             ></Tab>
           )

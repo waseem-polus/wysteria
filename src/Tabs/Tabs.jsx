@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
 import { Icon } from '../Icon'
+import { Container } from '../Container'
 
 import './Tabs.css'
 
 export function TabGroup({ children, filled = true, vertical = false }) {
   const [activeTab, setActiveTab] = useState(0)
 
-  let tabGroupClass = classNames(
-    'tab-group',
-    { 'tab-group--vertical': vertical }
+  let tabListClass = classNames(
+    'tab-group__tab-list',
+    { 'vertical': vertical }
   )
 
   return (
-    <div className={tabGroupClass}> 
-      <div className="tab-group__tab-list">
+    <Container padding="md" vertical = {!vertical}> 
+      <div className={tabListClass}>
         {
           children.map((tab, index) => 
             <Tab 
@@ -23,6 +24,8 @@ export function TabGroup({ children, filled = true, vertical = false }) {
               leftIcon = {tab.props.leftIcon}
               label = {tab.props.label}
               padding = {tab.props.padding}
+
+              vertical = {vertical}
               
               index = {index}
               setActiveTab = {setActiveTab}
@@ -35,12 +38,12 @@ export function TabGroup({ children, filled = true, vertical = false }) {
         }
       </div>
 
-      <section className="tab-group__panel">{children[activeTab].props.children}</section>
-    </div>
+      <section className='tab-group__panel'>{children[activeTab].props.children}</section>
+    </Container>
   )
 }
 
-export const Tab = ({leftIcon, index, setActiveTab, activeTab, filled = true, disabled = false, label = null, padding = "md"}) => {
+export const Tab = ({leftIcon, index, setActiveTab, activeTab, vertical = false, filled = true, disabled = false, label = null, padding = "md"}) => {
   const [isHovering, setIsHovering] = useState(false)
 
   let tabClass = classNames(
@@ -51,7 +54,8 @@ export const Tab = ({leftIcon, index, setActiveTab, activeTab, filled = true, di
       'tab--icon-only': label === null,
       'tab--active': !disabled && activeTab === index,
       'tab--hover': !disabled && isHovering,
-      'tab--disabled': disabled
+      'tab--disabled': disabled,
+      'vertical': vertical
     }
   )
   

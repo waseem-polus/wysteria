@@ -10,6 +10,6 @@ export default defineConfig({
     },
     css: {
       modules: true, // Enable CSS Modules if needed
-    },
+    }
   }
 })

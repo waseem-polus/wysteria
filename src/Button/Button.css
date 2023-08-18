@@ -7,7 +7,6 @@
     min-width: 4rem;
     
     border-radius: var(--wui-br);
-    border: 1px solid currentColor;
     
     font-family: Work Sans, sans-serif;
     font-size: 1rem;
@@ -29,6 +28,8 @@
 .button--progressive {
     background-color: var(--wui-color-accent-500);
     color: var(--wui-color-accent-600);
+
+    border: 1px solid var(--wui-color-accent-600);
 }
 
 .button--progressive:not(.button--filled):hover {
@@ -42,6 +43,8 @@
 .button--destructive {
     background-color: var(--wui-color-danger-500);
     color: var(--wui-color-danger-500);
+
+    border: 1px solid var(--wui-color-danger-500);
 }
 
 .button--destructive:not(.button--filled):hover {
@@ -55,6 +58,8 @@
 .button--neutral {
     background-color: var(--wui-color-base-800);
     color: var(--wui-color-black);
+
+    border: 1px solid var(--wui-color-base-800);
 }
 
 .button--neutral:not(.button--filled):hover {

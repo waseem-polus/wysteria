@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Work+Sans:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
+  --wui-padding-xxxl: 3rem;
+  --wui-padding-xxl: 2rem;
+  --wui-padding-xl: 1.5rem;
   --wui-padding-lg: 0.7rem;
   --wui-padding-md: 0.5rem;
   --wui-padding-sm: 0.3rem;
   --wui-padding-xs: 0.1rem;
+  --wui-padding-none: 0.1rem;
 
 
   --wui-br: 0.25rem;
@@ -88,6 +92,21 @@ code {
   font-family: 'Space Mono', monospace;
 }
 
+.padding-xxxl {
+  padding: var(--wui-padding-xxxl);
+  gap: var(--wui-padding-xxxl);
+}
+
+.padding-xxl {
+  padding: var(--wui-padding-xxl);
+  gap: var(--wui-padding-xxl);
+}
+
+.padding-xl {
+  padding: var(--wui-padding-xl);
+  gap: var(--wui-padding-xl);
+}
+
 .padding-lg {
   padding: var(--wui-padding-lg);
   gap: var(--wui-padding-lg);
@@ -106,4 +125,9 @@ code {
 .padding-xs {
   padding: var(--wui-padding-xs);
   gap: var(--wui-padding-xs);
+}
+
+.padding-none {
+  padding: var(--wui-padding-none);
+  gap: var(--wui-padding-none);
 }

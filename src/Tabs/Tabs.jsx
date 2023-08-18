@@ -1,38 +1,71 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
+import { Icon } from '../Icon'
 
 import './Tabs.css'
 
-export function TabGroup({ children, variant="filled" }) {
+export function TabGroup({ children, filled = true, vertical = false }) {
   const [activeTab, setActiveTab] = useState(0)
 
+  let tabGroupClass = classNames(
+    'tab-group',
+    { 'tab-group--vertical': vertical }
+  )
+
   return (
-    <div className="tab-group"> 
+    <div className={tabGroupClass}> 
       <div className="tab-group__tab-list">
         {
-          children.map((tab, index) => {
-            let tabClass = classNames(
-              'tab',
-              `tab--${variant}`,
-              {
-                'tab--active': activeTab == index,
-              }
-            )
-            
-            return (
-              <button key={index} className={tabClass} onClick={() => setActiveTab(index)}>
-                {tab.props.label}
-              </button>
-            )
-          })
+          children.map((tab, index) => 
+            <Tab 
+              key={index}
+
+              leftIcon = {tab.props.leftIcon}
+              label = {tab.props.label}
+              padding = {tab.props.padding}
+              
+              index = {index}
+              setActiveTab = {setActiveTab}
+              activeTab = {activeTab}
+              
+              filled = {filled}
+              disabled = {tab.props.disabled}
+            ></Tab>
+          )
         }
       </div>
 
-      {children[activeTab]}
+      <section className="tab-group__panel">{children[activeTab].props.children}</section>
     </div>
   )
 }
 
-export function Tab({ children }) {
-  return <section className="tab-group__panel">{children}</section>
+export const Tab = ({leftIcon, index, setActiveTab, activeTab, filled = true, disabled = false, label = null, padding = "md"}) => {
+  const [isHovering, setIsHovering] = useState(false)
+
+  let tabClass = classNames(
+    'tab',
+    `padding-${padding}`,
+    {
+      'tab--filled': !disabled && filled,
+      'tab--icon-only': label === null,
+      'tab--active': !disabled && activeTab === index,
+      'tab--hover': !disabled && isHovering,
+      'tab--disabled': disabled
+    }
+  )
+  
+  return (
+    <button 
+      className={tabClass} 
+      onClick={() => setActiveTab(index)} 
+      disabled={disabled}
+
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)} 
+    >
+      {leftIcon != null && <Icon size={20} strokeWidth={1.5} name={leftIcon} />}
+      {label}
+    </button>
+  )
 }

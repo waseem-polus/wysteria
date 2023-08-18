@@ -1,12 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Work+Sans:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
+  --wui-padding-lg: 0.7rem;
+  --wui-padding-md: 0.5rem;
+  --wui-padding-sm: 0.3rem;
+  --wui-padding-xs: 0.1rem;
+
+
+  --wui-br: 0.25rem;
+
   --wui-color-black: rgb(21, 21, 21);
   --wui-color-white: #FFF;
 
   --wui-color-clear: rgba(0, 0, 0, 0);
-
-  --wui-color-accent-50: #F3ECFE;
+  --wui-color-accent-25: #F6F0FE;
+  --wui-color-accent-50: #F0E7FE;
   --wui-color-accent-100: #BB93F7;
   --wui-color-accent-200: #A879EF;
   --wui-color-accent-300: #945EE6;
@@ -31,6 +39,7 @@
   --wui-color-success-700: #0EA44A;
   --wui-color-success-900: #006B2A;
 
+  --wui-color-danger-50: #FEF0F0;
   --wui-color-danger-100: #F9B9B9;
   --wui-color-danger-500: #EB1414;
   --wui-color-danger-900: #A40E0E;
@@ -77,4 +86,24 @@ body {
 
 code {
   font-family: 'Space Mono', monospace;
+}
+
+.padding-lg {
+  padding: var(--wui-padding-lg);
+  gap: var(--wui-padding-lg);
+}
+
+.padding-md {
+  padding: var(--wui-padding-md);
+  gap: var(--wui-padding-md);
+}
+
+.padding-sm {
+  padding: var(--wui-padding-sm);
+  gap: var(--wui-padding-sm);
+}
+
+.padding-xs {
+  padding: var(--wui-padding-xs);
+  gap: var(--wui-padding-xs);
 }

@@ -21,7 +21,7 @@
   box-sizing: border-box;
 
   border: none;
-  border-radius: 0.2rem;
+  border-radius: var(--wui-br);
   background-color: var(--wui-color-clear);
 
   transition: transform 0.07s ease-in-out;

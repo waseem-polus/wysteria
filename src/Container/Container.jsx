@@ -16,7 +16,9 @@ export const Container = ({
     paddingBot = paddingVer,
     paddingLft = paddingHor,
 
-    gap = padding
+    gap = padding,
+
+    style = null
 }) => {
     const containerStyle = {
         display: "flex",
@@ -33,5 +35,5 @@ export const Container = ({
         gap: `var(--wui-padding-${gap})`
     }
     
-    return <div style={containerStyle}>{children}</div>
+    return <div style={{...containerStyle, ...style}}>{children}</div>
 }

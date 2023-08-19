@@ -6,14 +6,15 @@ import classNames from 'classnames'
 
 export const Link = ({
     children, 
-    link, 
+    link,
+    showIcons = true,
     target = null,
     title = null
 }) => {
     const iconName = classNames({
-        'Mail': link.startsWith('mailto:'),
-        'Phone': link.startsWith('tel:'),
-        'ExternalLink' : link.startsWith('https://www.') || link.startsWith('http://www.')
+        'Mail': showIcons && link.startsWith('mailto:'),
+        'Phone': showIcons && link.startsWith('tel:'),
+        'ExternalLink' : showIcons && (link.startsWith('https://www.') || link.startsWith('http://www.'))
     })
 
     return (

@@ -7,12 +7,12 @@ export const Container = ({
     children,
     
     padding = "xxxl", 
-    paddingH = padding,
-    paddingV = padding,
-    paddingTop = paddingV,
-    paddingRight = paddingH,
-    paddingBottom = paddingV,
-    paddingLeft = paddingH,
+    paddingHor = padding,
+    paddingVer = padding,
+    paddingTop = paddingVer,
+    paddingRgt = paddingHor,
+    paddingBot = paddingVer,
+    paddingLft = paddingHor,
 
     gap = padding,
 
@@ -29,9 +29,9 @@ export const Container = ({
 
     const paddingStyle = {
         paddingTop: `var(--wui-padding-${paddingTop})`,
-        paddingRight: `var(--wui-padding-${paddingRight})`,
-        paddingBottom: `var(--wui-padding-${paddingBottom})`, 
-        paddingLeft: `var(--wui-padding-${paddingLeft})`,
+        paddingRight: `var(--wui-padding-${paddingRgt})`,
+        paddingBottom: `var(--wui-padding-${paddingBot})`, 
+        paddingLeft: `var(--wui-padding-${paddingLft})`,
         
         gap: `var(--wui-padding-${gap})`
     }

@@ -1,0 +1,39 @@
+.link {
+    width: fit-content;
+
+    display: flex;
+    align-items: baseline;
+    gap: 0.2rem;
+    
+    border-radius: 0.25rem;
+    
+    color: var(--wui-color-accent-600);
+    text-decoration: none;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1rem;
+}
+
+.link:hover {
+    background: var(--wui-color-accent-50);
+    text-decoration: underline;
+}
+
+.link:active {
+    text-decoration: underline;
+    background: var(--wui-color-accent-100);
+}
+
+.link:visited {
+    color: #C51C82;
+    text-decoration: underline;
+}
+
+.link:visited:hover {
+    background: #F7E6F9;
+    text-decoration: underline;
+}
+
+.link:visited:active {
+    text-decoration: underline;
+    background: #F0C2DD;
+}

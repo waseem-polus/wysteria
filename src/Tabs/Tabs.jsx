@@ -8,14 +8,31 @@ import './Tabs.css'
 export function TabGroup({ children, filled = true, vertical = false }) {
   const [activeTab, setActiveTab] = useState(0)
 
-  let tabListClass = classNames(
-    'tab-group__tab-list',
-    { 'vertical': vertical }
-  )
+  const tabListStyle = {
+    position: "relative",
+    flexWrap: "nowrap",
+    boxSizing: "border-box",
+    height: "fit-content",
+    borderBottom: "1px solid var(--wui-color-base-400)",
+  }
+
+  const verticalTabListStyle = {
+    position: "relative",
+    flexWrap: "nowrap",
+    boxSizing: "border-box",
+    width: "fit-content",
+    justifyContent: 'stretch',
+    borderRight: "1px solid var(--wui-color-base-400)",
+  }
 
   return (
     <Container padding="lg" direction = {vertical? "row" : "column"}> 
-      <div className={tabListClass}>
+      <Container 
+        padding='none'
+        align='stretch'
+        direction={vertical? "column" : "row"}
+        style={vertical? verticalTabListStyle : tabListStyle}
+      >
         {
           children.map((tab, index) => 
             <Tab 
@@ -36,7 +53,7 @@ export function TabGroup({ children, filled = true, vertical = false }) {
             ></Tab>
           )
         }
-      </div>
+      </Container>
 
       <section className='tab-group__panel'>{children[activeTab].props.children}</section>
     </Container>

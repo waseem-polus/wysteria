@@ -81,6 +81,26 @@ html,
   background-color: var(--wui-color-accent-100);
 }
 
+/* Works on Firefox */
+* {
+  scrollbar-width: 0.7rem;
+  scrollbar-color: var(--wui-color-base-700) var(--wui-color-clear);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--wui-color-base-500);
+  border-radius: 20px;
+}
+
 body {
   margin: 0;
   font-family: 'Work Sans', sans-serif;

@@ -83,17 +83,13 @@ html,
 
 /* Works on Firefox */
 * {
-  scrollbar-width: 0.7rem;
+  scrollbar-width: auto;
   scrollbar-color: var(--wui-color-base-700) var(--wui-color-clear);
 }
 
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 6px;
-}
-
-*::-webkit-scrollbar-track {
-  display: none;
+  width: 4px;
 }
 
 *::-webkit-scrollbar-thumb {

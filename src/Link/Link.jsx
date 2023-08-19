@@ -1,8 +1,8 @@
 import React from 'react'
+import classNames from 'classnames'
 import { Icon } from '../Icon'
 
 import './Link.css'
-import classNames from 'classnames'
 
 export const Link = ({
     children, 

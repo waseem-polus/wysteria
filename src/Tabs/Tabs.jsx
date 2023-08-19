@@ -14,7 +14,7 @@ export function TabGroup({ children, filled = true, vertical = false }) {
   )
 
   return (
-    <Container padding="lg" vertical = {!vertical}> 
+    <Container padding="lg" direction = {vertical? "row" : "column"}> 
       <div className={tabListClass}>
         {
           children.map((tab, index) => 

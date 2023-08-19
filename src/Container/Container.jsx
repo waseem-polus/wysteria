@@ -1,11 +1,13 @@
 import React from 'react'
-import classNames from 'classnames'
-
-import './Container.css'
 
 export const Container = ({
     children,
     
+    direction = "row",
+
+    align = "start",
+    justify = "left",
+
     padding = "xxxl", 
     paddingHor = padding,
     paddingVer = padding,
@@ -14,20 +16,15 @@ export const Container = ({
     paddingBot = paddingVer,
     paddingLft = paddingHor,
 
-    gap = padding,
-
-    reverse = false, 
-    vertical = false
+    gap = padding
 }) => {
-    let containerClass = classNames(
-        'container',
-        {
-            'container--vertical': vertical,
-            'container--reverse': reverse,
-        }
-    )
+    const containerStyle = {
+        display: "flex",
+        flexDirection: direction,
 
-    const paddingStyle = {
+        alignItems: align,
+        justifyContent: justify,
+
         paddingTop: `var(--wui-padding-${paddingTop})`,
         paddingRight: `var(--wui-padding-${paddingRgt})`,
         paddingBottom: `var(--wui-padding-${paddingBot})`, 
@@ -36,5 +33,5 @@ export const Container = ({
         gap: `var(--wui-padding-${gap})`
     }
     
-    return <div className={containerClass} style={paddingStyle}>{children}</div>
+    return <div style={containerStyle}>{children}</div>
 }

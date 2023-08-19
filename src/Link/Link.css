@@ -1,7 +1,7 @@
 .link {
     width: fit-content;
 
-    display: flex;
+    display: inline-flex;
     align-items: baseline;
     gap: 0.2rem;
     

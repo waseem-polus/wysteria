@@ -1,0 +1,60 @@
+.toggle {
+    aspect-ratio: 1;
+    height: 1rem;
+    width: auto;
+
+    border: 1px solid var(--wui-color-base-900);
+
+    background-color: var(--wui-color-clear);
+    cursor: pointer;
+}
+
+.toggle--checkbox, .toggle--parent-checkbox {
+    border-radius: var(--wui-br);
+}
+
+.toggle--radio {
+    border-radius: 100%;
+}
+
+.toggle svg {
+    display: none;
+}
+
+.toggle--hover, .toggle--parent-checkbox.toggle--checked.toggle--hover {
+    background-color: var(--wui-color-accent-50);
+    border-color: var(--wui-color-accent-500);
+}
+
+.toggle--hover svg {
+    display: flex;
+    stroke: var(--wui-color-accent-100);
+}
+
+.toggle--parent-checkbox.toggle--checked.toggle--hover svg {
+    stroke: var(--wui-color-accent-500);
+}
+
+.toggle--checked {
+    border: 1px solid var(--wui-color-accent-500);
+    background-color: var(--wui-color-accent-500);
+}
+
+.toggle--checked svg {
+    display: flex;
+    stroke: var(--wui-color-base-100);
+}
+
+.toggle--parent-checkbox.toggle--checked {
+    border-color: var(--wui-color-base-900);
+    background-color: var(--wui-color-clear);
+}
+
+.toggle--parent-checkbox.toggle--checked svg {
+    stroke: var(--wui-color-base-900);
+}
+
+.toggle__label {
+    user-select: none;
+    cursor: pointer;
+}

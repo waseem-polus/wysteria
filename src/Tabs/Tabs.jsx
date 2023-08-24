@@ -5,7 +5,7 @@ import { Container } from '../Container'
 
 import './Tabs.css'
 
-export function TabGroup({ children, filled = true, vertical = false }) {
+export function TabGroup({ children, filled = false, vertical = false }) {
   const [activeTab, setActiveTab] = useState(0)
 
   const tabListStyle = {

@@ -1,6 +1,8 @@
 import React from "react";
 import './index.css'
 
-export default function WuiApp({children}) {
-    return <>{children}</>
+export const WuiApp = ({ children }) => {
+  return (
+    <>{children}</>
+  )
 }

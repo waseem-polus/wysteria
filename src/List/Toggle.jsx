@@ -39,7 +39,9 @@ export const Toggle = ({ variant, children, setIsChecked, isChecked, onChange = 
         }}
         setHovering = {setIsHovering}
         
-        padding='md' 
+        paddingVer = "xs"
+        paddingHor = "md"
+        gap = "md"
         align='center'
         style={{cursor: "pointer"}}
     >

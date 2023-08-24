@@ -21,8 +21,8 @@ export const CheckList = ({children, title = null}) => {
 
     return (
         <Container 
-            paddingLft = "none" 
-            padding = "md" 
+            padding = "none"
+            gap = "md"
             direction = "column"
         >
             {
@@ -36,8 +36,10 @@ export const CheckList = ({children, title = null}) => {
             }
             
             <Container 
-                paddingLft = "xl" 
-                padding = "sm" 
+                paddingVer = {title !== null? "none" : "md"}
+                paddingLft = {title !== null? "xl" : "none"}
+                paddingRgt = "none"
+                gap = "md"
                 direction = "column"
             >
                 {children}

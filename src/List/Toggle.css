@@ -3,6 +3,9 @@
     height: 1rem;
     width: auto;
 
+    display: grid;
+    place-content: center;
+
     border: 1px solid var(--wui-color-base-900);
 
     background-color: var(--wui-color-clear);

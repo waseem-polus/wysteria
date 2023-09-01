@@ -22,6 +22,8 @@ export const RadioList = ({children, disabled = false, initialSelection = 0, tit
                             if (child.type.name === "Radio") {
                                 return (
                                     <Radio
+                                        {...child.props}
+
                                         key = {index} 
                                         group = {group} 
 
@@ -34,21 +36,36 @@ export const RadioList = ({children, disabled = false, initialSelection = 0, tit
                                         }}
 
                                         disabled = {child.props.disabled || disabled}
-
-                                        {...child.props}
                                     ></Radio>
                                 )
                             } else if (child.type.name === "RadioList") {
                                 return (
-                                    <RadioList
-                                        group = {group}
-                                        disabled = {child.props.disabled || (activeRadio !== (index - 1))}
-                                        title = {null}
-                                        {...child.props}
-                                    ></RadioList>
+                                    <>
+                                        <Radio
+                                            key = {index}
+                                            group = {group} 
+
+                                            checked = {activeRadio === index}
+                                            onChange = {(e) => {
+                                                setActiveRadio(index)
+                                                if (child.props.hasOwnProperty('onChange')) {
+                                                    child.props.onChange(e)
+                                                }
+                                            }}
+
+                                            disabled = {child.props.disabled || disabled}
+                                        >{child.props.title}</Radio>
+                                        <RadioList
+                                            {...child.props}
+
+                                            key={`${index}-list`}
+
+                                            group = {child.props.group}
+                                            disabled = {child.props.disabled || (activeRadio !== index)}
+                                            title = {null}
+                                        ></RadioList>
+                                    </>
                                 )
-                            } else {
-                                return child
                             }
                         })
                     }

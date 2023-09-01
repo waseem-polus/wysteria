@@ -5,7 +5,13 @@ import classNames from 'classnames'
 
 import './CheckList.css'
 
-export const RadioList = ({children, disabled = false, initialSelection = 0, title = null, group = useId()}) => {
+export const RadioList = ({
+    children, 
+    disabled = false, 
+    initialSelection = 0, 
+    title = null, 
+    group = useId()
+}) => {
     const [activeRadio, setActiveRadio] = useState(initialSelection)
 
     return (

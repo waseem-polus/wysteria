@@ -12,6 +12,11 @@
     cursor: pointer;
 }
 
+.toggle--disabled {
+    border: 1px dashed var(--w-color-base-400);
+    cursor: not-allowed;
+}
+
 .toggle--checkbox, .toggle--parent-checkbox {
     border-radius: var(--wui-br);
 }
@@ -60,4 +65,9 @@
 .toggle__label {
     user-select: none;
     cursor: pointer;
+}
+
+.toggle__label--disabled {
+    color: var(--wui-color-base-400);
+    cursor: not-allowed;
 }

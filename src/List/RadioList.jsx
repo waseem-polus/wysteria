@@ -40,9 +40,8 @@ export const RadioList = ({children, disabled = false, initialSelection = 0, tit
                                 )
                             } else if (child.type.name === "RadioList") {
                                 return (
-                                    <>
+                                    <React.Fragment key = {index}>
                                         <Radio
-                                            key = {index}
                                             group = {group} 
 
                                             checked = {activeRadio === index}
@@ -58,13 +57,10 @@ export const RadioList = ({children, disabled = false, initialSelection = 0, tit
                                         <RadioList
                                             {...child.props}
 
-                                            key={`${index}-list`}
-
-                                            group = {child.props.group}
                                             disabled = {child.props.disabled || (activeRadio !== index)}
                                             title = {null}
                                         ></RadioList>
-                                    </>
+                                    </React.Fragment>
                                 )
                             }
                         })

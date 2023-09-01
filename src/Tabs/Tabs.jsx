@@ -36,6 +36,8 @@ export function TabGroup({ children, filled = false, vertical = false }) {
         {
           children.map((tab, index) => 
             <Tab 
+              {...tab.props}
+
               key={index}
 
               vertical = {vertical}
@@ -45,8 +47,6 @@ export function TabGroup({ children, filled = false, vertical = false }) {
               activeTab = {activeTab}
               
               filled = {filled}
-              
-              {...tab.props}
             ></Tab>
           )
         }

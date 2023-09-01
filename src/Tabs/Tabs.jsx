@@ -38,10 +38,6 @@ export function TabGroup({ children, filled = false, vertical = false }) {
             <Tab 
               key={index}
 
-              leftIcon = {tab.props.leftIcon}
-              label = {tab.props.label}
-              padding = {tab.props.padding}
-
               vertical = {vertical}
               
               index = {index}
@@ -49,13 +45,14 @@ export function TabGroup({ children, filled = false, vertical = false }) {
               activeTab = {activeTab}
               
               filled = {filled}
-              disabled = {tab.props.disabled}
+              
+              {...tab.props}
             ></Tab>
           )
         }
       </Container>
 
-      <section className='tab-group__panel'>{children[activeTab].props.children}</section>
+      <section className='tab-group__content'>{children[activeTab].props.children}</section>
     </Container>
   )
 }

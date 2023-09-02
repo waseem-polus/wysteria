@@ -1,9 +1,6 @@
-import React, { useEffect, useId, useState } from 'react'
+import React, { useId, useState } from 'react'
 import { Container } from '../Container'
-import { Icon } from '../Icon'
-import classNames from 'classnames'
-
-import './CheckList.css'
+import { Toggle } from './Toggle'
 
 export const RadioList = ({
     children, 
@@ -84,62 +81,13 @@ export const Radio = ({
     disabled = false, 
     onChange = (e) => {}
 }) => {
-    const [isChecked, setIsChecked] = useState(checked)
-    const [isHovering, setIsHovering] = useState(false)
-    const radioId = useId();
-    
-    useEffect(() => {
-        setIsChecked(checked)
-    }, [checked])
-
-    let toggleClass = classNames(
-        'toggle',
-        'toggle--radio',
-        { 
-            'toggle--checked': !disabled && isChecked,
-            'toggle--hover': !disabled && isHovering,
-            'toggle--disabled': disabled
-        }
-    )
-
-    let iconClass = classNames('checkmark')
-
-    let labelClass = classNames('toggle__label')
-
-  return (
-    <Container setHovering = {setIsHovering} padding='none'>
-        <input 
-            className = 'wui-html-checkbox' 
-            type='radio' 
-            id={radioId}
-            name={group}
-            checked = {isChecked}
-
+    return (
+        <Toggle 
+            variant = "radio"
+            group = {group}
+            checked = {checked} 
             disabled = {disabled}
-
-            onChange={(e) => {
-                setIsChecked(e.target.checked)
-                onChange(e)
-            }}
-        />
-        <label htmlFor={radioId}>
-            <Container             
-                paddingVer = "xs"
-                paddingHor = "md"
-                gap = "md"
-                align='center'
-            >
-                <span className={toggleClass}>
-                    <Icon 
-                        className = {iconClass} 
-                        name = "Dot" 
-                        size = {18} 
-                        strokeWidth = {2.5}
-                    ></Icon>
-                </span>
-                <p className={labelClass}>{children}</p>
-            </Container>
-        </label>
-    </Container>
-  )
+            onChange = {onChange}
+        >{children}</Toggle>
+    )
 }

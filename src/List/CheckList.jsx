@@ -1,10 +1,11 @@
-import React, { forwardRef, useEffect, useId, useImperativeHandle, useRef, useState } from 'react'
+import React, { useEffect, useId, useState } from 'react'
 import { Container } from '../Container'
 import { Toggle } from './Toggle'
 
 export const CheckList = ({
     children, 
-    disabled = false, 
+    onChange = () => {},
+    disabled = false,
     title = null, 
     group = useId()
 }) => {
@@ -23,14 +24,14 @@ export const CheckList = ({
     useEffect(() => {
         setTotalCount(Object.keys(selection).length)
         setSelectedCount(Object.values(selection).filter(checked => checked).length)
+
+        onChange({
+            selection: selection,
+            total: totalCount,
+            checked: selectedCount
+        })
     }, [selection])
 
-    useEffect(() => {
-        console.log(selection)
-        console.log(`All selected (${selectedCount} / ${totalCount})? ${selectedCount === totalCount && totalCount > 0}`)
-        console.log(`Any selected (${selectedCount} / ${totalCount})? ${selectedCount > 0}`)
-        console.log("==========")
-    }, [selectedCount])
 
     useEffect(() => {
         setChildrenProps(children.map((child, index) => {
@@ -97,11 +98,11 @@ const SubList = ({child, index, group, selection, updateSelection, disabled}) =>
                 checked = {selection[`${index}`]}
                 onChange={(e) => {
                     updateSelection(`${index}`, e.target.checked)
-                    console.log(selection[`${index}`])
                 }}
 
                 disabled = {child.props.disabled || disabled}
             >{child.props.title}</ParentCheck>
+           
             <CheckList
                 {...child.props}
 

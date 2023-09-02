@@ -71,3 +71,11 @@
     color: var(--wui-color-base-400);
     cursor: not-allowed;
 }
+
+.wui-html-checkbox {
+    display: none;
+}
+
+fieldset {
+    border: none;
+}

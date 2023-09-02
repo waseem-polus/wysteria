@@ -9,6 +9,7 @@ export const Toggle = ({
     children,  
     variant,
     group,
+    parent = false,
     checked = false,
     disabled = false, 
     onChange = () => {} 
@@ -45,9 +46,9 @@ export const Toggle = ({
     )
 
     let iconName = classNames({
-        'Check': variant === "checkbox",
-        'Dot': variant === "radio",
-        'Minus': variant === "parent-checkbox"
+        'Check': !parent && (variant === "checkbox"),
+        'Minus': parent && (variant === "checkbox"),
+        'Dot': variant === "radio"
     })
 
     return (

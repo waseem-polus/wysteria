@@ -1,104 +1,162 @@
-import React, { useEffect, useId, useState } from 'react'
+import React, { forwardRef, useEffect, useId, useImperativeHandle, useRef, useState } from 'react'
 import { Container } from '../Container'
 import { Toggle } from './Toggle'
-import { Icon } from '../Icon'
-import classNames from 'classnames'
 
-import './CheckList.css'
+const mapGetOrInitialize = (map, setMap, key, value) => {
+    if (!(("" + key) in map)) {
+        setMap({...map, ["" + key]: value})
+    }
 
-export const CheckList = ({children, title = null}) => {
-    const [checkedCount, setCheckedCount] = useState(0)
+    return map["" + key]
+}
 
-    const countChecked = () => children.filter(checkbox => checkbox.props.isChecked).length;
-    useEffect(() => {
-        setCheckedCount(countChecked)
-    }, [countChecked()])
-
-    const setAll = (value) => children.forEach(checkbox => checkbox.props.setIsChecked(value))
+export const CheckList = ({
+    children, 
+    disabled = false, 
+    title = null, 
+    group = useId()
+}) => {
+    const [selectedCount, setSelectedCount] = useState(0)
+    const [totalCount, setTotalCount] = useState(0)
+    const [selection, setSelection] = useState({})
+    const [childrenProps, setChildrenProps] = useState([])
     
-    let parentCheckVariant = classNames({
-        'checkbox': checkedCount === 0 || checkedCount === children.length,
-        'parent-checkbox': checkedCount > 0 && checkedCount < children.length
-    })
+    const updateSelection = (key, value) => {
+        setSelection((prevState) => ({
+            ...prevState,
+            [key]: value,
+        }));
+    }
+    
+    useEffect(() => {
+        setTotalCount(Object.keys(selection).length)
+        setSelectedCount(Object.values(selection).filter(checked => checked).length)
+    }, [selection])
+
+    useEffect(() => {
+        console.log(selection)
+        console.log(`All selected (${selectedCount} / ${totalCount})? ${selectedCount === totalCount && totalCount > 0}`)
+        console.log(`Any selected (${selectedCount} / ${totalCount})? ${selectedCount > 0}`)
+        console.log("==========")
+    }, [selectedCount])
+
+    useEffect(() => {
+        setChildrenProps(children.map((child, index) => {
+            if (child.type.name === "Check") {
+                updateSelection(`${index}`, false)
+
+                return (
+                    <Check
+                        {...child.props}
+
+                        key = {index} 
+                        group = {group}
+
+                        checked = {child.props.checked || selection[`${index}`]}
+                        onChange = {(e) => {
+                            updateSelection(`${index}`, e.target.checked)
+
+                            if (child.props.hasOwnProperty('onChange')) {
+                                child.props.onChange(e)
+                            }
+                        }}
+
+                        disabled = {child.props.disabled || disabled}
+                    ></Check>
+                )
+            } else if (child.type.name === "CheckList") {
+                return (
+                    // <SubList 
+                    //     key = {index}
+
+                    //     child = {child}
+                    //     index = {index}
+
+                    //     group = {group} 
+                    //     selection = {selection} 
+                    //     setSelection = {setSelection} 
+                    //     disabled = {disabled}
+                    // ></SubList>
+                    <React.Fragment key={index}></React.Fragment>
+                )
+            }
+        }))
+    }, [children])
 
     return (
         <>
-        {
-            title !== null && 
-                <Toggle  
-                    isChecked = {checkedCount > 0}
-                    onChange={(value) => setAll(!value)}
-                    variant = {parentCheckVariant}
-                >{title}</Toggle>
-        }
-            <Container 
+            {title !== null && <p>{title}</p>}
+            <Container
                 padding = "none"
                 gap = "md"
                 direction = "column"
-            >        
-                <fieldset>
-                    {children}
-                </fieldset>
+            >
+                <fieldset>{childrenProps}</fieldset>
             </Container>
         </>
     )
 }
 
-export const Check = ({children, checked = false, disabled = false, onChange = () => {}}) => {
-    const [isChecked, setIsChecked] = useState(checked)
-    const [isHovering, setIsHovering] = useState(false)
-    const checkboxID = useId();
-    
-    useEffect(() => {
-        setIsChecked(checked)
-    }, [checked])
-    
-    let toggleClass = classNames(
-        'toggle',
-        'toggle--checkbox',
-        { 
-            'toggle--checked': !disabled && isChecked,
-            'toggle--hover': !disabled && isHovering,
-            'toggle--disabled': disabled
-        }
+const SubList = (child, index, group, selection, setSelection, disabled) => {
+    return (
+        <>
+            <ParentCheck
+                group = {group} 
+
+                checked = {child.child.props.checked || mapGetOrInitialize(selection, setSelection, index, false)}
+                onChange = {(e) => {
+                    // setSelection(new Map(selection.set(index, e.target.checked)))
+
+                    if (child.child.props.hasOwnProperty('onChange')) {
+                        child.child.props.onChange(e)
+                    }
+                }}
+
+                disabled = {child.child.props.disabled || disabled}
+            >{child.child.props.title}</ParentCheck>
+            <CheckList
+                {...child.child.props}
+
+                title = {null}
+            ></CheckList>
+        </>
     )
+}
 
-    let iconClass = classNames('checkmark')
-
-    let labelClass = classNames('toggle__label')
-
-  return (
-    <Container setHovering = {setIsHovering} padding='none'>
-        <input 
-            className = 'wui-html-checkbox' 
-            type='checkbox' 
-            id={checkboxID}
-
+export const Check = ({
+    children, 
+    group, 
+    checked = false, 
+    disabled = false, 
+    onChange = (e) => {}
+}) => {
+    return (
+        <Toggle 
+            variant = "checkbox"
+            group = {group}
+            checked = {checked} 
             disabled = {disabled}
+            onChange = {onChange}
+        >{children}</Toggle>
+    )
+}
 
-            onChange={(e) => {
-                setIsChecked(e.target.checked)
-                onChange(e)
-            }}
-        />
-        <label htmlFor={checkboxID}>
-            <Container             
-                paddingVer = "xs"
-                paddingHor = "md"
-                gap = "md"
-                align='center'
-            >
-                <span className={toggleClass}>
-                    <Icon 
-                        className = {iconClass} 
-                        name = "Check" 
-                        size = {18} 
-                        strokeWidth = {2.5}
-                    ></Icon>
-                </span>
-                <p className={labelClass}>{children}</p>
-            </Container>
-        </label>
-    </Container>
-  )
+const ParentCheck = ({
+    children, 
+    group, 
+    parent = true,
+    checked = false, 
+    disabled = false, 
+    onChange = (e) => {}
+}) => {
+    return (
+        <Toggle 
+            variant = "checkbox"
+            parent = {parent}
+            group = {group}
+            checked = {checked} 
+            disabled = {disabled}
+            onChange = {onChange}
+        >{children}</Toggle>
+    )
 }

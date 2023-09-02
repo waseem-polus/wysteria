@@ -66,18 +66,17 @@ export const CheckList = ({
                 )
             } else if (child.type.name === "CheckList") {
                 return (
-                    // <SubList 
-                    //     key = {index}
+                    <SubList 
+                        key = {index}
 
-                    //     child = {child}
-                    //     index = {index}
+                        child = {child}
+                        index = {index}
 
-                    //     group = {group} 
-                    //     selection = {selection} 
-                    //     setSelection = {setSelection} 
-                    //     disabled = {disabled}
-                    // ></SubList>
-                    <React.Fragment key={index}></React.Fragment>
+                        group = {group} 
+                        selection = {selection} 
+                        updateSelection = {updateSelection} 
+                        disabled = {disabled}
+                    ></SubList>
                 )
             }
         }))
@@ -97,25 +96,22 @@ export const CheckList = ({
     )
 }
 
-const SubList = (child, index, group, selection, setSelection, disabled) => {
+const SubList = ({child, index, group, selection, updateSelection, disabled}) => {
     return (
         <>
             <ParentCheck
                 group = {group} 
 
-                checked = {child.child.props.checked || mapGetOrInitialize(selection, setSelection, index, false)}
-                onChange = {(e) => {
-                    // setSelection(new Map(selection.set(index, e.target.checked)))
-
-                    if (child.child.props.hasOwnProperty('onChange')) {
-                        child.child.props.onChange(e)
-                    }
+                checked = {selection[`${index}`]}
+                onChange={(e) => {
+                    updateSelection(`${index}`, e.target.checked)
+                    console.log(selection[`${index}`])
                 }}
 
-                disabled = {child.child.props.disabled || disabled}
-            >{child.child.props.title}</ParentCheck>
+                disabled = {child.props.disabled || disabled}
+            >{child.props.title}</ParentCheck>
             <CheckList
-                {...child.child.props}
+                {...child.props}
 
                 title = {null}
             ></CheckList>
@@ -128,7 +124,7 @@ export const Check = ({
     group, 
     checked = false, 
     disabled = false, 
-    onChange = (e) => {}
+    onChange = () => {}
 }) => {
     return (
         <Toggle 
@@ -147,7 +143,7 @@ const ParentCheck = ({
     parent = true,
     checked = false, 
     disabled = false, 
-    onChange = (e) => {}
+    onChange = () => {}
 }) => {
     return (
         <Toggle 

@@ -2,14 +2,6 @@ import React, { forwardRef, useEffect, useId, useImperativeHandle, useRef, useSt
 import { Container } from '../Container'
 import { Toggle } from './Toggle'
 
-const mapGetOrInitialize = (map, setMap, key, value) => {
-    if (!(("" + key) in map)) {
-        setMap({...map, ["" + key]: value})
-    }
-
-    return map["" + key]
-}
-
 export const CheckList = ({
     children, 
     disabled = false, 

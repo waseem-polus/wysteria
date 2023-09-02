@@ -13,7 +13,7 @@
 }
 
 .toggle--disabled {
-    border: 1px dashed var(--w-color-base-400);
+    border: 1px dashed var(--wui-color-base-400);
     cursor: not-allowed;
 }
 

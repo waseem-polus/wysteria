@@ -1,100 +1,89 @@
-import React, { forwardRef, useEffect, useImperativeHandle, useState } from 'react'
+import React, { useEffect, useId, useState } from 'react'
 import { Container } from '../Container'
 import { Icon } from '../Icon'
 import classNames from 'classnames'
 
 import './Toggle.css'
 
-export const Toggle = forwardRef(
-    function Toggle(
+export const Toggle = ({ 
+    children,  
+    variant,
+    group,
+    checked = false,
+    disabled = false, 
+    onChange = () => {} 
+}) => {
+    const [isHovering, setIsHovering] = useState(false)
+    const [isChecked, setIsChecked] = useState(checked)
+    const toggleId = useId()
+
+    useEffect(() => {
+        setIsChecked(checked)
+    }, [checked])
+
+    let toggleClass = classNames(
+        'toggle',
+        `toggle--${variant}`,
         { 
-            variant, 
-            children, 
-            setIsChecked : extSetIsChecked, 
-            isChecked : extIsChecked = false, 
-            disabled = false, 
-            onChange = () => {} 
-        }, 
-        ref
-    ) {
-        const [isHovering, setIsHovering] = useState(false)
-        const [isChecked, setIsChecked] = useState(false)
+            'toggle--checked': !disabled && isChecked,
+            'toggle--hover': !disabled && isHovering,
+            'toggle--disabled': disabled
+        }
+    )
 
-        useEffect(() => {
-            setIsChecked(extIsChecked)
-        }, [extIsChecked])
+    let iconClass = classNames(
+        'checkmark',
+        {
+            'checkmark--hover': !disabled && isHovering,
+            'checkmark--checked': !disabled && isChecked,
+        }
+    )
 
-        useImperativeHandle(ref, () => {
-            return {
-                toggle() {
-                    setIsChecked(!isChecked)
-                    extSetIsChecked(isChecked)
+    let labelClass = classNames(
+        'toggle__label',
+        { 'toggle__label--disabled': disabled }
+    )
 
-                    return isChecked
-                },
-                setIsChecked(value) {
-                    setIsChecked(value)
-                    extSetIsChecked(value)
+    let iconName = classNames({
+        'Check': variant === "checkbox",
+        'Dot': variant === "radio",
+        'Minus': variant === "parent-checkbox"
+    })
 
-                    return value
-                }
-            }
-        }, [])
+    return (
+        <Container setHovering = {setIsHovering} padding='none'>
+            <input 
+                className = 'wui-html-checkbox' 
+                type = {variant}
+                id = {toggleId}
+                name = {group}
+                checked = {isChecked}
 
-        let toggleClass = classNames(
-            'toggle',
-            `toggle--${variant}`,
-            { 
-                'toggle--checked': !disabled && isChecked,
-                'toggle--hover': !disabled && isHovering,
-                'toggle--disabled': disabled
-            }
-        )
+                disabled = {disabled}
 
-        let iconClass = classNames(
-            'checkmark',
-            {
-                'checkmark--hover': !disabled && isHovering,
-                'checkmark--checked': !disabled && isChecked,
-            }
-        )
-
-        let labelClass = classNames(
-            'toggle__label',
-            { 'toggle__label--disabled': disabled }
-        )
-
-        let iconName = classNames({
-            'Check': variant === "checkbox",
-            'Dot': variant === "radio",
-            'Minus': variant === "parent-checkbox"
-        })
-
-        return (
-            <Container 
-                onClick = {() => {
-                    setIsChecked(!isChecked)
-                    extSetIsChecked(isChecked)
-                    onChange(isChecked)
+                onChange={(e) => {
+                    setIsChecked(e.target.checked)
+                    onChange(e)
                 }}
-                setHovering = {setIsHovering}
-                
-                paddingVer = "xs"
-                paddingHor = "md"
-                gap = "md"
-                align='center'
-                style={disabled? {cursor: "not-allowed"} : {cursor: "pointer"}}
-            >
-                <span className={toggleClass}>
-                    <Icon 
-                        className = {iconClass} 
-                        name = {iconName} 
-                        size = {18} 
-                        strokeWidth = {2.5}
-                    ></Icon>
-                </span>
-                <label className={labelClass}>{children}</label>
-            </Container>
-        )
-    }
-)
+            />
+            <label htmlFor={toggleId}>
+                <Container             
+                    paddingVer = "xs"
+                    paddingHor = "md"
+                    gap = "md"
+                    align='center'
+                >
+                    <span className={toggleClass}>
+                        <Icon 
+                            className = {iconClass} 
+                            name = {iconName} 
+                            size = {18} 
+                            strokeWidth = {2.5}
+                        ></Icon>
+                    </span>
+                    <p className={labelClass}>{children}</p>
+                </Container>
+            </label>
+        </Container>
+    )
+}

@@ -6,9 +6,13 @@ import classNames from 'classnames'
 
 import './Chip.css'
 
-export const ChipField = ({children}) => {
+export const ChipField = ({children, wrap = "wrap"}) => {
     return (
-        <Container gap = 'xs' padding='xs' style={{flexWrap: 'wrap'}}>{children}</Container>
+        <Container 
+            gap = 'xs' 
+            padding='xs' 
+            style={{flexWrap: wrap}}
+        >{children}</Container>
     )
 }
 
@@ -39,6 +43,7 @@ export const Chip = ({
     
     const containerStyle = {
         borderRadius: '5rem',
+        minWidth: "2rem",
         backgroundColor: `var(${backgroundColor})`,
         textTransform: fontCase,
     }
@@ -46,9 +51,10 @@ export const Chip = ({
     return (
         <Container 
             paddingVer='sm' 
-            paddingHor="md" 
-            gap="sm" 
+            paddingHor="lg" 
+            gap="md" 
             align='center'
+            justify='center'
 
             style={containerStyle}
         >

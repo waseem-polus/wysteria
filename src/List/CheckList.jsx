@@ -7,7 +7,7 @@ export const CheckList = ({
     onChange = () => {},
     disabled = false,
     title = null, 
-    group = useId()
+    group = useId(),
 }) => {
     const [selectedCount, setSelectedCount] = useState(0)
     const [totalCount, setTotalCount] = useState(0)
@@ -92,7 +92,7 @@ export const CheckList = ({
 const SubList = ({child, index, group, selection, updateSelection, disabled}) => {
     return (
         <>
-            <ParentCheck
+            <Check
                 group = {group} 
 
                 checked = {selection[`${index}`]}
@@ -101,7 +101,7 @@ const SubList = ({child, index, group, selection, updateSelection, disabled}) =>
                 }}
 
                 disabled = {child.props.disabled || disabled}
-            >{child.props.title}</ParentCheck>
+            >{child.props.title}</Check>
            
             <CheckList
                 {...child.props}
@@ -122,26 +122,6 @@ export const Check = ({
     return (
         <Toggle 
             variant = "checkbox"
-            group = {group}
-            checked = {checked} 
-            disabled = {disabled}
-            onChange = {onChange}
-        >{children}</Toggle>
-    )
-}
-
-const ParentCheck = ({
-    children, 
-    group, 
-    parent = true,
-    checked = false, 
-    disabled = false, 
-    onChange = () => {}
-}) => {
-    return (
-        <Toggle 
-            variant = "checkbox"
-            parent = {parent}
             group = {group}
             checked = {checked} 
             disabled = {disabled}

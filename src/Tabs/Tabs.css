@@ -8,7 +8,7 @@
   }
 }
 
-.tab-group__panel {
+.tab-group__content {
   position: relative;
   min-height: 16rem;
   height: fit-content;
@@ -62,10 +62,13 @@
 .tab--hover {
   font-weight: 500;
   stroke-width: 2px;
+
+  color: var(--wui-color-base-800);
 }
 
 .tab--hover svg {
   stroke-width: 2px;
+  stroke: var(--wui-color-base-800);
 }
 
 .tab--active {

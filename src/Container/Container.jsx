@@ -18,7 +18,10 @@ export const Container = ({
 
     gap = padding,
 
-    style = null
+    style = null,
+
+    onClick = () => {},
+    setHovering = () => {}
 }) => {
     const containerStyle = {
         display: "flex",
@@ -35,5 +38,14 @@ export const Container = ({
         gap: `var(--wui-padding-${gap})`
     }
     
-    return <div style={{...containerStyle, ...style}}>{children}</div>
+    return (
+        <div 
+            onClick = {() => onClick()}
+            
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+
+            style={{...containerStyle, ...style}}
+        >{children}</div>
+    )
 }

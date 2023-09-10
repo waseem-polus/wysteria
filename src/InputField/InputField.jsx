@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import './InputField.css'
 
-export const InputButton = ({icon, onClick, setIsActive, setIsHovering}) => {
+export const InputButton = ({icon, onClick, setIsActive = () => {}, setIsHovering = () => {}}) => {
     return (
         <button
             className='input-field__btn'
@@ -20,7 +20,15 @@ export const InputButton = ({icon, onClick, setIsActive, setIsHovering}) => {
     )
 }
 
-export const InputToggleButton = ({iconOn, iconOff, setIsOn, isOn, setIsActive, setIsHovering, onClick = () => {}}) => {
+export const InputToggleButton = ({
+    iconOn, 
+    iconOff, 
+    setIsOn, 
+    isOn, 
+    setIsActive = () => {}, 
+    setIsHovering = () => {}, 
+    onClick = () => {}
+}) => {
     return (
         <button 
             className='input-field__btn'

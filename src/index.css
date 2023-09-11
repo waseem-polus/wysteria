@@ -1,21 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Work+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+
 :root {
-  --color-white-100: rgb(246, 246, 246);
-  --color-white-200: rgb(234, 234, 234);
-  --color-white-300: rgb(225, 225, 225);
+  --wui-padding-xxxl: 3rem;
+  --wui-padding-xxl: 2rem;
+  --wui-padding-xl: 1.5rem;
+  --wui-padding-lg: 0.7rem;
+  --wui-padding-md: 0.5rem;
+  --wui-padding-sm: 0.3rem;
+  --wui-padding-xs: 0.1rem;
+  --wui-padding-none: 0;
 
-  --color-gray-100: lightgray;
-  --color-gray-200: rgb(111, 111, 111);
 
-  --color-black-100: rgb(21, 21, 21);
+  --wui-br: 0.25rem;
 
-  --color-clear: rgba(0, 0, 0, 0);
-  --color-clear-100: rgba(0, 0, 0, 0.15);
+  --wui-color-black: rgb(21, 21, 21);
+  --wui-color-white: #FFF;
 
-  --color-grn-500: #86ae82;
-  --color-grn-400: #a0c49d;
-  --color-grn-300: #c4d7b2;
-  --color-grn-200: #e1ecc8;
-  --color-grn-100: #f7ffe5;
+  --wui-color-clear: rgba(0, 0, 0, 0);
+  --wui-color-accent-25: #F6F0FE;
+  --wui-color-accent-50: #F0E7FE;
+  --wui-color-accent-100: #BB93F7;
+  --wui-color-accent-200: #A879EF;
+  --wui-color-accent-300: #945EE6;
+  --wui-color-accent-400: #8647E6;
+  --wui-color-accent-500: #7738D5;
+  --wui-color-accent-600: #672EBD;
+  --wui-color-accent-700: #4A1895;
+  --wui-color-accent-800: #3A0C7F;
+
+  --wui-color-base-100: #FCFCFC;
+  --wui-color-base-200: #F3F3F3;
+  --wui-color-base-300: #E5E7EB;
+  --wui-color-base-400: #C8CCD1;
+  --wui-color-base-500: #A2A9B1;
+  --wui-color-base-600: #72777D;
+  --wui-color-base-700: #54595D;
+  --wui-color-base-800: #202122;
+  --wui-color-base-900: #141414;
+
+  --wui-color-success-100: #B9F9D2;
+  --wui-color-success-500: #15EA69;
+  --wui-color-success-700: #0EA44A;
+  --wui-color-success-900: #006B2A;
+
+  --wui-color-danger-50: #FEF0F0;
+  --wui-color-danger-100: #F9B9B9;
+  --wui-color-danger-500: #EB1414;
+  --wui-color-danger-900: #A40E0E;
+
+  --wui-color-warning-100: #F9E7B9;
+  --wui-color-warning-500: #EBAE14;
+  --wui-color-warning-700: #A47A0E;
+  --wui-color-warning-900: #805C00;
 }
 
 p,
@@ -29,9 +65,11 @@ label,
 input {
   margin: 0;
   padding: 0;
+
+  font-family: 'Work Sans', sans-serif;
 }
 
-root,
+:root,
 body,
 html,
 .App {
@@ -40,65 +78,72 @@ html,
 }
 
 ::selection {
-  background-color: var(--color-grn-400);
+  background-color: var(--wui-color-accent-100);
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--wui-color-base-700) var(--wui-color-clear);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--wui-color-base-500);
+  border-radius: 20px;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Space Mono', monospace;
 }
 
-.icon-button {
-  margin: 0;
-
-  display: grid;
-  place-items: center;
-
-  height: 1.6rem;
-  width: 1.6rem;
-
-  padding: 0;
-  box-sizing: border-box;
-
-  border: none;
-  border-radius: 0.2rem;
-  background-color: var(--color-clear);
-
-  transition: transform 0.07s ease-in-out;
+.padding-xxxl {
+  padding: var(--wui-padding-xxxl);
+  gap: var(--wui-padding-xxxl);
 }
 
-.icon-button:active {
-  transform: scale(0.95);
+.padding-xxl {
+  padding: var(--wui-padding-xxl);
+  gap: var(--wui-padding-xxl);
 }
 
-.icon-button:hover {
-  background-color: var(--color-white-300);
+.padding-xl {
+  padding: var(--wui-padding-xl);
+  gap: var(--wui-padding-xl);
 }
 
-.icon-button__img {
-  aspect-ratio: 1/1;
-
-  height: 1.8rem;
-
-  transition: transform 0.1s ease-in-out;
+.padding-lg {
+  padding: var(--wui-padding-lg);
+  gap: var(--wui-padding-lg);
 }
 
-.divider {
-  margin-inline: 1rem;
-  display: inline-block;
+.padding-md {
+  padding: var(--wui-padding-md);
+  gap: var(--wui-padding-md);
+}
 
-  /* border: 1px solid var(--color-gray-100); */
+.padding-sm {
+  padding: var(--wui-padding-sm);
+  gap: var(--wui-padding-sm);
+}
 
-  height: 16px;
-  width: 0px;
-  border-radius: 2px;
+.padding-xs {
+  padding: var(--wui-padding-xs);
+  gap: var(--wui-padding-xs);
+}
+
+.padding-none {
+  padding: var(--wui-padding-none);
+  gap: var(--wui-padding-none);
 }

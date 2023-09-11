@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
-import { TabGroup, Tab } from '../Navigation/Tabs/Tabs'
+import { TabGroup, Tab } from '../Tabs'
 import MDEditor from '@uiw/react-md-editor'
-import { ActionBar } from '../ActionBar'
+import { ActionBar } from './ActionBar'
 import './MarkdownEditor.css'
 
 export const MarkdownEditor = () => {

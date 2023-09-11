@@ -1,50 +1,11 @@
 {
-  "name": "@waseem-polus/wui-design",
-  "type": "module",
+  "name": "willoui",
   "private": true,
-  "version": "0.0.1",
-  "author": "Waseem Polus (https://github.com/waseem-polus)",
-  "files": [
-    "dist"
+  "workspaces": [
+    "packages/*"
   ],
-  "main": "./dist/wui-design.umd.cjs",
-  "module": "./dist/wui-design.js",
-  "exports": {
-    ".": {
-      "import": "./dist/wui-design.js",
-      "require": "./dist/wui-design.umd.cjs"
-    }
-  },
-  "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "test": "vitest --coverage",
-    "test:ci": "npm run test -- run",
-    "test:ui": "npm run test -- --ui",
-    "test:watch": "npm run test -- --watch"
-  },
-  "dependencies": {
-    "@uiw/react-md-editor": "^3.23.4",
-    "classnames": "^2.3.2",
-    "lucide-react": "^0.263.1"
-  },
-  "peerDependencies": {
-    "react": "^18.x",
-    "react-dom": "^18.x"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
-    "@vitest/coverage-v8": "^0.33.0",
-    "@vitest/ui": "^0.33.0",
-    "eslint": "^8.45.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "vite": "^4.4.5",
-    "vitest": "^0.33.0"
+    "lerna": "^7.2.0"
   }
 }

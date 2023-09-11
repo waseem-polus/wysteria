@@ -1,0 +1,42 @@
+{
+  "name": "@willoui/extras",
+  "type": "module",
+  "private": true,
+  "version": "0.0.1",
+  "author": "Waseem Polus (https://github.com/waseem-polus)",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/wui-extras.umd.cjs",
+  "module": "./dist/wui-extras.js",
+  "exports": {
+    ".": {
+      "import": "./dist/wui-extras.js",
+      "require": "./dist/wui-extras.umd.cjs"
+    }
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "test": "vitest --coverage",
+    "test:ci": "npm run test -- run",
+    "test:ui": "npm run test -- --ui",
+    "test:watch": "npm run test -- --watch"
+  },
+  "dependencies": {
+    "@uiw/react-md-editor": "^3.23.4",
+    "classnames": "^2.3.2",
+    "lucide-react": "^0.263.1",
+    "@willoui/design": "file:../design"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.5"
+  }
+}

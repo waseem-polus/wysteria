@@ -2,8 +2,7 @@
   "name": "willoui",
   "private": true,
   "workspaces": [
-    "packages/*",
-    "docs/"
+    "packages/*"
   ],
   "dependencies": {},
   "devDependencies": {

@@ -1,0 +1,12 @@
+{
+  "name": "willoui",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "docs/"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^7.2.0"
+  }
+}

@@ -1,11 +1,6 @@
 {
-    "index": {
-        "title": "Home",
-        "type": "page",
-        "layout": "full"
-    },
-    "docs": {
-        "title": "Docs",
-        "type": "page"
-    }
+    "index": "Installation",
+    "setup": "Setup",
+    "components": "Components",
+    "themes": "Themes"
 }

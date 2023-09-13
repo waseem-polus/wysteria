@@ -2,7 +2,19 @@
   "name": "@willoui/design",
   "type": "module",
   "version": "0.0.1",
-  "author": "Waseem Polus (https://github.com/waseem-polus)",
+  "description": "React Component Design System",
+	"license": "MIT",
+  "author": {
+		"name": "Waseem Polus",
+		"url": "https://github.com/waseem-polus"
+	},
+	"keywords": [
+		"react",
+		"components",
+    "ui",
+    "wui"
+	],
+	"homepage": "https://github.com/waseem-polus/wui-design",
   "files": [
     "dist"
   ],

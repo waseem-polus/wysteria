@@ -10,11 +10,11 @@ const ButtonEditor = () => {
                 }
             }}
             files={{
+                "WuiButton.jsx": buttonJsx,
                 "App.jsx": {
                     code: appJsx,
                     hidden: true,
-                },
-                "WuiButton.jsx": buttonJsx
+                }
             }}
         />
     )

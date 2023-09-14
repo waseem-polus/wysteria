@@ -12,7 +12,7 @@ The Button Component is a basic UI element that enables user interaction by trig
 ## Button Types
 <Tabs items={['Icon+Text', 'Text', 'Icon']}>
   <Tabs.Tab>
-    <Container paddingVer="md" justify="center" direction="row">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
         <Button leftIcon="Home" >Filled</Button>
         <Button leftIcon="Home" variant="outlined">Outlined</Button>
         <Button leftIcon="Home" variant="text">BUTTON</Button>
@@ -26,7 +26,7 @@ The Button Component is a basic UI element that enables user interaction by trig
   </Tabs.Tab>
 
   <Tabs.Tab>
-     <Container paddingVer="md" justify="center" direction="row">
+     <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
         <Button>Filled</Button>
         <Button variant="outlined">Outlined</Button>
         <Button variant="text">BUTTON</Button>
@@ -40,7 +40,7 @@ The Button Component is a basic UI element that enables user interaction by trig
   </Tabs.Tab>
   
   <Tabs.Tab>
-    <Container paddingVer="md" justify="center" direction="row">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
         <Button leftIcon="Home" ></Button>
         <Button leftIcon="Home" variant="outlined"></Button>
         <Button leftIcon="Home" variant="text"></Button>
@@ -56,30 +56,36 @@ The Button Component is a basic UI element that enables user interaction by trig
 
 
 ## Props
-  ### ``onClick``
+  #### ``onClick``
     This callback is called when the button is clicked.  
     **Type: ``Callback``**  
+  <br />
 
-  ### ``variant``
+  #### ``variant``
     The style of the button.  
     **Type: ``'filled' (default) | 'outlined' | 'text'``**  
+  <br />
 
-  ### ``leftIcon``
+  #### ``leftIcon``
     Icon to be displayed to the left of the text. Uses [Lucide Icons](https://lucide.dev/icons/).  
     **Type: ``String``**
+  <br />
 
-  ### ``rightIcon``  
+  #### ``rightIcon``  
     Icon to be displayed to the left of the text. Uses [Lucide Icons](https://lucide.dev/icons/).  
     **Type: ``String``**
-    
-  ### ``padding``
+  <br />
+
+  #### ``padding``
     Padding between button border and content, and between button text and icons.  
     **Type: ``'none' | 'xs' | 'sm' | 'md' (default) | 'lg' | 'xl' | 'xxl' | xxxl``**
+  <br />
 
-  ### ``disabled``
+  #### ``disabled``
     If the button is clickable or not.  
     **Type: ``true | false (default)``**
+  <br />
 
-  ### ``children``
+  #### ``children``
     The label of the button. If empty, button assumes a square aspect ratio (icon-only).  
     **Type: ``String``**

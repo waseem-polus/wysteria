@@ -1,9 +1,9 @@
 <p align="center">
   <a href="https://wui.pages.dev">
     <picture>
-      <source width="300" media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mobi-uta/.github/main/Mobi%20Dark%20Combination%20Mark.svg">
-      <source width="300" media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mobi-uta/.github/main/Mobi%20Light%20Combination%20Mark.svg">
-      <img width="300" alt="WUI Design Logo" src="https://raw.githubusercontent.com/mobi-uta/.github/main/Mobi%20Light%20Combination%20Mark.svg">
+      <source width="300" media="(prefers-color-scheme: dark)" srcset="../../LogoWhite.svg">
+      <source width="300" media="(prefers-color-scheme: light)" srcset="../../LogoBlack.svg">
+      <img width="300" alt="WUI Design Logo" src="../../LogoWhite.svg">
     </picture>
   </a>
 </p>

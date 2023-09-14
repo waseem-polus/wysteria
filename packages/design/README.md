@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://wui.pages.dev">
+  <a href="https://wui-ten.vercel.app">
     <picture>
       <source width="300" media="(prefers-color-scheme: dark)" srcset="../../LogoWhite.svg">
       <source width="300" media="(prefers-color-scheme: light)" srcset="../../LogoBlack.svg">
@@ -44,11 +44,11 @@ For detailed usage examples, refer to the [documentation](#documentation) below.
 
 ## Documentation
 
-Explore the full documentation and examples for each component on our [documentation website](https://wui.pages.dev).
+Explore the full documentation and examples for each component on our [documentation website](https://wui-ten.vercel.app).
 
 Here are some key sections of the documentation:
-- [Getting Started](https://wui.pages.dev/getting-started)
-- [Component API Reference](https://wui.pages.dev/api-reference)
+- [Getting Started](https://wui-ten.vercel.app)
+- [Component API Reference](https://wui-ten.vercel.app/api-reference)
 
 ## License
 

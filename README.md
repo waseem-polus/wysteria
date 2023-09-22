@@ -11,7 +11,7 @@ Welcome to Willow UI! This repository contains three separate libraries along wi
 Offers a collection of headless components that are easy to style.
 
 ### Library 2: [Design 🎨](/packages/design)
-[![npm](https://img.shields.io/npm/v/@willoui/design?style=flat-square&logo=npm&logoColor=white)](https://www.npmjs.com/package/@willoui/design)
+[![npm (scoped)](https://img.shields.io/npm/v/%40willoui/design?logo=npm&color=%23CB3837)](https://www.npmjs.com/package/@willoui/design)
 						
 Offers a collection of pre-styled components that are ready to use out of the box.
 

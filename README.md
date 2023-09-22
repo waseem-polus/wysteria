@@ -19,7 +19,7 @@ Offers a collection of pre-styled components that are ready to use out of the bo
 
 ### Library 3: [Extra ✨](/packages/extras)
 [![npm](https://img.shields.io/badge/coming%20soon...-CB0000?style=flat&logo=npm&label=npm&labelColor=231F20)]()
-d
+
 Offers a collection of niche, components for specific use-cases.
 
 ---

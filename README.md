@@ -2,7 +2,6 @@
 
 Welcome to Willow UI! This repository contains three separate libraries along with a documentation website to help you get started with using these libraries effectively.
 
----
 
 ## Libraries
 

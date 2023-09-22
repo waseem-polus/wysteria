@@ -2,11 +2,6 @@
 
 Welcome to Willow UI! This repository contains three separate libraries along with a documentation website to help you get started with using these libraries effectively.
 
-## Table of Contents
-1. [Libraries](#libraries)
-2. [Documentation](#documentation)
-3. [License](#license)
-
 ---
 
 ## Libraries
@@ -23,7 +18,7 @@ Offers a collection of pre-styled components that are ready to use out of the bo
 
 ### Library 3: [Extra ✨](/packages/extra)
 [![npm](https://img.shields.io/badge/coming%20soon...-CB0000?style=flat&logo=npm&label=npm&labelColor=231F20)]()
-
+d
 Offers a collection of niche, components for specific use-cases.
 
 ---

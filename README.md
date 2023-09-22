@@ -1,4 +1,36 @@
-# WUI Design
-![banner image](https://github.com/waseem-polus/wui-design/blob/main/Banner.png?raw=true)
+# Willow UI
 
-While it's still a budding project, WUI Design already offers a collection of creative components to spruce up your web projects. We're stoked about the future, envisioning a wealth of exciting features to come. So, dive in, explore, and join our journey to create some seriously cool user experiences together. Let's rock the coding world with WUI Design! 🤝✨
+Welcome to Willow UI! This repository contains three separate libraries along with a documentation website to help you get started with using these libraries effectively.
+
+## Table of Contents
+1. [Libraries](#libraries)
+2. [Documentation](#documentation)
+3. [License](#license)
+
+---
+
+## Libraries
+
+### Library 1: [Base 🗿](/packages/base) (Coming Soon 😶‍🌫️)
+
+Offers a collection of headless components that are easy to style.
+
+### Library 2: [Design 🎨](/packages/design)
+
+Offers a collection of pre-styled components that are ready to use out of the box.
+
+### Library 3: [Extra ✨](/packages/extra)
+
+Offers a collection of niche, components for specific use-cases.
+
+---
+
+## Documentation
+
+To explore detailed documentation, usage guides, and examples for each library, please visit our [Documentation Website](https://wui-ten.vercel.app). This comprehensive resource will help you understand and utilize the capabilities of each library efficiently.
+
+---
+
+## License
+
+This Monorepo is licensed under the [MIT](LICENSE) license. Please see the [LICENSE](LICENSE) file for more details.

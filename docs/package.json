@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.7.1",
     "next": "~12.3.4",
     "nextra": "^2.12.3",
     "nextra-theme-docs": "^2.12.3",

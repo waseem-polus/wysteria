@@ -12,7 +12,7 @@ Welcome to Willow UI! This repository contains three separate libraries along wi
 ## Libraries
 
 ### Library 1: [Base 🗿](/packages/base)
-[![npm](https://img.shields.io/badge/coming soon...-CB0000?style=flat&logo=npm&label=npm&labelColor=231F20)]()
+[![npm](https://img.shields.io/badge/coming%20soon...-CB0000?style=flat&logo=npm&label=npm&labelColor=231F20)]()
 						
 Offers a collection of headless components that are easy to style.
 
@@ -22,7 +22,7 @@ Offers a collection of headless components that are easy to style.
 Offers a collection of pre-styled components that are ready to use out of the box.
 
 ### Library 3: [Extra ✨](/packages/extra)
-[![npm](https://img.shields.io/badge/coming soon...-CB0000?style=flat&logo=npm&label=npm&labelColor=231F20)]()
+[![npm](https://img.shields.io/badge/coming%20soon...-CB0000?style=flat&logo=npm&label=npm&labelColor=231F20)]()
 
 Offers a collection of niche, components for specific use-cases.
 

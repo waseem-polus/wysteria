@@ -1,9 +1,9 @@
 <p align="center">
   <a href="https://wui-ten.vercel.app">
     <picture>
-      <source width="300" media="(prefers-color-scheme: dark)" srcset="../../LogoWhite.svg">
-      <source width="300" media="(prefers-color-scheme: light)" srcset="../../LogoBlack.svg">
-      <img width="300" alt="WUI Design Logo" src="../../LogoWhite.svg">
+      <source width="300" media="(prefers-color-scheme: dark)" srcset="../../public/design-white.svg">
+      <source width="300" media="(prefers-color-scheme: light)" srcset="../../public/design-black.svg">
+      <img width="300" alt="WUI Design Logo" src="../../public/design-white.svg">
     </picture>
   </a>
 </p>

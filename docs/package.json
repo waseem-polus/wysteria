@@ -1,4 +1,5 @@
 {
+  "version": "0.1.0",
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.7.1",
     "next": "~12.3.4",

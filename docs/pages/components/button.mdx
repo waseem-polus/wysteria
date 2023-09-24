@@ -1,4 +1,4 @@
-import { Container, Button } from "@willoui/design"
+import { WuiApp, Container, Button } from "@willoui/design"
 import ButtonEditor from "../../components/ButtonEditor"
 import { Tabs } from 'nextra/components'
 
@@ -12,11 +12,13 @@ The Button Component is a basic UI element that enables user interaction by trig
 ## Button Types
 <Tabs items={['Icon+Text', 'Text', 'Icon']}>
   <Tabs.Tab>
-    <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
-        <Button leftIcon="Home" >Filled</Button>
-        <Button leftIcon="Home" variant="outlined">Outlined</Button>
-        <Button leftIcon="Home" variant="text">BUTTON</Button>
-    </Container>
+    <WuiApp>
+      <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
+          <Button leftIcon="Home" >Filled</Button>
+          <Button leftIcon="Home" variant="outlined">Outlined</Button>
+          <Button leftIcon="Home" variant="text">BUTTON</Button>
+      </Container>
+    </WuiApp>
 
     ```js
     <Button leftIcon="Home" >Filled</Button>
@@ -26,11 +28,13 @@ The Button Component is a basic UI element that enables user interaction by trig
   </Tabs.Tab>
 
   <Tabs.Tab>
-     <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
-        <Button>Filled</Button>
-        <Button variant="outlined">Outlined</Button>
-        <Button variant="text">BUTTON</Button>
-    </Container>
+    <WuiApp>
+      <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
+          <Button>Filled</Button>
+          <Button variant="outlined">Outlined</Button>
+          <Button variant="text">BUTTON</Button>
+      </Container>
+    </WuiApp>
 
     ```js
     <Button>Filled</Button>
@@ -40,11 +44,13 @@ The Button Component is a basic UI element that enables user interaction by trig
   </Tabs.Tab>
   
   <Tabs.Tab>
-    <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
-        <Button leftIcon="Home" ></Button>
-        <Button leftIcon="Home" variant="outlined"></Button>
-        <Button leftIcon="Home" variant="text"></Button>
-    </Container>
+    <WuiApp>
+      <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
+          <Button leftIcon="Home" ></Button>
+          <Button leftIcon="Home" variant="outlined"></Button>
+          <Button leftIcon="Home" variant="text"></Button>
+      </Container>
+    </WuiApp>
 
     ```js
     <Button leftIcon="Home" ></Button>

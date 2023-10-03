@@ -1,11 +1,11 @@
-# Willow UI
+# Wysteria UI
 
-Welcome to Willow UI! This repository contains three separate libraries along with a documentation website to help you get started with using these libraries effectively.
+Welcome to Wysteria UI! This repository contains three separate libraries along with a documentation website to help you get started with using these libraries effectively.
 
 
 ## Libraries
 
-### Library 1: [Base 🗿](/packages/base)
+### Library 1: [Core 🗿](/packages/core)
 [![npm](https://img.shields.io/badge/coming%20soon...-CB0000?style=flat&logo=npm&label=npm&labelColor=231F20)]()
 						
 Offers a collection of headless components that are easy to style.

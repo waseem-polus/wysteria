@@ -1,7 +1,97 @@
+import { WuiApp, Container, Button } from "@willoui/design"
+import ButtonEditor from "../../components/ButtonEditor"
+import { Tabs } from 'nextra/components'
+
 # Button
+The Button Component is a basic UI element that enables user interaction by triggering actions or events upon click. It can be customized with text, icons, and styles to suit specific interface requirements.
 
-import { WuiApp, Container, Button, Link } from "@willoui/design"
+## Demo
+ 
+<ButtonEditor />
 
-<WuiApp>
-    <Button onClick={() => window.alert("WUI button clicked")}>BUTTON</Button>
-</WuiApp>
+## Button Types
+<Tabs items={['Icon+Text', 'Text', 'Icon']}>
+  <Tabs.Tab>
+    <WuiApp>
+      <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
+          <Button leftIcon="Home" >Filled</Button>
+          <Button leftIcon="Home" variant="outlined">Outlined</Button>
+          <Button leftIcon="Home" variant="text">BUTTON</Button>
+      </Container>
+    </WuiApp>
+
+    ```js
+    <Button leftIcon="Home" >Filled</Button>
+    <Button leftIcon="Home" variant="outlined">Outlined</Button>
+    <Button leftIcon="Home" variant="text">BUTTON</Button>
+    ```
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+    <WuiApp>
+      <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
+          <Button>Filled</Button>
+          <Button variant="outlined">Outlined</Button>
+          <Button variant="text">BUTTON</Button>
+      </Container>
+    </WuiApp>
+
+    ```js
+    <Button>Filled</Button>
+    <Button variant="outlined">Outlined</Button>
+    <Button variant="text">BUTTON</Button>
+    ```
+  </Tabs.Tab>
+  
+  <Tabs.Tab>
+    <WuiApp>
+      <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
+          <Button leftIcon="Home" ></Button>
+          <Button leftIcon="Home" variant="outlined"></Button>
+          <Button leftIcon="Home" variant="text"></Button>
+      </Container>
+    </WuiApp>
+
+    ```js
+    <Button leftIcon="Home" ></Button>
+    <Button leftIcon="Home" variant="outlined"></Button>
+    <Button leftIcon="Home" variant="text"></Button>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+
+## Props
+  #### ``onClick``
+    This callback is called when the button is clicked.  
+    **Type: ``Callback``**  
+  <br />
+
+  #### ``variant``
+    The style of the button.  
+    **Type: ``'filled' (default) | 'outlined' | 'text'``**  
+  <br />
+
+  #### ``leftIcon``
+    Icon to be displayed to the left of the text. Uses [Lucide Icons](https://lucide.dev/icons/).  
+    **Type: ``String``**
+  <br />
+
+  #### ``rightIcon``  
+    Icon to be displayed to the left of the text. Uses [Lucide Icons](https://lucide.dev/icons/).  
+    **Type: ``String``**
+  <br />
+
+  #### ``padding``
+    Padding between button border and content, and between button text and icons.  
+    **Type: ``'none' | 'xs' | 'sm' | 'md' (default) | 'lg' | 'xl' | 'xxl' | xxxl``**
+  <br />
+
+  #### ``disabled``
+    If the button is clickable or not.  
+    **Type: ``true | false (default)``**
+  <br />
+
+  #### ``children``
+    The label of the button. If empty, button assumes a square aspect ratio (icon-only).  
+    **Type: ``String``**

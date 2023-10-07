@@ -10,8 +10,8 @@
 
 .tab-group__content {
   position: relative;
-  min-height: 16rem;
   height: fit-content;
+  width: 100%;
   padding: 0.7rem;
   box-sizing: border-box;
 

@@ -3,18 +3,18 @@
   "type": "module",
   "version": "0.2.1",
   "description": "React Component Design System",
-	"license": "MIT",
+  "license": "MIT",
   "author": {
-		"name": "Waseem Polus",
-		"url": "https://github.com/waseem-polus"
-	},
-	"keywords": [
-		"react",
-		"components",
+    "name": "Waseem Polus",
+    "url": "https://github.com/waseem-polus"
+  },
+  "keywords": [
+    "react",
+    "components",
     "ui",
     "wui"
-	],
-	"homepage": "https://github.com/waseem-polus/wui-design",
+  ],
+  "homepage": "https://github.com/waseem-polus/wui-design",
   "files": [
     "dist"
   ],
@@ -37,7 +37,8 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
-    "lucide-react": "^0.263.1"
+    "lucide-react": "^0.263.1",
+    "vite-plugin-css-injected-by-js": "^3.3.0"
   },
   "peerDependencies": {
     "react": "^18",

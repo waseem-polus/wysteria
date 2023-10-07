@@ -1,6 +1,5 @@
-import { Container, Button } from "@willoui/design"
+import { WuiApp, Container, Button, TabGroup, Tab } from "@willoui/design"
 import ButtonEditor from "../../components/ButtonEditor"
-import { Tabs } from 'nextra/components'
 
 # Button
 The Button Component is a basic UI element that enables user interaction by triggering actions or events upon click. It can be customized with text, icons, and styles to suit specific interface requirements.
@@ -10,50 +9,51 @@ The Button Component is a basic UI element that enables user interaction by trig
 <ButtonEditor />
 
 ## Button Types
-<Tabs items={['Icon+Text', 'Text', 'Icon']}>
-  <Tabs.Tab>
-    <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
+<WuiApp>
+  <TabGroup>
+    <Tab label="Icon+Text">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
         <Button leftIcon="Home" >Filled</Button>
         <Button leftIcon="Home" variant="outlined">Outlined</Button>
         <Button leftIcon="Home" variant="text">BUTTON</Button>
-    </Container>
+      </Container>
 
-    ```js
-    <Button leftIcon="Home" >Filled</Button>
-    <Button leftIcon="Home" variant="outlined">Outlined</Button>
-    <Button leftIcon="Home" variant="text">BUTTON</Button>
-    ```
-  </Tabs.Tab>
+      ```js
+      <Button leftIcon="Home" >Filled</Button>
+      <Button leftIcon="Home" variant="outlined">Outlined</Button>
+      <Button leftIcon="Home" variant="text">BUTTON</Button>
+      ```
+    </Tab>
 
-  <Tabs.Tab>
-     <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
+    <Tab label="Text">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
         <Button>Filled</Button>
         <Button variant="outlined">Outlined</Button>
         <Button variant="text">BUTTON</Button>
-    </Container>
+      </Container>
 
-    ```js
-    <Button>Filled</Button>
-    <Button variant="outlined">Outlined</Button>
-    <Button variant="text">BUTTON</Button>
-    ```
-  </Tabs.Tab>
-  
-  <Tabs.Tab>
-    <Container paddingVer="md" gap="sm" justify="space-evenly" direction="row">
+      ```js
+      <Button>Filled</Button>
+      <Button variant="outlined">Outlined</Button>
+      <Button variant="text">BUTTON</Button>
+      ```
+    </Tab>
+
+    <Tab label="Icon">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
         <Button leftIcon="Home" ></Button>
         <Button leftIcon="Home" variant="outlined"></Button>
         <Button leftIcon="Home" variant="text"></Button>
-    </Container>
+      </Container>
 
-    ```js
-    <Button leftIcon="Home" ></Button>
-    <Button leftIcon="Home" variant="outlined"></Button>
-    <Button leftIcon="Home" variant="text"></Button>
-    ```
-  </Tabs.Tab>
-</Tabs>
-
+      ```js
+      <Button leftIcon="Home" ></Button>
+      <Button leftIcon="Home" variant="outlined"></Button>
+      <Button leftIcon="Home" variant="text"></Button>
+      ```
+    </Tab>
+  </TabGroup>
+</WuiApp>
 
 ## Props
   #### ``onClick``

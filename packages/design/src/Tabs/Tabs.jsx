@@ -13,6 +13,7 @@ export function TabGroup({ children, filled = false, vertical = false }) {
 		flexWrap: "nowrap",
 		boxSizing: "border-box",
 		height: "fit-content",
+		width: "100%",
 		borderBottom: "1px solid var(--wui-color-base-400)",
 	};
 
@@ -26,7 +27,7 @@ export function TabGroup({ children, filled = false, vertical = false }) {
 	};
 
 	return (
-		<Container padding="lg" direction = {vertical? "row" : "column"}> 
+		<Container padding="lg" direction = {vertical? "row" : "column"} style={{position: 'relative'}}> 
 			<Container 
 				padding='none'
 				align='stretch'

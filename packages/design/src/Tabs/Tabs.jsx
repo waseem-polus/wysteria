@@ -27,7 +27,7 @@ export function TabGroup({ children, filled = false, vertical = false }) {
 	};
 
 	return (
-		<Container padding="lg" direction = {vertical? "row" : "column"} style={{position: 'relative'}}> 
+		<Container padding="lg" direction = {vertical? "row" : "column"} style={{position: "relative"}}> 
 			<Container 
 				padding='none'
 				align='stretch'

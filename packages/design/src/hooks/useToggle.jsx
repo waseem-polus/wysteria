@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useToggle = ({initialValue, onChange}) => {
+const useToggle = (initialValue, onChange = () => {}) => {
 	const [value, setValue] = useState(initialValue);
 
 	const toggleValue = () => setValue(!value);

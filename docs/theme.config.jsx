@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Container } from "@willoui/design";
+import { Container } from "@wysteria/design";
 
 export default {
 	logo: (

@@ -7,7 +7,7 @@ const ButtonEditor = () => {
 			template="vite-react"
 			customSetup={{ 
 				dependencies: { 
-					"@willoui/design": "latest" 
+					"@wysteria/design": "latest" 
 				}
 			}}
 			files={{
@@ -22,7 +22,7 @@ const ButtonEditor = () => {
 };
 
 const buttonJsx = (
-	`import { Button } from "@willoui/design"
+	`import { Button } from "@wysteria/design"
     
     export default function WuiButton() {
         return (
@@ -32,7 +32,7 @@ const buttonJsx = (
 );
 
 const appJsx = (
-	`import { Container, WuiApp } from "@willoui/design"
+	`import { Container, WuiApp } from "@wysteria/design"
     import WuiButton from "./WuiButton"
 
     export default function App() {

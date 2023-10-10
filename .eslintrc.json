@@ -15,6 +15,7 @@
     "plugins": [
         "react"
     ],
+    "ignorePatterns": ["**/dist"],
     "rules": {
         "indent": [
             "error",

@@ -10,5 +10,6 @@
     "chip": "Chip",
     "icon": "Icon",
 
-    "tab": "Tab"
+    "tab": "Tab",
+    "container": "Container"
 }

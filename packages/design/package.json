@@ -1,7 +1,7 @@
 {
-  "name": "@willoui/design",
+  "name": "@wysteria/design",
   "type": "module",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "React Component Design System",
   "license": "MIT",
   "author": {
@@ -33,7 +33,9 @@
     "test": "vitest --coverage",
     "test:ci": "npm run test -- run",
     "test:ui": "npm run test -- --ui",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "dry": "npm publish --dry-run",
+    "pub": "npm publish --access public"
   },
   "dependencies": {
     "classnames": "^2.3.2",

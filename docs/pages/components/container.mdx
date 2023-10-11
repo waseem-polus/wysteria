@@ -1,4 +1,4 @@
-import { Container, Button } from "@willoui/design"
+import { Container, Button } from "@wysteria/design"
 import ButtonEditor from "../../components/ButtonEditor"
 import { Tabs } from 'nextra/components'
 
@@ -7,56 +7,20 @@ import { Tabs } from 'nextra/components'
 The Container component provides a simplified interface for managing layout using CSS flex properties.
 
 
-## Props
-  #### ``onClick``
-    This callback is called when the container is clicked.  
-    **Type: ``Callback``**  
-  <br />
-
-  #### ``padding``
-    Padding between button border and content, and between button text and icons.  
-    **Type: ``'none' | 'xs' | 'sm' | 'md' (default) | 'lg' | 'xl' | 'xxl' | xxxl``**
-  <br />
-
-  #### ``direction``
-    The primary axis to use when laying out children elements. Corresponds to the css property [``flex-direction``](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).  
-    **Type: ``'row' (default) | 'column' | 'row-reverse' | 'column-reverse'``**
-  <br />
-
-  #### ``justify``
-    How to space children elements on the primary axis. Corresponds to the css property [``justify-content``](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).  
-    **Type: ``'center' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'left' (default) | 'right'``**
-  <br />
-
-  #### ``align``
-    How to space children elements on the secondary axis. Corresponds to the css property [``align-items``](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).  
-    **Type: ``'center' | 'start' (default) | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end'``**
-  <br />
-
-  #### ``padding``
-    Padding between button border and children. More precise padding targets can be used with the other padding props below.  
-    **Type: ``'none' | 'xs' | 'sm' | 'md' (default) | 'lg' | 'xl' | 'xxl' | xxxl``**
-
-    | Prop           | Description               |
-    |----------------|---------------------------|
-    | ``paddingHor`` | Padding on left and right |
-    | ``paddingVer`` | Padding on top and bottom |
-    | ``paddingTop`` | Padding on top            |
-    | ``paddingRgt`` | Padding on right          |
-    | ``paddingBot`` | Padding on bottom         |
-    | ``paddingLft`` | Padding on left           |
-  <br />
-
-  #### ``gap``
-    Spacing between each child element inside the container.  
-    **Type: ``'none' | 'xs' | 'sm' | 'md' (default) | 'lg' | 'xl' | 'xxl' | xxxl``**
-    <br />
-
-  #### ``children``
-    The label of the button. If empty, button assumes a square aspect ratio (icon-only).  
-    **Type: ``String``**
-    <br />
-
-  #### ``style``
-    Custom css styles that are applied to the container. Uses [React inline styling](https://legacy.reactjs.org/docs/dom-elements.html#style).  
-    **Type: ``Object``**
+## API
+| Prop        | Type                                                         | Default | Description                                                                  |
+|-------------|--------------------------------------------------------------|---------|------------------------------------------------------------------------------|
+|``onClick``|callback||Called when container is clicked|
+|``direction`` |``row`` ``column`` ``row-reverse`` ``column-reverse`` |``row`` |The primary axis to use when laying out children elements. Corresponds to the css property [``flex-direction``](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction) |
+|``justify``|``center`` ``start`` ``end`` ``flex-start`` ``flex-end`` ``left`` ``right``|``left``|How to space children elements on the primary axis. Corresponds to the css property [``justify-content``](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)|
+|``align``|``center`` ``start`` ``end`` ``flex-start`` ``flex-end`` ``self-start`` ``self-end``|``start``|How to space children elements on the secondary axis. Corresponds to the css property [``align-items``](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)|
+|``gap``|``none`` ``xs`` ``sm`` ``md`` ``lg`` ``xl`` ``xxl`` ``xxxl`` |``md``|Spacing between each child element inside the container|
+|``padding``|``none`` ``xs`` ``sm`` ``md`` ``lg`` ``xl`` ``xxl`` ``xxxl`` |``md``|Padding between button border and content, and between button text and icons |
+|``paddingHor``|``none`` ``xs`` ``sm`` ``md`` ``lg`` ``xl`` ``xxl`` ``xxxl`` |``md``|Padding on left and right|
+|``paddingVer``|``none`` ``xs`` ``sm`` ``md`` ``lg`` ``xl`` ``xxl`` ``xxxl`` |``md``|Padding on top and bottom|
+|``paddingTop``|``none`` ``xs`` ``sm`` ``md`` ``lg`` ``xl`` ``xxl`` ``xxxl`` |``md``|Padding on top|
+|``paddingRgt``|``none`` ``xs`` ``sm`` ``md`` ``lg`` ``xl`` ``xxl`` ``xxxl`` |``md``|Padding on right|
+|``paddingBot``|``none`` ``xs`` ``sm`` ``md`` ``lg`` ``xl`` ``xxl`` ``xxxl`` |``md``|Padding on bottom
+|``paddingLft``|``none`` ``xs`` ``sm`` ``md`` ``lg`` ``xl`` ``xxl`` ``xxxl`` |``md``|Padding on left|
+|``children``|String||The label of the button. If empty, button assumes a square aspect ratio (icon-only)|
+|``style``|Object||Custom css styles that are applied to the container. Uses [React inline styling](https://legacy.reactjs.org/docs/dom-elements.html#style)|

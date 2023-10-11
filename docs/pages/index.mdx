@@ -1,22 +1,28 @@
+import {TabGroup, Tab} from "@wysteria/design"
+
 # How to Install?
 
 The Design installation of wui offers opinionated, pre-styled components.
 
-import { Tabs } from 'nextra/components'
- 
-<Tabs items={['npm', 'yarn']}>
-    <Tabs.Tab>        
+<TabGroup>
+    <Tab label="npm">        
         ``` bash copy
-        npm install @willoui/design
+        npm i @wysteria/design react react-dom
         ```
-    </Tabs.Tab>
+    </Tab>
 
-    <Tabs.Tab>
+    <Tab label="yarn">
         ``` bash copy
-        yarn add @willoui/design
+        yarn add @wysteria/design react react-dom
         ```
-    </Tabs.Tab>
-</Tabs>
+    </Tab>
+
+    <Tab label="pnpm">        
+        ``` bash copy
+        pnpm add @wysteria/design react react-dom
+        ```
+    </Tab>
+</TabGroup>
 
 ## Peer Dependencies
 The project depends on the following dependencies to be included in your project:

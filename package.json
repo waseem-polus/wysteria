@@ -1,7 +1,14 @@
 {
-  "name": "willoui",
+  "name": "wysteria",
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "eslint-plugin-react": "^7.33.2"
+  },
+  "scripts": {
+    "lint": "eslint . --fix --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+  }
 }

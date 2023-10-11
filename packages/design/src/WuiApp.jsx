@@ -1,10 +1,10 @@
 import React from "react";
-import './index.css'
+import "./index.css";
 
 export const WuiApp = ({ children }) => {
-  return (
-    <React.Fragment className="wui-app">
-      {children}
-    </React.Fragment>
-  )
-}
+	return (
+		<React.Fragment className="wui-app">
+			{children}
+		</React.Fragment>
+	);
+};

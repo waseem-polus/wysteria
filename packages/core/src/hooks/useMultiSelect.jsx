@@ -2,26 +2,16 @@ import { useEffect, useState } from "react";
 
 export const useMultiSelect = (initialOptions, onChange) => {
 	const [options, setOptions] = useState(initialOptions);
-	const [cumulative, setCumulative] = useState(null);
+	const [ratio, setRatio] = useState(null);
 
 	useEffect(() => {
 		const countChecked = options.filter((opt) => opt).length;
-		switch(countChecked) {
-		case 0: 
-			setCumulative(-1);
-			break;
-		case options.length:
-			setCumulative(1);
-			break;
-		default:
-			setCumulative(0);
-		}
+		setRatio(countChecked / options.length);
 
-		onChange({options, cumulative});
+		onChange(options, ratio);
 	}, [options]);
 
-	const toggleAll = () => setOptions(options.map(() => (!(cumulative >= 0))));
-
+	const toggleAll = () => setOptions(options.map(() => (!(ratio > 0))));
 	const toggle = (index) => {
 		if (index >= options.length) {
 			return;
@@ -33,5 +23,5 @@ export const useMultiSelect = (initialOptions, onChange) => {
 		setOptions(newOptions);
 	};
 
-	return [{options, cumulative}, toggle, toggleAll];
+	return [options, ratio, toggle, toggleAll];
 };

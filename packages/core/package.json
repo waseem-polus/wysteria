@@ -1,0 +1,48 @@
+{
+  "name": "@wysteria/core",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "React headless components and custom hooks",
+  "license": "MIT",
+  "author": {
+    "name": "Waseem Polus",
+    "url": "https://github.com/waseem-polus"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "wui"
+  ],
+  "homepage": "https://github.com/waseem-polus/wui-design",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/wui-core.umd.cjs",
+  "module": "./dist/wui-core.js",
+  "exports": {
+    ".": {
+      "import": "./dist/wui-core.js",
+      "require": "./dist/wui-core.umd.cjs"
+    }
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest --coverage",
+    "test:ci": "npm run test -- run",
+    "test:ui": "npm run test -- --ui",
+    "test:watch": "npm run test -- --watch",
+    "dry": "npm publish --dry-run",
+    "pub": "npm publish --access public"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.5"
+  }
+}

@@ -5,20 +5,20 @@ export const useMultiSelect = (initialOptions, onChange) => {
 	const [ratio, setRatio] = useState(null);
 
 	useEffect(() => {
-		const countChecked = options.filter((opt) => opt).length;
+		const countChecked = options.filter((opt) => opt.checked).length;
 		setRatio(countChecked / options.length);
 
 		onChange(options, ratio);
 	}, [options]);
 
-	const toggleAll = () => setOptions(options.map(() => (!(ratio > 0))));
-	const toggle = (index) => {
-		if (index >= options.length) {
+	const toggleAll = () => setOptions(options.map((opt) => ({...opt, checked: !(ratio > 0)})));
+	const toggle = (i) => {
+		if (i >= options.length) {
 			return;
 		}
 
 		let newOptions = [...options];
-		newOptions[index] = !newOptions[index];
+		newOptions[i].checked = !newOptions[i].checked;
 
 		setOptions(newOptions);
 	};

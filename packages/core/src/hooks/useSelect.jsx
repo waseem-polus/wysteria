@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useSelect = (options, initial, onChange) => {
+export const useSelect = (options, initial, onChange = () => {}) => {
 	const [selected, setSelected] = useState(initial);
 	
 	useEffect(() => onChange(selected), [selected]);

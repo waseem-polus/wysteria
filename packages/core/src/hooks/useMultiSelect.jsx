@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useMultiSelect = (initialOptions, onChange) => {
+export const useMultiSelect = (initialOptions, onChange = () => {}) => {
 	const [options, setOptions] = useState(initialOptions);
 	const [ratio, setRatio] = useState(null);
 
@@ -23,5 +23,5 @@ export const useMultiSelect = (initialOptions, onChange) => {
 		setOptions(newOptions);
 	};
 
-	return [options, ratio, toggle, toggleAll];
+	return [options, setOptions, ratio, toggle, toggleAll];
 };

@@ -1,1 +1,1 @@
-export * from './src/MarkdownEditor'
+export * from "./src/MarkdownEditor";

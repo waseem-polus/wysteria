@@ -1,6 +1,10 @@
 {
     "index": "Installation",
     "setup": "Setup",
+    "greenhouse": "Greenhouse",
+    "---": {
+        "type": "separator"
+      },
     "components": "Components",
     "themes": "Themes"
 }

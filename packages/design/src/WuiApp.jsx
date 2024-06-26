@@ -1,10 +1,10 @@
 import React from "react";
-import './index.css'
+import "./index.css";
 
 export const WuiApp = ({ children }) => {
-  return (
-    <>
-      {children}
-    </>
-  )
-}
+	return (
+		<div className="wui-app">
+			{children}
+		</div>
+	);
+};

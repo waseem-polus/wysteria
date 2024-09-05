@@ -1,15 +1,15 @@
 import { Icon, Link } from "@wysteria/design"
 
 # Link
-TODO
+A hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
 
 ## Icons
 if the ``showIcons`` prop is set to ``true``, a link will display the following icons if:
-|Icon|Name|Pattern|
-|----|----|-------|
-|<Icon name="Mail" color="#000" />|[Mail](https://lucide.dev/icons/mail)|Link starts with "mailto:"|
-|<Icon name="Phone" color="#000" />|[Phone](https://lucide.dev/icons/phone)|Link starts with "tel:"|
-|<Icon name="ExternalLink" color="#000" />|[External Link](https://lucide.dev/icons/external-link)|Link starts with "http[s]://www"|
+|Icon|Name|Pattern|Example|
+|----|----|-------|-------|
+|<Icon name="Mail" color="#000" />|[Mail](https://lucide.dev/icons/mail)|Link starts with ``mailto:``|<Link link="mailto:example@wysteria.dev">Contact Us</Link>|
+|<Icon name="Phone" color="#000" />|[Phone](https://lucide.dev/icons/phone)|Link starts with ``tel:``|<Link link="tel:example@wysteria.dev">Call Us</Link>|
+|<Icon name="ExternalLink" color="#000" />|[External Link](https://lucide.dev/icons/external-link)|Link starts with ``http[s]://``|<Link title="SOme title here i guess" link="https://www.wysteria.dev">Visit Us</Link>|
 
 ## API
 |Prop|Type|Default|Description|
@@ -17,5 +17,5 @@ if the ``showIcons`` prop is set to ``true``, a link will display the following 
 |``children``|string||The text the hyperlink will display|
 |``link``|string||The link the hyperlink will lead to|
 |``showIcons``|boolean|`true`|Show icons for mail, phone, and external|
-|``target``|string|TODO|TODO|
-|``title``|string|TODO|TODO|
+|``target``|string||Specifies the context in which the link will open|
+|``title``|string||Shows as a tooltip on hover|

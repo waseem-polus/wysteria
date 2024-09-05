@@ -14,7 +14,7 @@ export const Link = ({
 	const iconName = classNames({
 		"Mail": showIcons && link.startsWith("mailto:"),
 		"Phone": showIcons && link.startsWith("tel:"),
-		"ExternalLink" : showIcons && (link.startsWith("https://www.") || link.startsWith("http://www."))
+		"ExternalLink" : showIcons && (link.startsWith("https://") || link.startsWith("http://"))
 	});
 
 	return (

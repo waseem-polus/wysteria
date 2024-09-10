@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Work+Sans:ital,wght@0,400;0,500;1,400&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --wui-padding-xxxl: 3rem;
   --wui-padding-xxl: 2rem;

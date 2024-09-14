@@ -1,0 +1,36 @@
+import ComponentPreview from "../../components/ComponentPreview";
+import {
+    Dialog,
+    DialogTrigger,
+    DialogContent,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+    DialogClose,
+    Button,
+} from "@wysteria/design";
+
+# Dialog
+
+A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+
+<ComponentPreview>
+    <Dialog modal>
+        <DialogTrigger>
+            <Button leftIcon="Person">Edit Profile</Button>
+        </DialogTrigger>
+        <DialogContent>
+            <DialogClose />
+            <DialogTitle>Edit profile</DialogTitle>
+            <DialogDescription>
+                Make changes to your profile here. Click save when you're done.
+            </DialogDescription>
+            <DialogFooter>
+                <DialogClose>
+                    <Button variant="text">Cancel</Button>
+                </DialogClose>
+                <Button>Save</Button>
+            </DialogFooter>
+        </DialogContent>
+    </Dialog>
+</ComponentPreview>

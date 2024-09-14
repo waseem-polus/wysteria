@@ -1,5 +1,5 @@
 import React from "react";
-import {Button} from "../Button"
+import { Button } from "../Button";
 import * as RadixDialog from "@radix-ui/react-dialog";
 import { twMerge } from "tailwind-merge";
 
@@ -18,7 +18,7 @@ const DialogClose = ({
             padding="none"
             variant="text"
             actionType="neutral"
-            className="absolute top-3 right-3 text-zinc-600 dark:text-zinc-300"
+            className="absolute right-3 top-3 text-zinc-600 dark:text-zinc-300"
         />
     ),
     asChild = true,
@@ -39,8 +39,8 @@ const DialogTitle = ({
     return (
         <RadixDialog.Title
             className={twMerge(
-                "text-zinc-900 font-medium text-lg dark:text-zinc-50",
-                className
+                "text-lg font-medium text-zinc-900 dark:text-zinc-50",
+                className,
             )}
             {...props}
         >
@@ -58,7 +58,7 @@ const DialogDescription = ({
         <RadixDialog.Description
             className={twMerge(
                 "DialogDescription text-zinc-600 dark:text-zinc-300",
-                className
+                className,
             )}
             {...props}
         >
@@ -67,14 +67,25 @@ const DialogDescription = ({
     );
 };
 
+const DialogFooter = ({ children, className = "", ...props }) => {
+    return (
+        <div
+            className={twMerge("flex justify-end gap-2", className)}
+            {...props}
+        >
+            {children}
+        </div>
+    );
+};
+
 const DialogContent = ({ children, className = "", ...props }) => {
     return (
         <RadixDialog.Portal>
-            <RadixDialog.Overlay className="bg-zinc-900 opacity-60 fixed inset-0" />
+            <RadixDialog.Overlay className="fixed inset-0 bg-zinc-900 opacity-60" />
             <RadixDialog.Content
                 className={twMerge(
-                    "bg-zinc-50 animate-show-popover p-4 rounded-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-full max-h-full w-8/12 dark:bg-zinc-800 dark:border-zinc-600 dark:border",
-                    className
+                    "fixed left-1/2 top-1/2 max-h-full w-11/12 max-w-full -translate-x-1/2 -translate-y-1/2 transform animate-show-popover rounded-md bg-zinc-50 p-4 md:w-9/12 lg:w-7/12 2xl:w-1/2 dark:border dark:border-zinc-600 dark:bg-zinc-800",
+                    className,
                 )}
                 {...props}
             >
@@ -98,5 +109,6 @@ export {
     DialogContent,
     DialogTitle,
     DialogDescription,
+    DialogFooter,
     DialogClose,
 };

@@ -4,7 +4,7 @@
     "greenhouse": "Greenhouse",
     "---": {
         "type": "separator"
-      },
+    },
     "components": "Components",
     "themes": "Themes"
 }

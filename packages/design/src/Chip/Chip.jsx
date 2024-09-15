@@ -22,7 +22,8 @@ export const Chip = ({
 	onRemove = () => {}, 
 	color = "neutral", 
 	icon =  null, 
-	fontCase = "none"
+	fontCase = "none",
+	className = ""
 }) => {
 	let backgroundColor = classNames({
 		"--wui-color-base-300": color === "neutral",
@@ -38,7 +39,8 @@ export const Chip = ({
 		"chip__label",
 		{
 			"chip__label--primary" : color === "primary"
-		}
+		},
+		className
 	);
     
 	const containerStyle = {

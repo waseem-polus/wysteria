@@ -16,6 +16,10 @@
     transition: filter 100ms ease-in-out, transform 75ms ease-in-out;
 }
 
+.button svg {
+    stroke-width: 1.7px;
+}
+
 .button:focus-visible {
     transform: scale(1.1);
     outline-color: currentColor;
@@ -101,14 +105,6 @@
 
 .button--outlined.button--hover {
     box-shadow: 0 0 0 1.5px currentColor;
-}
-
-.button--hover {
-    font-weight: 500;
-}
-
-.button--hover svg {
-    stroke-width: 2;
 }
 
 .button--filled {

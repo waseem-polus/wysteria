@@ -1,0 +1,92 @@
+.button {
+    font-family: Work Sans, sans-serif;
+    transition: filter 100ms ease-in-out, transform 75ms ease-in-out;
+}
+
+.button svg {
+    stroke-width: 1.7px;
+}
+
+.button:focus-visible {
+    outline-color: currentColor;
+    outline-offset: 2px;
+}
+
+.button--progressive {
+    box-shadow: 0 0 0 1px var(--wui-color-accent-600);
+}
+
+.button--progressive:focus-visible {
+    outline-color: var(--wui-color-accent-500);
+}
+
+.button--hover.button--progressive.button--filled {
+    box-shadow: 0 0 0.7rem 0 inset var(--wui-color-accent-200);
+}
+
+.button--destructive {
+    background-color: var(--wui-color-danger-500);
+    color: var(--wui-color-danger-500);
+
+    box-shadow: 0 0 0 1px var(--wui-color-danger-500);
+}
+
+.button--destructive:focus-visible {
+    outline-color: var(--wui-color-danger-500);
+}
+
+.button--hover.button--destructive:not(.button--filled) {
+    background-color: var(--wui-color-danger-50);
+}
+
+.button--hover.button--destructive.button--filled {
+    box-shadow: 0 0 0.7rem 0 inset var(--wui-color-danger-100)
+}
+
+.button--neutral {
+    background-color: var(--wui-color-black);
+    color: var(--wui-color-black);
+
+    box-shadow: 0 0 0 1px var(--wui-color-base-800);
+}
+
+.button--neutral:focus-visible {
+    outline-color: var(--wui-color-black);
+}
+
+.button--hover.button--neutral:not(.button--filled) {
+    background-color: var(--wui-color-base-200);
+}
+
+.button--hover.button--neutral.button--filled {
+    box-shadow: 0 0 0.7rem 0 inset var(--wui-color-base-500)
+}
+
+.button--text {
+    background-color: var(--wui-color-clear);
+    box-shadow: none;
+}
+
+.button--outlined {
+    background-color: var(--wui-color-clear);
+}
+
+/* .button--outlined.button--hover {
+    box-shadow: 0 0 0 1.5px currentColor;
+} */
+
+.button--filled {
+    color: var(--wui-color-white);
+    box-shadow: none;
+}
+
+.button:disabled {
+    border: 1px dashed var(--wui-color-base-400);
+    border-spacing: 5px;
+
+    box-shadow: none;
+    background: var(--wui-color-base-200);
+    color: var(--wui-color-base-400);
+
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtY2lyY2xlLW9mZiI+PHBhdGggZD0ibTIgMiAyMCAyMCIvPjxwYXRoIGQ9Ik04LjM1IDIuNjlBMTAgMTAgMCAwIDEgMjEuMyAxNS42NSIvPjxwYXRoIGQ9Ik0xOS4wOCAxOS4wOEExMCAxMCAwIDEgMSA0LjkyIDQuOTIiLz48L3N2Zz4='), not-allowed;
+}

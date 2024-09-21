@@ -22,6 +22,7 @@ const resolveDependencies = () => {
     const docsDir = path.resolve(__dirname);
 
     execWithDir("npm i -y", monotrepoRootDir);
+    execWithDir("npm i -y", packageDir);
     execWithDir("npm run build", packageDir);
 
     execWithDir("npm link", packageDir);

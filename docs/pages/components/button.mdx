@@ -37,7 +37,8 @@ An interactive element activated by a user with a mouse, keyboard, finger, voice
     <Tab label="Preview">
       <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
         <Button size="icon"><Home size={20} /></Button>
-        <Button size="icon" variant="outlined"><Home size={20} /></Button>
+        <Button size="icon" variant="ghost"><Home size={20} /></Button>
+        <Button size="icon" variant="outline"><Home size={20} /></Button>
         <Button size="icon" variant="text"><Home size={20} /></Button>
       </Container>
     </Tab>
@@ -48,7 +49,11 @@ An interactive element activated by a user with a mouse, keyboard, finger, voice
         <Home size={20} />
       </Button>
 
-      <Button size="icon" variant="outlined">
+      <Button size="icon" variant="ghost">
+        <Home size={20} />
+      </Button>
+
+      <Button size="icon" variant="outline">
         <Home size={20} />
       </Button>
 
@@ -72,7 +77,9 @@ An interactive element activated by a user with a mouse, keyboard, finger, voice
 
     <Tab label="Code">
       ```jsx
-        <Button action="destructive"> Button </Button>
+        <Button action="destructive">
+          Button
+        </Button>
       ```
     </Tab>
 
@@ -90,25 +97,49 @@ An interactive element activated by a user with a mouse, keyboard, finger, voice
 
     <Tab label="Code">
       ```jsx
-        <Button action="neutral"> Button </Button>
+        <Button action="neutral">
+          Button
+        </Button>
       ```
     </Tab>
 
   </TabGroup>
+
+### Ghost 
+
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Button variant="ghost">
+        Button
+      </Button>
+    </Container>
+
+  </Tab>
+
+<Tab label="Code">
+    ```jsx
+    <Button variant="ghost">Button</Button>
+    ```
+</Tab>
+
+</TabGroup>
 
 ### Outline
 
   <TabGroup>
     <Tab label="Preview">
       <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-        <Button variant="outlined"> Button </Button>
+        <Button variant="outline"> Button </Button>
       </Container>
 
     </Tab>
 
     <Tab label="Code">
       ```jsx
-        <Button variant="outlined"> Button </Button>
+        <Button variant="outline">
+          Button
+        </Button>
       ```
     </Tab>
 
@@ -126,7 +157,29 @@ An interactive element activated by a user with a mouse, keyboard, finger, voice
 
     <Tab label="Code">
       ```jsx
-        <Button variant="text"> Button </Button>
+        <Button variant="text">
+          Button
+        </Button>
+      ```
+    </Tab>
+
+  </TabGroup>
+
+### Disabled
+
+  <TabGroup>
+    <Tab label="Preview">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+        <Button disabled> Button </Button>
+      </Container>
+
+    </Tab>
+
+    <Tab label="Code">
+      ```jsx
+        <Button disabled>
+          Button
+        </Button>
       ```
     </Tab>
 
@@ -134,11 +187,11 @@ An interactive element activated by a user with a mouse, keyboard, finger, voice
 
 ## API Reference
 
-| Prop                   | <div className="w-full">Type</div>                                        |    Default    |
-| ---------------------- | ------------------------------------------- | :-----------: |
-| <Prop>variant</Prop>   | `filled` \| `outlined` \| `text`            |   `filled`    |
-| <Prop>action</Prop>    | `progressive` \| `destructive` \| `neutral` | `progressive` |
-| <Prop>size</Prop>      | `normal` \| `icon`                          |   `normal`    |
-| <Prop>disabled</Prop>  | `boolean`                                   |    `false`    |
-| <Prop>onClick</Prop>   | `() => void`                                |       -       |
-| <Prop>className</Prop> | `string`                                    |       -       |
+| Prop                   | Type                                  |    Default    |
+| ---------------------- | ------------------------------------- | :-----------: |
+| <Prop>variant</Prop>   | `filled` `ghost` `outline` `text`     |   `filled`    |
+| <Prop>action</Prop>    | `progressive` `destructive` `neutral` | `progressive` |
+| <Prop>size</Prop>      | `normal` `icon`                       |   `normal`    |
+| <Prop>disabled</Prop>  | `boolean`                             |    `false`    |
+| <Prop>onClick</Prop>   | `() => void`                          |       -       |
+| <Prop>className</Prop> | `string`                              |       -       |

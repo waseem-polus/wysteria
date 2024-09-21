@@ -4,6 +4,9 @@ export default {
     content: ["./src/**/*.{html,js,jsx}"],
     darkMode: "selector",
     theme: {
+        fontFamily: {
+            sans: ["Work Sans", "sans-serif"],
+        },
         extend: {
             animation: {
                 "show-popover": "popover 150ms cubic-bezier(0.16, 1, 0.3, 1)",

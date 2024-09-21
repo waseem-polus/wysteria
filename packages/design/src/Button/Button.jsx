@@ -1,43 +1,27 @@
-import React, { useState } from "react";
-import classNames from "classnames";
-
-import "./Button.css";
+import React from "react";
+import { twMerge } from "tailwind-merge";
+import { button } from "./styles";
 
 export const Button = ({
     onClick,
     children = null,
     size = "normal",
-    padding = "md",
-    variant = "filled",
+    variant = "primary",
     action = "progressive",
     disabled = false,
     className = "",
 }) => {
-    const [isHovering, setIsHovering] = useState(false);
-    const [isClicking, setIsClicking] = useState(false);
+    const approvedVariants = ['filled', 'ghost', 'outline', 'text'];
 
-    let buttonClass = classNames(
-        `button button--${variant}`,
-        `button--${action}`,
-        `padding-${padding}`,
-        {
-            "button--icon-only": size === "icon",
-            "button--hover": !disabled && isHovering,
-            "button--active": !disabled,
-            "button--click": !disabled && isClicking,
-        },
-        className,
-    );
+    if (!approvedVariants.includes(variant)) {
+        console.error(`used ${variant} for variant you stoopid`)
+    }
 
     return (
         <button
-            className={buttonClass}
+            className={twMerge(button({ variant, action, size }), className)}
             onClick={onClick}
             disabled={disabled}
-            onMouseDown={() => setIsClicking(true)}
-            onMouseUp={() => setIsClicking(false)}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
         >
             {children}
         </button>

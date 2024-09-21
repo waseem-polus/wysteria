@@ -1,28 +1,22 @@
 import React from "react";
 import useToggle from "../hooks/useToggle";
-import {Button} from "./Button";
-
-import "./Button.css";
+import { Button } from "./Button";
 
 export const Toggle = ({
-	onIcon,
-	offIcon,
-	onLabel,
-	offLabel,
-	initialValue = true,
-	onChange = () => {},
-	...props
+    onIcon,
+    offIcon,
+    onLabel,
+    offLabel,
+    initialValue = true,
+    onChange = () => {},
+    ...props
 }) => {
-	const [value, toggleValue] = useToggle(initialValue, onChange);
+    const [value, toggleValue] = useToggle(initialValue, onChange);
 
-	return (
-		<Button 
-			{...props}
-
-			leftIcon={value? onIcon : offIcon} 
-			onClick={() => toggleValue()}
-		>
-			{value? onLabel : offLabel}
-		</Button>
-	);
+    return (
+        <Button {...props} onClick={() => toggleValue()}>
+            {value ? onIcon : offIcon}
+            {value ? onLabel : offLabel}
+        </Button>
+    );
 };

@@ -1,3 +1,2 @@
-export * from "./Button";
 export * from "./Toggle";
-export * from "./TwButton";
+export * from "./Button";

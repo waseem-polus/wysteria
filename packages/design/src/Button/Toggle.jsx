@@ -3,10 +3,8 @@ import useToggle from "../hooks/useToggle";
 import { Button } from "./Button";
 
 export const Toggle = ({
-    onIcon,
-    offIcon,
-    onLabel,
-    offLabel,
+    children,
+    offChildren,
     initialValue = true,
     onChange = () => {},
     ...props
@@ -14,9 +12,8 @@ export const Toggle = ({
     const [value, toggleValue] = useToggle(initialValue, onChange);
 
     return (
-        <Button {...props} onClick={() => toggleValue()}>
-            {value ? onIcon : offIcon}
-            {value ? onLabel : offLabel}
+        <Button onClick={() => toggleValue()} {...props}>
+            {value ? children : offChildren}
         </Button>
     );
 };

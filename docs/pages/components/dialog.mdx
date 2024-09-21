@@ -41,7 +41,9 @@ A window overlaid on either the primary window or another dialog window, renderi
                 <DialogClose>
                     <Button variant="text">Cancel</Button>
                 </DialogClose>
-                <Button>Save</Button>
+                <DialogClose>
+                    <Button>Save</Button>
+                </DialogClose>
             </DialogFooter>
         </DialogContent>
     </Dialog>
@@ -50,7 +52,10 @@ A window overlaid on either the primary window or another dialog window, renderi
 ```jsx copy
 <Dialog modal>
     <DialogTrigger>
-        <Button leftIcon="User">Edit Profile</Button>
+        <Button>
+            <User size={20} />
+            Edit Profile
+        </Button>
     </DialogTrigger>
     <DialogContent>
         <DialogClose />
@@ -62,7 +67,9 @@ A window overlaid on either the primary window or another dialog window, renderi
             <DialogClose>
                 <Button variant="text">Cancel</Button>
             </DialogClose>
-            <Button>Save</Button>
+            <DialogClose>
+                <Button>Save</Button>
+            </DialogClose>
         </DialogFooter>
     </DialogContent>
 </Dialog>

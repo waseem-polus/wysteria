@@ -14,7 +14,7 @@
     "ui",
     "wui"
   ],
-  "homepage": "https://github.com/waseem-polus/wui-design",
+  "homepage": "https://wysteria.dev",
   "files": [
     "dist"
   ],
@@ -40,11 +40,12 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.1",
+    "@vitejs/plugin-react": "^4.0.3",
+    "class-variance-authority": "^0.7.0",
     "classnames": "^2.3.2",
     "lucide-react": "^0.263.1",
     "tailwind-merge": "^2.5.2",
-    "vite-plugin-css-injected-by-js": "^3.3.0",
-    "@vitejs/plugin-react": "^4.0.3"
+    "vite-plugin-css-injected-by-js": "^3.3.0"
   },
   "peerDependencies": {
     "react": "^18",

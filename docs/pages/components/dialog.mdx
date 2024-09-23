@@ -1,4 +1,5 @@
 import ComponentPreview from "../../components/ComponentPreview";
+import { User } from "lucide-react";
 import {
     Dialog,
     DialogTrigger,
@@ -15,14 +16,20 @@ import {
 
 A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
 
-<Link target="_blank" link="https://www.radix-ui.com/primitives/docs/components/dialog">
+<Link
+    target="_blank"
+    link="https://www.radix-ui.com/primitives/docs/components/dialog"
+>
     API Reference
 </Link>
 
 <ComponentPreview>
     <Dialog modal>
         <DialogTrigger>
-            <Button leftIcon="User">Edit Profile</Button>
+            <Button>
+                <User size={20} />
+                {"Edit Profile"}
+            </Button>
         </DialogTrigger>
         <DialogContent>
             <DialogClose />
@@ -34,7 +41,9 @@ A window overlaid on either the primary window or another dialog window, renderi
                 <DialogClose>
                     <Button variant="text">Cancel</Button>
                 </DialogClose>
-                <Button>Save</Button>
+                <DialogClose>
+                    <Button>Save</Button>
+                </DialogClose>
             </DialogFooter>
         </DialogContent>
     </Dialog>
@@ -43,7 +52,10 @@ A window overlaid on either the primary window or another dialog window, renderi
 ```jsx copy
 <Dialog modal>
     <DialogTrigger>
-        <Button leftIcon="User">Edit Profile</Button>
+        <Button>
+            <User size={20} />
+            Edit Profile
+        </Button>
     </DialogTrigger>
     <DialogContent>
         <DialogClose />
@@ -55,7 +67,9 @@ A window overlaid on either the primary window or another dialog window, renderi
             <DialogClose>
                 <Button variant="text">Cancel</Button>
             </DialogClose>
-            <Button>Save</Button>
+            <DialogClose>
+                <Button>Save</Button>
+            </DialogClose>
         </DialogFooter>
     </DialogContent>
 </Dialog>

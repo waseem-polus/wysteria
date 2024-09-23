@@ -1,91 +1,199 @@
-import { WuiApp, Container, Button, TabGroup, Tab } from "@wysteria/design"
-import ButtonEditor from "../../components/ButtonEditor"
+import { WuiApp, Container, Button, TabGroup, Tab } from "@wysteria/design";
+import ComponentPreview from "../../components/ComponentPreview";
+import ButtonEditor from "../../components/ButtonEditor";
+import Prop from "../../components/Prop";
+import { Home, HandMetal } from "lucide-react";
 
 # Button
-The Button Component is a basic UI element that enables user interaction by triggering actions or events upon click. It can be customized with text, icons, and styles to suit specific interface requirements.
 
-## Demo
- 
-<ButtonEditor />
+An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology.
 
-## Button Types
-<WuiApp>
+<ComponentPreview>
+    <Container
+        paddingVer="md"
+        gap="sm"
+        justify="space-evenly"
+        align="center"
+        direction="row"
+        style={{ width: "100%" }}
+    >
+        <Button>
+            <HandMetal size={20} /> {"Button"}
+        </Button>
+    </Container>
+</ComponentPreview>
+
+```jsx copy
+<Button>
+    <HandMetal size={20} /> Button
+</Button>
+```
+
+## Examples
+
+### Icon
+
   <TabGroup>
-    <Tab label="Icon+Text">
+    <Tab label="Preview">
       <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-        <Button leftIcon="Home" >Filled</Button>
-        <Button leftIcon="Home" variant="outlined">Outlined</Button>
-        <Button leftIcon="Home" variant="text">BUTTON</Button>
+        <Button size="icon"><Home size={20} /></Button>
+        <Button size="icon" variant="outline"><Home size={20} /></Button>
+        <Button size="icon" variant="ghost"><Home size={20} /></Button>
+        <Button size="icon" variant="text"><Home size={20} /></Button>
       </Container>
+    </Tab>
 
+    <Tab label="Code">
       ```js
-      <Button leftIcon="Home" >Filled</Button>
-      <Button leftIcon="Home" variant="outlined">Outlined</Button>
-      <Button leftIcon="Home" variant="text">BUTTON</Button>
+      <Button size="icon">
+        <Home size={20} />
+      </Button>
+
+      <Button size="icon" variant="outline">
+        <Home size={20} />
+      </Button>
+
+      <Button size="icon" variant="ghost">
+        <Home size={20} />
+      </Button>
+
+      <Button size="icon" variant="text">
+        <Home size={20} />
+      </Button>
       ```
     </Tab>
 
-    <Tab label="Text">
-      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-        <Button>Filled</Button>
-        <Button variant="outlined">Outlined</Button>
-        <Button variant="text">BUTTON</Button>
-      </Container>
-
-      ```js
-      <Button>Filled</Button>
-      <Button variant="outlined">Outlined</Button>
-      <Button variant="text">BUTTON</Button>
-      ```
-    </Tab>
-
-    <Tab label="Icon">
-      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-        <Button leftIcon="Home" ></Button>
-        <Button leftIcon="Home" variant="outlined"></Button>
-        <Button leftIcon="Home" variant="text"></Button>
-      </Container>
-
-      ```js
-      <Button leftIcon="Home" ></Button>
-      <Button leftIcon="Home" variant="outlined"></Button>
-      <Button leftIcon="Home" variant="text"></Button>
-      ```
-    </Tab>
   </TabGroup>
-</WuiApp>
 
-## Props
-  #### ``onClick``
-    This callback is called when the button is clicked.  
-    **Type: ``Callback``**  
-  <br />
+### Destructive
 
-  #### ``variant``
-    The style of the button.  
-    **Type: ``'filled' (default) | 'outlined' | 'text'``**  
-  <br />
+  <TabGroup>
+    <Tab label="Preview">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+        <Button action="destructive"> Button </Button>
+      </Container>
 
-  #### ``leftIcon``
-    Icon to be displayed to the left of the text. Uses [Lucide Icons](https://lucide.dev/icons/).  
-    **Type: ``String``**
-  <br />
+    </Tab>
 
-  #### ``rightIcon``  
-    Icon to be displayed to the left of the text. Uses [Lucide Icons](https://lucide.dev/icons/).  
-    **Type: ``String``**
-  <br />
+    <Tab label="Code">
+      ```jsx
+        <Button action="destructive">
+          Button
+        </Button>
+      ```
+    </Tab>
 
-  #### ``padding``
-    Padding between button border and content, and between button text and icons.  
-    **Type: ``'none' | 'xs' | 'sm' | 'md' (default) | 'lg' | 'xl' | 'xxl' | xxxl``**
-  <br />
+  </TabGroup>
 
-  #### ``disabled``
-    If the button is clickable or not.  
-    **Type: ``true | false (default)``**
-  <br />
+### Neutral
 
-  #### ``children``
-    The label of the button. If empty, button assumes a square aspect ratio (icon-only).  
-    **Type: ``String``**
+  <TabGroup>
+    <Tab label="Preview">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+        <Button action="neutral"> Button </Button>
+      </Container>
+
+    </Tab>
+
+    <Tab label="Code">
+      ```jsx
+        <Button action="neutral">
+          Button
+        </Button>
+      ```
+    </Tab>
+
+  </TabGroup>
+
+### Outline
+
+  <TabGroup>
+    <Tab label="Preview">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+        <Button variant="outline"> Button </Button>
+      </Container>
+
+    </Tab>
+
+    <Tab label="Code">
+      ```jsx
+        <Button variant="outline">
+          Button
+        </Button>
+      ```
+    </Tab>
+
+  </TabGroup>
+
+### Ghost 
+
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Button variant="ghost">
+        Button
+      </Button>
+    </Container>
+
+  </Tab>
+
+<Tab label="Code">
+    ```jsx
+    <Button variant="ghost">
+      Button
+    </Button>
+    ```
+</Tab>
+
+</TabGroup>
+
+### Text
+
+  <TabGroup>
+    <Tab label="Preview">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+        <Button variant="text"> Button </Button>
+      </Container>
+
+    </Tab>
+
+    <Tab label="Code">
+      ```jsx
+        <Button variant="text">
+          Button
+        </Button>
+      ```
+    </Tab>
+
+  </TabGroup>
+
+### Disabled
+
+  <TabGroup>
+    <Tab label="Preview">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+        <Button disabled> Button </Button>
+      </Container>
+
+    </Tab>
+
+    <Tab label="Code">
+      ```jsx
+        <Button disabled>
+          Button
+        </Button>
+      ```
+    </Tab>
+
+  </TabGroup>
+
+## API Reference
+
+| Prop                   | Type                                  |    Default    |
+| ---------------------- | ------------------------------------- | :-----------: |
+| <Prop>variant</Prop>   | `filled` `ghost` `outline` `text`     |   `filled`    |
+| <Prop>action</Prop>    | `progressive` `destructive` `neutral` | `progressive` |
+| <Prop>size</Prop>      | `normal` `icon`                       |   `normal`    |
+| <Prop>disabled</Prop>  | `boolean`                             |    `false`    |
+| <Prop>onClick</Prop>   | `() => void`                          |       -       |
+| <Prop>className</Prop> | `string`                              |       -       |

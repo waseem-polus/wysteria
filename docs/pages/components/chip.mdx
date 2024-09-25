@@ -1,6 +1,5 @@
 import ComponentPreview from "../../components/ComponentPreview";
 import Prop from "../../components/Prop";
-import { Callout } from "nextra/components";
 import { Container, TabGroup, Tab, Chip, ChipAction } from "@wysteria/design";
 import { Home, User, Plus, Info } from "lucide-react";
 
@@ -49,6 +48,8 @@ Interactive badges used to represent user-generated content.
   </TabGroup>
 
 ### Custom Action
+
+  `ChipAction` is a button to interact with the chip. It accepts the same props as a [`Button`](/components/button).
 
   <TabGroup>
     <Tab label="Preview">
@@ -156,17 +157,8 @@ Interactive badges used to represent user-generated content.
 
 ## API Reference
 
-##### Chip
-
-The main chip component
-
 | Prop                   | Type                                  |    Default    |
 | ---------------------- | ------------------------------------- | :-----------: |
 | <Prop>variant</Prop>   | `filled` `ghost` `outline` `text`     |   `filled`    |
 | <Prop>action</Prop>    | `progressive` `destructive` `neutral` | `progressive` |
-| <Prop>disabled</Prop>  | `boolean`                             |    `false`    |
 | <Prop>className</Prop> | `string`                              |       -       |
-
-##### ChipAction
-
-An action button to interact with the chip. Accepts the same props as a [`Button`](/components/button)

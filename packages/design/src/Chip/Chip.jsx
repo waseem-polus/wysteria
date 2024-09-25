@@ -10,14 +10,6 @@ const ContextDefaults = {
 };
 const ChipContext = createContext(ContextDefaults);
 
-export const ChipField = ({ children, wrap = "wrap" }) => {
-    return (
-        <Container gap="xs" padding="xs" style={{ flexWrap: wrap }}>
-            {children}
-        </Container>
-    );
-};
-
 export const ChipAction = forwardRef(
     ({ children, className = "", ...props }, ref) => {
         const { action } = useContext(ChipContext);

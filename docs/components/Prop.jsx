@@ -1,9 +1,14 @@
 import { Chip } from "@wysteria/design";
 import React from "react";
 
-const Prop = ({ children }) => {
+const Prop = ({ children, ...props }) => {
     return (
-        <Chip className="text-sm" color="primary">
+        <Chip
+            className="justify-center text-sm"
+            variant="outline"
+            color="primary"
+            {...props}
+        >
             <code>{children}</code>
         </Chip>
     );

@@ -1,11 +1,9 @@
-import React, { createContext, useContext } from "react";
-import { Container } from "../Container";
-import { Button } from "../Button";
-import { chip } from "./styles";
-import { twMerge } from "tailwind-merge";
+import React, { createContext, forwardRef, useContext } from "react";
 import { X } from "lucide-react";
-
-import { forwardRef } from "react";
+import { twMerge } from "tailwind-merge";
+import { Button } from "../Button";
+import { Container } from "../Container";
+import { chip } from "./styles";
 
 const ContextDefaults = {
     action: "progressive",

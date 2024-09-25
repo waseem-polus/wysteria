@@ -1,75 +1,55 @@
-import React from "react";
-import { InputButton } from "../InputField/InputField";
+import React, { createContext, forwardRef, useContext } from "react";
+import { X } from "lucide-react";
+import { twMerge } from "tailwind-merge";
+import { Button } from "../Button";
 import { Container } from "../Container";
-import { Icon } from "../Icon";
-import classNames from "classnames";
+import { chip } from "./styles";
 
-import "./Chip.css";
-
-export const ChipField = ({children, wrap = "wrap"}) => {
-	return (
-		<Container 
-			gap = 'xs' 
-			padding='xs' 
-			style={{flexWrap: wrap}}
-		>{children}</Container>
-	);
+const ContextDefaults = {
+    action: "progressive",
 };
+const ChipContext = createContext(ContextDefaults);
 
-export const Chip = ({
-	children, 
-	removable = false, 
-	onRemove = () => {}, 
-	color = "neutral", 
-	icon =  null, 
-	fontCase = "none",
-	className = ""
-}) => {
-	let backgroundColor = classNames({
-		"--wui-color-base-300": color === "neutral",
-		"--wui-color-accent-50": color === "primary",
-	});
+export const ChipAction = forwardRef(
+    ({ children, className = "", ...props }, ref) => {
+        const { action } = useContext(ChipContext);
 
-	let strokeColor = classNames({
-		"--wui-color-black": color === "neutral",
-		"--wui-color-accent-700": color === "primary",
-	});
-    
-	let labelClass = classNames(
-		"chip__label",
-		{
-			"chip__label--primary" : color === "primary"
-		},
-		className
-	);
-    
-	const containerStyle = {
-		borderRadius: "5rem",
-		minWidth: "2rem",
-		backgroundColor: `var(${backgroundColor})`,
-		textTransform: fontCase,
-	};
+        return (
+            <Button
+                className={twMerge("p-0", className)}
+                ref={ref}
+                size="icon"
+                variant="text"
+                action={action}
+                {...props}
+            >
+                {children || <X size={16} />}
+            </Button>
+        );
+    },
+);
 
-	return (
-		<Container 
-			paddingVer='sm' 
-			paddingHor="lg" 
-			gap="md" 
-			align='center'
-			justify='center'
-
-			style={containerStyle}
-		>
-			<Icon name = {icon} size={16} color={`var(${strokeColor})`}></Icon>
-			<label className={labelClass}>{children}</label>
-
-			{
-				removable && 
-				<InputButton
-					icon={<Icon name = "X" size={16}></Icon>}
-					onClick={onRemove}
-				></InputButton>
-			}
-		</Container>
-	);
-};
+export const Chip = forwardRef(
+    (
+        {
+            children,
+            variant = "filled",
+            action = "progressive",
+            className = "",
+            ...props
+        },
+        ref,
+    ) => {
+        return (
+            <ChipContext.Provider value={{ action }}>
+                <div
+                    className={twMerge(chip({ action, variant }), className)}
+                    ref={ref}
+                    {...props}
+                >
+                    {children}
+                </div>
+            </ChipContext.Provider>
+        );
+    },
+);

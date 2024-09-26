@@ -1,0 +1,51 @@
+import ComponentPreview from "../../components/ComponentPreview";
+import { User } from "lucide-react";
+import {
+    Popover,
+    PopoverTrigger,
+    PopoverAnchor,
+    PopoverContent,
+    PopoverArrow,
+    PopoverClose,
+    Button,
+    Link,
+    TextField,
+} from "@wysteria/design";
+import { Calendar } from "lucide-react";
+
+# Popover
+
+Displays rich content in a portal, triggered by a button.
+
+<Link
+    target="_blank"
+    link="https://www.radix-ui.com/primitives/docs/components/popover"
+>
+    API Reference
+</Link>
+
+<ComponentPreview>
+    <Popover>
+        <PopoverTrigger>
+            <Button>
+                <Calendar size={20} /> {"Join"}
+            </Button>
+        </PopoverTrigger>
+        <PopoverContent>
+            This is a popover
+        </PopoverContent>
+    </Popover>
+</ComponentPreview>
+
+```jsx copy
+    <Popover>
+        <PopoverTrigger>
+            <Button>
+                <Calendar size={20} /> {"Join"}
+            </Button>
+        </PopoverTrigger>
+        <PopoverContent>
+            This is a popover
+        </PopoverContent>
+    </Popover>
+```

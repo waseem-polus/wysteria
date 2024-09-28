@@ -14,14 +14,22 @@ const PopoverAnchor = ({ children, ...props }) => {
     return <RadixPopover.Anchor {...props}>{children}</RadixPopover.Anchor>;
 };
 
-const PopoverContent = ({ children, className = "", ...props }) => {
+const PopoverContent = ({
+    children,
+    className = "",
+    side = "bottom",
+    sideOffset = 8,
+    ...props
+}) => {
     return (
         <RadixPopover.Portal>
             <RadixPopover.Content
                 className={twMerge(
-                    "animate-show-popover rounded-md border border-zinc-300 bg-zinc-50 p-4 dark:border-zinc-600 dark:bg-zinc-800",
+                    "animate-show-popover rounded-md border border-zinc-300 bg-zinc-50 p-4 shadow-md dark:border-zinc-600 dark:bg-zinc-800",
                     className,
                 )}
+                side={side}
+                sideOffset={sideOffset}
                 {...props}
             >
                 {children}
@@ -69,5 +77,5 @@ export {
     PopoverAnchor,
     PopoverContent,
     PopoverClose,
-    PopoverArrow
+    PopoverArrow,
 };

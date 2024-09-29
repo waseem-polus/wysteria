@@ -10,8 +10,11 @@ import {
     Button,
     Link,
     TextField,
+    Container,
+    TabGroup,
+    Tab,
 } from "@wysteria/design";
-import { Calendar } from "lucide-react";
+import { Calendar, Anchor } from "lucide-react";
 
 # Popover
 
@@ -31,21 +34,91 @@ Displays rich content in a portal, triggered by a button.
                 <Calendar size={20} /> {"Join"}
             </Button>
         </PopoverTrigger>
-        <PopoverContent>
-            This is a popover
-        </PopoverContent>
+        <PopoverContent>This is a popover</PopoverContent>
     </Popover>
 </ComponentPreview>
 
 ```jsx copy
-    <Popover>
+<Popover>
+    <PopoverTrigger>
+        <Button>
+            <Calendar size={20} /> Join
+        </Button>
+    </PopoverTrigger>
+    <PopoverContent>This is a popover</PopoverContent>
+</Popover>
+```
+
+## Examples
+
+### Anchor
+
+  <TabGroup>
+    <Tab label="Preview">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Popover>
+        <PopoverAnchor>
+            <div className="p-2 rounded-md border-zinc-800 dark:border-zinc-300 border border-dashed">
+                <Anchor size={20}/>
+            </div>
+        </PopoverAnchor>
         <PopoverTrigger>
-            <Button>
-                <Calendar size={20} /> {"Join"}
-            </Button>
+            <Button>Open</Button>
         </PopoverTrigger>
         <PopoverContent>
-            This is a popover
+            Popover here
         </PopoverContent>
-    </Popover>
-```
+      </Popover>
+      </Container>
+    </Tab>
+
+    <Tab label="Code">
+      ```js
+      <Popover>
+        <PopoverAnchor>
+            <div className="p-2 rounded-md border-zinc-800 dark:border-zinc-300 border border-dashed">
+                <Anchor size={20}/>
+            </div>
+        </PopoverAnchor>
+        <PopoverTrigger>
+            <Button>Open</Button>
+        </PopoverTrigger>
+        <PopoverContent>
+            Popover here
+        </PopoverContent>
+      </Popover>
+      ```
+    </Tab>
+
+  </TabGroup>
+
+### Custom Side 
+
+  <TabGroup>
+    <Tab label="Preview">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Popover>
+        <PopoverTrigger>
+            <Button>Open</Button>
+        </PopoverTrigger>
+        <PopoverContent side="right">
+            Popover here
+        </PopoverContent>
+      </Popover>
+      </Container>
+    </Tab>
+
+    <Tab label="Code">
+      ```js
+      <Popover>
+        <PopoverTrigger>
+            <Button>Open</Button>
+        </PopoverTrigger>
+        <PopoverContent side="right">
+            Popover here
+        </PopoverContent>
+      </Popover>
+      ```
+    </Tab>
+
+  </TabGroup>

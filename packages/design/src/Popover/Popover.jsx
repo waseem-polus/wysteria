@@ -1,6 +1,8 @@
 import React from "react";
 import * as RadixPopover from "@radix-ui/react-popover";
 import { twMerge } from "tailwind-merge";
+import { Button } from "../Button";
+import { X } from "lucide-react";
 
 const PopoverTrigger = ({ children, asChild = true, ...props }) => {
     return (

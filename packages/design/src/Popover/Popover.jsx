@@ -3,75 +3,81 @@ import * as RadixPopover from "@radix-ui/react-popover";
 import { twMerge } from "tailwind-merge";
 import { Button } from "../Button";
 import { X } from "lucide-react";
+import { forwardRef } from "react";
 
-const PopoverTrigger = ({ children, asChild = true, ...props }) => {
-    return (
-        <RadixPopover.Trigger asChild={asChild} {...props}>
-            {children}
-        </RadixPopover.Trigger>
-    );
-};
+const Popover = RadixPopover.Root;
 
-const PopoverAnchor = ({ children, ...props }) => {
-    return <RadixPopover.Anchor {...props}>{children}</RadixPopover.Anchor>;
-};
+const PopoverAnchor = RadixPopover.Anchor;
 
-const PopoverContent = ({
-    children,
-    className = "",
-    side = "bottom",
-    sideOffset = 8,
-    ...props
-}) => {
-    return (
-        <RadixPopover.Portal>
-            <RadixPopover.Content
-                className={twMerge(
-                    "transition-all origin-popover data-[side=top]:animate-show-popover-top data-[side=bottom]:animate-show-popover-bottom data-[side=left]:animate-show-popover-left data-[side=right]:animate-show-popover-right rounded-md border border-zinc-300 bg-zinc-50 p-4 shadow-md dark:border-zinc-600 dark:bg-zinc-800",
-                    className,
-                )}
-                side={side}
-                sideOffset={sideOffset}
-                {...props}
-            >
+const PopoverTrigger = forwardRef(
+    ({ children, asChild = true, ...props }, ref) => {
+        return (
+            <RadixPopover.Trigger ref={ref} asChild={asChild} {...props}>
                 {children}
-            </RadixPopover.Content>
-        </RadixPopover.Portal>
-    );
-};
+            </RadixPopover.Trigger>
+        );
+    },
+);
+PopoverTrigger.displayName = RadixPopover.Trigger.displayName;
 
-const PopoverClose = ({ children, asChild = true, ...props }) => {
-    return (
-        <RadixPopover.Close asChild={asChild} {...props}>
-            {children || (
-                <Button
-                    size="icon"
-                    variant="text"
-                    action="neutral"
-                    className="absolute right-3 top-3 p-0 text-zinc-500 dark:text-zinc-400"
+const PopoverContent = forwardRef(
+    (
+        { children, className = "", side = "bottom", sideOffset = 8, ...props },
+        ref,
+    ) => {
+        return (
+            <RadixPopover.Portal>
+                <RadixPopover.Content
+                    className={twMerge(
+                        "origin-popover data-[side=top]:animate-show-popover-top data-[side=bottom]:animate-show-popover-bottom data-[side=left]:animate-show-popover-left data-[side=right]:animate-show-popover-right rounded-md border border-zinc-300 bg-zinc-50 p-4 shadow-md transition-all dark:border-zinc-600 dark:bg-zinc-800",
+                        className,
+                    )}
+                    ref={ref}
+                    side={side}
+                    sideOffset={sideOffset}
+                    {...props}
                 >
-                    <X />
-                </Button>
-            )}
-        </RadixPopover.Close>
-    );
-};
+                    {children}
+                </RadixPopover.Content>
+            </RadixPopover.Portal>
+        );
+    },
+);
+PopoverContent.displayName = RadixPopover.Content.displayName;
 
-const PopoverArrow = ({ className, ...props }) => {
+const PopoverClose = forwardRef(
+    ({ children, asChild = true, ...props }, ref) => {
+        return (
+            <RadixPopover.Close ref={ref} asChild={asChild} {...props}>
+                {children || (
+                    <Button
+                        size="icon"
+                        variant="text"
+                        action="neutral"
+                        className="absolute right-3 top-3 p-0 text-zinc-500 dark:text-zinc-400"
+                    >
+                        <X />
+                    </Button>
+                )}
+            </RadixPopover.Close>
+        );
+    },
+);
+PopoverClose.displayName = RadixPopover.Close.displayName;
+
+const PopoverArrow = forwardRef(({ className, ...props }, ref) => {
     return (
         <RadixPopover.Arrow
             className={twMerge(
                 "border-zinc-300 fill-zinc-300 dark:border-zinc-600 dark:fill-zinc-600",
                 className,
             )}
+            ref={ref}
             {...props}
         />
     );
-};
-
-const Popover = ({ children, ...props }) => {
-    return <RadixPopover.Root {...props}>{children}</RadixPopover.Root>;
-};
+});
+PopoverArrow.displayName = RadixPopover.Arrow.displayName;
 
 export {
     Popover,

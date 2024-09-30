@@ -27,14 +27,8 @@
     }
   },
   "scripts": {
-    "tw": "npx tailwindcss -i ./src/index.css -o ./src/output.css",
-    "start": "vite",
-    "build": "npm run tw && vite build",
-    "preview": "vite preview",
-    "test": "vitest --coverage",
-    "test:ci": "npm run test -- run",
-    "test:ui": "npm run test -- --ui",
-    "test:watch": "npm run test -- --watch",
+    "tw": "npx tailwindcss -i ./src/index.css -o ./dist/styles.css",
+    "build": "vite build && npm run tw",
     "dry": "npm publish --dry-run",
     "pub": "npm publish --access public"
   },

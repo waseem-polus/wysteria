@@ -12,11 +12,11 @@ export default {
                 popover: "var(--radix-popover-content-transform-origin)",
             },
             animation: {
-                "show-dialog": "dialog 150ms cubic-bezier(0.16, 1, 0.3, 1)",
-                "show-popover-top": "popover-top 150ms cubic-bezier(0.16, 1, 0.3, 1)",
-                "show-popover-bottom": "popover-bottom 150ms cubic-bezier(0.16, 1, 0.3, 1)",
-                "show-popover-left": "popover-left 150ms cubic-bezier(0.16, 1, 0.3, 1)",
-                "show-popover-right": "popover-right 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+                "show-dialog": "dialog 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+                "show-popover-top": "popover-top 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+                "show-popover-bottom": "popover-bottom 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+                "show-popover-left": "popover-left 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+                "show-popover-right": "popover-right 200ms cubic-bezier(0.16, 1, 0.3, 1)",
             },
             keyframes: {
                 dialog: {

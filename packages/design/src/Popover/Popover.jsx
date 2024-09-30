@@ -27,7 +27,7 @@ const PopoverContent = ({
         <RadixPopover.Portal>
             <RadixPopover.Content
                 className={twMerge(
-                    "animate-show-popover rounded-md border border-zinc-300 bg-zinc-50 p-4 shadow-md dark:border-zinc-600 dark:bg-zinc-800",
+                    "transition-all origin-popover data-[side=top]:animate-show-popover-top data-[side=bottom]:animate-show-popover-bottom data-[side=left]:animate-show-popover-left data-[side=right]:animate-show-popover-right rounded-md border border-zinc-300 bg-zinc-50 p-4 shadow-md dark:border-zinc-600 dark:bg-zinc-800",
                     className,
                 )}
                 side={side}

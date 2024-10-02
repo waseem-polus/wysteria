@@ -4,22 +4,22 @@ import { Button } from "./Button";
 import { forwardRef } from "react";
 
 export const Toggle = forwardRef(
-    (
-        {
-            children,
-            offChildren,
-            initialValue = true,
-            onChange = () => {},
-            ...props
-        },
-        ref,
-    ) => {
-        const [value, toggleValue] = useToggle(initialValue, onChange);
+	(
+		{
+			children,
+			offChildren,
+			initialValue = true,
+			onChange = () => {},
+			...props
+		},
+		ref,
+	) => {
+		const [value, toggleValue] = useToggle(initialValue, onChange);
 
-        return (
-            <Button onClick={() => toggleValue()} ref={ref} {...props}>
-                {value ? children : offChildren}
-            </Button>
-        );
-    },
+		return (
+			<Button onClick={() => toggleValue()} ref={ref} {...props}>
+				{value ? children : offChildren}
+			</Button>
+		);
+	},
 );

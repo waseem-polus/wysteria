@@ -1,5 +1,4 @@
 import React from "react";
-import "./output.css";
 import "./index.css";
 
 export const WuiApp = ({ children }) => {

@@ -29,7 +29,7 @@ const PopoverContent = forwardRef(
             <RadixPopover.Portal>
                 <RadixPopover.Content
                     className={twMerge(
-                        "origin-popover data-[side=top]:animate-show-popover-top data-[side=bottom]:animate-show-popover-bottom data-[side=left]:animate-show-popover-left data-[side=right]:animate-show-popover-right rounded-md border border-zinc-300 bg-zinc-50 p-4 shadow-md transition-all dark:border-zinc-600 dark:bg-zinc-800",
+                        "origin-popover flex flex-col data-[side=top]:animate-show-popover-top data-[side=bottom]:animate-show-popover-bottom data-[side=left]:animate-show-popover-left data-[side=right]:animate-show-popover-right rounded-md border border-zinc-300 bg-zinc-50 p-4 shadow-md transition-all dark:border-zinc-600 dark:bg-zinc-800",
                         className,
                     )}
                     ref={ref}

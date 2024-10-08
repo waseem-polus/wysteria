@@ -14,7 +14,7 @@ import {
     TabGroup,
     Tab,
 } from "@wysteria/design";
-import { Calendar, Anchor } from "lucide-react";
+import { Calendar, Clock, Anchor, MessageSquareText } from "lucide-react";
 
 # Popover
 
@@ -31,21 +31,79 @@ Displays rich content in a portal, triggered by a button.
     <Popover>
         <PopoverTrigger>
             <Button>
-                <Calendar size={20} /> {"Join"}
+                <Calendar size={20} /> {"Details"}
             </Button>
         </PopoverTrigger>
-        <PopoverContent>This is a popover</PopoverContent>
+          <PopoverContent>
+            <div className="flex flex-col gap-2 temxt-zinc-800">
+                <h1 className="text-xl">Weekly Meeting</h1>
+                <h2 className="text-base text-zinc-500 dark:text-zinc-400">Discuss progress and roadblocks</h2>
+
+                <br />
+
+                <span className="flex align-middle gap-2">
+                    <Calendar strokeWidth={1.2} size={24} />
+                    <span className="text-base font-light"> October 7th, 2024 </span>
+                </span>
+
+                <span className="flex align-middle gap-2">
+                    <Clock  strokeWidth={1.2} size={24}  />
+                    <span className="text-base font-light"> 9 - 10AM </span>
+                </span>
+
+                <br />
+
+                <PopoverClose>
+                    <Button
+                        variant="outline"
+                        className="w-full flex-grow"
+                    >
+                        Join
+                    </Button>
+                </PopoverClose>
+            </div>
+          </PopoverContent>
     </Popover>
+
 </ComponentPreview>
 
 ```jsx copy
 <Popover>
     <PopoverTrigger>
         <Button>
-            <Calendar size={20} /> Join
+            <Calendar size={20} /> Details
         </Button>
     </PopoverTrigger>
-    <PopoverContent>This is a popover</PopoverContent>
+    <PopoverContent>
+        <div className="temxt-zinc-800 flex flex-col gap-2">
+            <h1 className="text-xl">Weekly Meeting</h1>
+            <h2 className="text-base text-zinc-500 dark:text-zinc-400">
+                Discuss progress and roadblocks
+            </h2>
+
+            <br />
+
+            <span className="flex gap-2 align-middle">
+                <Calendar strokeWidth={1.2} size={24} />
+                <span className="text-base font-light">
+                    October 7th, 2024
+                </span>
+            </span>
+
+            <span className="flex gap-2 align-middle">
+                <Clock strokeWidth={1.2} size={24} />
+                <span className="text-base font-light"> 9 - 10AM </span>
+            </span>
+
+            <br />
+
+            <PopoverClose>
+                <Button variant="outline" className="w-full flex-grow">
+                    Join
+                </Button>
+            </PopoverClose>
+        </div>
+    </PopoverContent>
 </Popover>
 ```
 
@@ -92,7 +150,7 @@ Displays rich content in a portal, triggered by a button.
 
   </TabGroup>
 
-### Custom Side 
+### Custom Side
 
   <TabGroup>
     <Tab label="Preview">

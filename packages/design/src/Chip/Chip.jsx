@@ -2,7 +2,6 @@ import React, { createContext, forwardRef, useContext } from "react";
 import { X } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { Button } from "../Button";
-import { Container } from "../Container";
 import { chip } from "./styles";
 
 const ContextDefaults = {
@@ -10,7 +9,7 @@ const ContextDefaults = {
 };
 const ChipContext = createContext(ContextDefaults);
 
-export const ChipAction = forwardRef(
+const ChipAction = forwardRef(
 	({ children, className = "", ...props }, ref) => {
 		const { action } = useContext(ChipContext);
 
@@ -28,8 +27,9 @@ export const ChipAction = forwardRef(
 		);
 	},
 );
+ChipAction.displayName = "ChipAction";
 
-export const Chip = forwardRef(
+const Chip = forwardRef(
 	(
 		{
 			children,
@@ -53,3 +53,6 @@ export const Chip = forwardRef(
 		);
 	},
 );
+Chip.displayName = "Chip";
+
+export {Chip, ChipAction};

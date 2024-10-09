@@ -27,8 +27,7 @@
     }
   },
   "scripts": {
-    "tw": "npx tailwindcss -i ./src/index.css -o ./dist/styles.css",
-    "build": "vite build && npm run tw",
+    "build": "vite build",
     "dry": "npm publish --dry-run",
     "pub": "npm publish --access public"
   },

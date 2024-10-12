@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import * as RadixPopover from "@radix-ui/react-popover";
 import { twMerge } from "tailwind-merge";
 import { Button } from "../Button";
 import { X } from "lucide-react";
 import { forwardRef } from "react";
+import { RootContext } from "../WuiApp";
 
 const Popover = RadixPopover.Root;
 
@@ -25,11 +26,12 @@ const PopoverContent = forwardRef(
         { children, className = "", side = "bottom", sideOffset = 8, ...props },
         ref,
     ) => {
+        const { root } = useContext(RootContext);
         return (
-            <RadixPopover.Portal>
+            <RadixPopover.Portal container={root.current}>
                 <RadixPopover.Content
                     className={twMerge(
-                        "origin-popover flex flex-col data-[side=top]:animate-show-popover-top data-[side=bottom]:animate-show-popover-bottom data-[side=left]:animate-show-popover-left data-[side=right]:animate-show-popover-right rounded-md border border-zinc-300 bg-zinc-50 p-4 shadow-md transition-all dark:border-zinc-600 dark:bg-zinc-800",
+                        "origin-popover data-[side=top]:animate-show-popover-top data-[side=bottom]:animate-show-popover-bottom data-[side=left]:animate-show-popover-left data-[side=right]:animate-show-popover-right flex flex-col rounded-md border border-zinc-300 bg-zinc-50 p-4 shadow-md transition-all dark:border-zinc-600 dark:bg-zinc-800",
                         className,
                     )}
                     ref={ref}

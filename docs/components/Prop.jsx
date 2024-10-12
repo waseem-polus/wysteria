@@ -13,7 +13,8 @@ const Prop = ({ children, hint: hintKey = null, ...props }) => {
     return (
         <Chip
             className="flex flex-grow justify-between text-sm"
-            variant="outline"
+            variant="filled"
+            action="neutral"
             {...props}
         >
             <code className="select-text">{children}</code>
@@ -27,7 +28,7 @@ const Prop = ({ children, hint: hintKey = null, ...props }) => {
                     <PopoverContent
                         sideOffset={10}
                         side="bottom"
-                        className="max-w-[48ch] text-sm"
+                        className="max-w-[98vw] text-sm"
                     >
                         {hint(hintKey ?? children)}
                     </PopoverContent>

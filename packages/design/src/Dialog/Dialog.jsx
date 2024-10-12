@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { X } from "lucide-react";
 import { Button } from "../Button";
 import * as RadixDialog from "@radix-ui/react-dialog";
 import { twMerge } from "tailwind-merge";
+import { RootContext } from "../WuiApp";
 
 const DialogTrigger = ({ children, asChild = true, ...props }) => {
     return (
@@ -81,8 +82,9 @@ const DialogFooter = ({ children, className = "", ...props }) => {
 };
 
 const DialogContent = ({ children, className = "", ...props }) => {
+    const { root } = useContext(RootContext);
     return (
-        <RadixDialog.Portal>
+        <RadixDialog.Portal container={root.current}>
             <RadixDialog.Overlay className="fixed inset-0 bg-zinc-900 opacity-60" />
             <RadixDialog.Content
                 className={twMerge(

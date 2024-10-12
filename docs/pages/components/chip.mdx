@@ -25,140 +25,140 @@ Interactive badges used to represent user-generated content.
 
 ### Icon
 
-  <TabGroup>
-    <Tab label="Preview">
-      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-        <Chip>
-            <User size={16}/> 
-            {"Chip"}
-        </Chip>
-      </Container>
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Chip>
+          <User size={16}/> 
+          {"Chip"}
+      </Chip>
+    </Container>
 
-    </Tab>
+  </Tab>
 
-    <Tab label="Code">
-      ```jsx
-        <Chip>
-            <User size={16}/>
-            Chip
-        </Chip>
-      ```
-    </Tab>
+  <Tab label="Code">
+    ```jsx
+      <Chip>
+          <User size={16}/>
+          Chip
+      </Chip>
+    ```
+  </Tab>
 
-  </TabGroup>
+</TabGroup>
 
 ### Custom Action
 
-  `ChipAction` is a button to interact with the chip. It accepts the same props as a [`Button`](/components/button).
+`ChipAction` is a button to interact with the chip. It accepts the same props as a [`Button`](/components/button).
 
-  <TabGroup>
-    <Tab label="Preview">
-      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-        <Chip>
-            <User size={16}/> 
-            {"Chip"}
-            <ChipAction>
-              <Plus size={16} />
-            </ChipAction>
-        </Chip>
-      </Container>
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Chip>
+          <User size={16}/> 
+          {"Chip"}
+          <ChipAction>
+            <Plus size={16} />
+          </ChipAction>
+      </Chip>
+    </Container>
 
-    </Tab>
+  </Tab>
 
-    <Tab label="Code">
-      ```jsx
-        <Chip>
-            <User size={16}/>
-            Chip
-            <ChipAction>
-              <Plus size={16} />
-            </ChipAction>
-        </Chip>
-      ```
-    </Tab>
+  <Tab label="Code">
+    ```jsx
+      <Chip>
+          <User size={16}/>
+          Chip
+          <ChipAction>
+            <Plus size={16} />
+          </ChipAction>
+      </Chip>
+    ```
+  </Tab>
 
-  </TabGroup>
+</TabGroup>
 
 ### Destructive
 
-  <TabGroup>
-    <Tab label="Preview">
-      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-        <Chip action="destructive">
-            {"Chip"}
-            <ChipAction />
-        </Chip>
-      </Container>
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Chip action="destructive">
+          {"Chip"}
+          <ChipAction />
+      </Chip>
+    </Container>
 
-    </Tab>
+  </Tab>
 
-    <Tab label="Code">
-      ```jsx
-        <Chip action="destructive">
-            Chip
-            <ChipAction />
-        </Chip>
-      ```
-    </Tab>
+  <Tab label="Code">
+    ```jsx
+      <Chip action="destructive">
+          Chip
+          <ChipAction />
+      </Chip>
+    ```
+  </Tab>
 
-  </TabGroup>
+</TabGroup>
 
 ### Neutral
 
-  <TabGroup>
-    <Tab label="Preview">
-      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-        <Chip action="neutral">
-            {"Chip"}
-            <ChipAction>
-              <Info size={16} />
-            </ChipAction>
-        </Chip>
-      </Container>
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Chip action="neutral">
+          {"Chip"}
+          <ChipAction>
+            <Info size={16} />
+          </ChipAction>
+      </Chip>
+    </Container>
 
-    </Tab>
+  </Tab>
 
-    <Tab label="Code">
-      ```jsx
-        <Chip action="neutral">
-            Chip
-            <ChipAction>
-              <Info size={16} />
-            </ChipAction>
-        </Chip>
-      ```
-    </Tab>
+  <Tab label="Code">
+    ```jsx
+      <Chip action="neutral">
+          Chip
+          <ChipAction>
+            <Info size={16} />
+          </ChipAction>
+      </Chip>
+    ```
+  </Tab>
 
-  </TabGroup>
+</TabGroup>
 
 ### Outline
 
-  <TabGroup>
-    <Tab label="Preview">
-      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-        <Chip variant="outline">
-            {"Chip"}
-            <ChipAction />
-        </Chip>
-      </Container>
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Chip variant="outline">
+          {"Chip"}
+          <ChipAction />
+      </Chip>
+    </Container>
 
-    </Tab>
+  </Tab>
 
-    <Tab label="Code">
-      ```jsx
-        <Chip variant="outline">
-            Chip
-            <ChipAction />
-        </Chip>
-      ```
-    </Tab>
+  <Tab label="Code">
+    ```jsx
+      <Chip variant="outline">
+          Chip
+          <ChipAction />
+      </Chip>
+    ```
+  </Tab>
 
-  </TabGroup>
+</TabGroup>
 
 ## API Reference
 
 | Prop                   | Type                                  |    Default    |
 | ---------------------- | ------------------------------------- | :-----------: |
-| <Prop>variant</Prop>   | `filled` `ghost` `outline` `text`     |   `filled`    |
+| <Prop>variant</Prop>   | `filled` `outline`                    |   `filled`    |
 | <Prop>action</Prop>    | `progressive` `destructive` `neutral` | `progressive` |
 | <Prop>className</Prop> | `string`                              |       -       |

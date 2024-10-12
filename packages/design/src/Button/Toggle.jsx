@@ -3,7 +3,7 @@ import useToggle from "../hooks/useToggle";
 import { Button } from "./Button";
 import { forwardRef } from "react";
 
-export const Toggle = forwardRef(
+const Toggle = forwardRef(
     (
         {
             children,
@@ -23,3 +23,6 @@ export const Toggle = forwardRef(
         );
     },
 );
+Toggle.displayName = "Toggle";
+
+export { Toggle };

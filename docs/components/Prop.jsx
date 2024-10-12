@@ -2,21 +2,22 @@ import {
     Chip,
     ChipAction,
     Popover,
-    PopoverArrow,
     PopoverContent,
     PopoverTrigger,
 } from "@wysteria/design";
 import { Info } from "lucide-react";
 import React from "react";
+import hint from "../helpers/hint";
 
-const Prop = ({ children, hint = "", ...props }) => {
+const Prop = ({ children, hint: hintKey = null, ...props }) => {
     return (
         <Chip
             className="flex flex-grow justify-between text-sm"
-            variant="outline"
+            variant="filled"
+            action="neutral"
             {...props}
         >
-            <code>{children}</code>
+            <code className="select-text">{children}</code>
             {hint !== "" && (
                 <Popover>
                     <PopoverTrigger>
@@ -24,9 +25,12 @@ const Prop = ({ children, hint = "", ...props }) => {
                             <Info size={16} />
                         </ChipAction>
                     </PopoverTrigger>
-                    <PopoverContent sideOffset={8} side="top">
-                        {hint}
-                        <PopoverArrow />
+                    <PopoverContent
+                        sideOffset={10}
+                        side="bottom"
+                        className="max-w-[98vw] text-sm"
+                    >
+                        {hint(hintKey ?? children)}
                     </PopoverContent>
                 </Popover>
             )}

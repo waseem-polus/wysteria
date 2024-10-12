@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 const useToggle = (initialValue, onChange = () => {}) => {
-	const [value, setValue] = useState(initialValue);
+    const [value, setValue] = useState(initialValue);
 
-	const toggleValue = () => setValue(!value);
-	useEffect(() => onChange(value), [value]);
+    const toggleValue = () => setValue(!value);
+    useEffect(() => onChange(value), [value]);
 
-	return [ value, toggleValue ];
+    return [ value, toggleValue ];
 };
 
 export default useToggle;

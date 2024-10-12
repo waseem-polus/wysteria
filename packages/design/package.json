@@ -24,28 +24,23 @@
     ".": {
       "import": "./dist/wui-design.js",
       "require": "./dist/wui-design.umd.cjs"
-    }
+    },
+    "./style.css": "./dist/style.css"
   },
   "scripts": {
-    "tw": "npx tailwindcss -i ./src/index.css -o ./src/output.css",
-    "start": "vite",
-    "build": "npm run tw && vite build",
-    "preview": "vite preview",
-    "test": "vitest --coverage",
-    "test:ci": "npm run test -- run",
-    "test:ui": "npm run test -- --ui",
-    "test:watch": "npm run test -- --watch",
+    "build": "vite build",
     "dry": "npm publish --dry-run",
     "pub": "npm publish --access public"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-popover": "^1.1.1",
     "@vitejs/plugin-react": "^4.0.3",
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.3.2",
     "lucide-react": "^0.263.1",
     "tailwind-merge": "^2.5.2",
-    "vite-plugin-css-injected-by-js": "^3.3.0"
+    "tailwindcss": "^3.4.10"
   },
   "peerDependencies": {
     "react": "^18",
@@ -55,7 +50,6 @@
   "devDependencies": {
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
-    "tailwindcss": "^3.4.10",
     "vite": "^4.4.5"
   }
 }

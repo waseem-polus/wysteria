@@ -17,7 +17,7 @@ const resolveDependencies = () => {
 
     console.log("Building for Preview Environment...");
 
-    const monotrepoRootDir = path.resolve(__dirname, "../")
+    const monotrepoRootDir = path.resolve(__dirname, "../");
     const packageDir = path.resolve(__dirname, "../packages/design");
     const docsDir = path.resolve(__dirname);
 

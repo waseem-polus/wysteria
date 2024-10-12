@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { button } from "./styles";
 import { forwardRef } from "react";
 
-export const Button = forwardRef(
+const Button = forwardRef(
     (
         {
             onClick,
@@ -33,3 +33,6 @@ export const Button = forwardRef(
         );
     },
 );
+Button.displayName = "Button";
+
+export { Button };

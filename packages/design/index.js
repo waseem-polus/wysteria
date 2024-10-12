@@ -9,3 +9,4 @@ export * from "./src/Link";
 export * from "./src/List";
 export * from "./src/Chip";
 export * from "./src/Dialog";
+export * from "./src/Popover";

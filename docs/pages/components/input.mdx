@@ -1,0 +1,89 @@
+import {
+    WuiApp,
+    Chip,
+    Input,
+    Button,
+    Container,
+    TabGroup,
+    Tab,
+    TextField,
+    NumberField,
+    PasswordField
+} from "@wysteria/design";
+import ComponentPreview from "../../components/ComponentPreview";
+import Prop from "../../components/Prop";
+
+# Input
+
+An interactive form element used to accept data from the user.
+
+<ComponentPreview>
+    <Container
+        paddingVer="md"
+        gap="sm"
+        justify="center"
+        align="center"
+        direction="row"
+        style={{ width: "100%" }}
+    >
+        <TextField />
+        <Input placeholder="Text Input" />
+    </Container>
+</ComponentPreview>
+```jsx
+<Input value="" placeholder="" caption error indicator>
+    <InputCaption>Caption</InputCaption>
+    <InputError>Error</InputError>
+    <InputIndicator>
+        <LoaderCircle />
+    </InputIndicator>
+</Input>
+```
+
+## Examples
+
+### Number
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <NumberField />
+            <Input type="number" placeholder="Number Input" />
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+            <Input type="number" />
+        ```
+    </Tab>
+
+</TabGroup>
+
+### Password
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <PasswordField />
+            <Input type="password" placeholder="Password Input" />
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+            <Input type="password" />
+        ```
+    </Tab>
+
+</TabGroup>
+
+## API Reference
+
+| Prop                     | Type      | Default |
+| ------------------------ | --------- | :-----: |
+| <Prop>placeholder</Prop> | `string`  |    -    |
+| <Prop>value</Prop>       | `string`  |    -    |
+| <Prop>indicator</Prop>   | `boolean` | `false` |
+| <Prop>caption</Prop>     | `boolean` | `false` |
+| <Prop>error</Prop>       | `boolean` | `false` |

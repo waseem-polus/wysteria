@@ -3,6 +3,7 @@ export * from "./src/WuiApp";
 export * from "./src/Tabs";
 export * from "./src/Button";
 export * from "./src/Icon";
+export * from "./src/Input";
 export * from "./src/InputField";
 export * from "./src/Container";
 export * from "./src/Link";

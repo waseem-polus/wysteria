@@ -38,4 +38,4 @@ const Prop = ({ children, hint: hintKey = null, ...props }) => {
     );
 };
 
-export default Prop;
+export { Prop };

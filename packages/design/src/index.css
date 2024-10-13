@@ -58,17 +58,6 @@
   --wui-color-warning-900: #805C00;
 }
 
-.wui-app p,
-.wui-app h1,
-.wui-app h2,
-.wui-app h3,
-.wui-app h4,
-.wui-app h5,
-.wui-app h6,
-.wui-app label {
-  font-family: 'Work Sans', sans-serif;
-}
-
 body,
 #root,
 html,
@@ -86,13 +75,8 @@ html,
 
 .wui-app {
   margin: 0;
-  font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.wui-app code {
-  font-family: 'Space Mono', monospace;
 }
 
 .padding-xxxl {

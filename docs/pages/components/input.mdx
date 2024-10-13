@@ -10,8 +10,7 @@ import {
     NumberField,
     PasswordField
 } from "@wysteria/design";
-import ComponentPreview from "../../components/ComponentPreview";
-import Prop from "../../components/Prop";
+import { ComponentPreview,  Prop } from "../../components";
 
 # Input
 
@@ -53,6 +52,23 @@ An interactive form element used to accept data from the user.
     <Tab label="Code">
         ```js
             <Input type="number" />
+        ```
+    </Tab>
+
+</TabGroup>
+
+### Email 
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input type="email" placeholder="Email Input" />
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+            <Input type="Email" />
         ```
     </Tab>
 
@@ -104,6 +120,23 @@ An interactive form element used to accept data from the user.
     <Tab label="Code">
         ```js
             <Input type="tel" />
+        ```
+    </Tab>
+
+</TabGroup>
+
+### URL
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input type="url" placeholder="URL Input" />
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+            <Input type="url" />
         ```
     </Tab>
 

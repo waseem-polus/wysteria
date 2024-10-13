@@ -70,9 +70,9 @@ const Input = forwardRef(
         useImperativeHandle(ref, () => internalRef.current, []);
 
         return (
-            <div className="group relative flex overflow-hidden rounded border border-zinc-400 bg-white align-middle focus-within:border-violet-500 focus-within:outline focus-within:outline-2 focus-within:outline-offset-[0.5px] focus-within:outline-violet-500 dark:border-zinc-600 dark:bg-zinc-800 [&:not(:focus-within)]:hover:border-violet-500">
+            <div className="group relative w-fit flex overflow-hidden rounded border border-zinc-400 bg-white align-middle focus-within:border-violet-500 focus-within:outline focus-within:outline-2 focus-within:outline-offset-[0.5px] focus-within:outline-violet-500 dark:border-zinc-600 dark:bg-zinc-800">
                 <input
-                    className="peer appearance-none bg-transparent p-2"
+                    className="peer appearance-none flex flex-1 bg-transparent p-2"
                     ref={internalRef}
                     onChange={(e) => {
                         setValue(e.target.value);

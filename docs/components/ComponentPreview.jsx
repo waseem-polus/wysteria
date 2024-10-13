@@ -8,4 +8,4 @@ const ComponentPreview = ({ children }) => {
     );
 };
 
-export default ComponentPreview;
+export { ComponentPreview };

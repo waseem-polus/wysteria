@@ -5,9 +5,8 @@ import React, {
     useState,
 } from "react";
 import { Button } from "../Button";
-import { ChevronDown, ChevronUp, Eye, EyeOff } from "lucide-react";
+import { ChevronDown, ChevronUp, Eye, EyeOff, X } from "lucide-react";
 import { twMerge } from "tailwind-merge";
-import { usePointerEvents } from "../hooks";
 
 const InputActionButton = ({ children, className = "", ...props }) => {
     return (
@@ -23,76 +22,76 @@ const InputActionButton = ({ children, className = "", ...props }) => {
     );
 };
 
-const NumberAction = ({ hover, type, inputRef }) => {
+const NumberAction = ({ inputRef }) => {
     return (
-        type === "number" && (
-            <div className="absolute right-1 flex h-full flex-col justify-center">
-                <InputActionButton
-                    onClick={() => inputRef.current.stepUp()}
-                    action={hover ? "progressive" : "neutral"}
-                >
-                    <ChevronUp size={16} />
-                </InputActionButton>
-                <InputActionButton
-                    onClick={() => inputRef.current.stepDown()}
-                    action={hover ? "progressive" : "neutral"}
-                >
-                    <ChevronDown size={16} />
-                </InputActionButton>
-            </div>
-        )
+        <div className="absolute right-1 flex h-full flex-col justify-center">
+            <InputActionButton onClick={() => inputRef.current.stepUp()}>
+                <ChevronUp size={16} />
+            </InputActionButton>
+            <InputActionButton onClick={() => inputRef.current.stepDown()}>
+                <ChevronDown size={16} />
+            </InputActionButton>
+        </div>
     );
 };
 
-const PasswordAction = ({ hover, type, inputRef }) => {
+const PasswordAction = ({ inputRef }) => {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
-        type === "password" && (
-            <div className="absolute right-1 flex h-full flex-col justify-center">
-                <InputActionButton
-                    onClick={() => {
-                        setShowPassword(!showPassword);
-                        inputRef.current.type = showPassword
-                            ? "text"
-                            : "password";
-                    }}
-                    action={hover ? "progressive" : "neutral"}
-                >
-                    {showPassword ? <Eye size={16} /> : <EyeOff size={16} />}
-                </InputActionButton>
-            </div>
-        )
+        <div className="absolute right-1 flex h-full flex-col justify-center">
+            <InputActionButton
+                onClick={() => {
+                    setShowPassword(!showPassword);
+                    inputRef.current.type = showPassword ? "text" : "password";
+                }}
+            >
+                {showPassword ? <Eye size={16} /> : <EyeOff size={16} />}
+            </InputActionButton>
+        </div>
     );
 };
 
-const Input = forwardRef(({ type = "text", ...props }, ref) => {
-    const internalRef = useRef(null);
-    const { hover, focus } = usePointerEvents(internalRef);
-
-    useImperativeHandle(ref, () => internalRef.current, []);
-
+const SearchAction = ({ inputRef }) => {
     return (
-        <div className="group relative flex overflow-hidden rounded border border-zinc-400 bg-white align-middle focus-within:border-violet-500 focus-within:outline focus-within:outline-2 focus-within:outline-offset-[0.5px] focus-within:outline-violet-500 dark:border-zinc-600 dark:bg-zinc-800 [&:not(:focus-within)]:hover:border-violet-500 [&:not(:focus-within)]:hover:bg-purple-100">
-            <input
-                className="peer appearance-none bg-transparent p-2 [&:not(:focus)]:group-hover:placeholder-violet-400"
-                ref={internalRef}
-                type={type}
-                {...props}
-            />
-            <NumberAction
-                hover={hover && !focus}
-                type={type}
-                inputRef={internalRef}
-            />
-            <PasswordAction
-                hover={hover && !focus}
-                type={type}
-                inputRef={internalRef}
-            />
+        <div className="absolute right-1 flex h-full flex-col justify-center">
+            <InputActionButton onClick={() => (inputRef.current.value = "")}>
+                <X size={16} />
+            </InputActionButton>
         </div>
     );
-});
+};
+
+const Input = forwardRef(
+    ({ onChange = () => {}, type = "text", ...props }, ref) => {
+        const [value, setValue] = useState("");
+        
+        const internalRef = useRef(null);
+        useImperativeHandle(ref, () => internalRef.current, []);
+
+        return (
+            <div className="group relative flex overflow-hidden rounded border border-zinc-400 bg-white align-middle focus-within:border-violet-500 focus-within:outline focus-within:outline-2 focus-within:outline-offset-[0.5px] focus-within:outline-violet-500 dark:border-zinc-600 dark:bg-zinc-800 [&:not(:focus-within)]:hover:border-violet-500">
+                <input
+                    className="peer appearance-none bg-transparent p-2"
+                    ref={internalRef}
+                    onChange={(e) => {
+                        setValue(e.target.value);
+                        onChange(e);
+                    }}
+                    type={type}
+                    {...props}
+                />
+                {type === "number" && <NumberAction inputRef={internalRef} />}
+                {type === "password" && (
+                    <PasswordAction inputRef={internalRef} />
+                )}
+                {type === "search" && value && (
+                    <SearchAction inputRef={internalRef} />
+                )}
+            </div>
+        );
+    },
+);
 Input.displayName = "Input";
 
 export { Input };

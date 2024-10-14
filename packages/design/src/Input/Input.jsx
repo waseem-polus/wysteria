@@ -103,6 +103,17 @@ const Input = forwardRef(
         const internalRef = useRef(null);
         useImperativeHandle(ref, () => internalRef.current, []);
 
+        const input = cva(
+            "group peer flex w-fit appearance-none overflow-hidden rounded border border-zinc-400 bg-white p-2 align-middle focus-within:border-violet-500 focus-within:outline focus-within:outline-2 focus-within:outline-offset-[0.5px] focus-within:outline-violet-500 dark:border-zinc-600 dark:bg-zinc-800",
+            {
+                variants: {
+                    padding: {
+                        icon: "pl-8",
+                    },
+                },
+            },
+        );
+
         return (
             <label className="group shadow-none relative flex h-fit w-fit">
                 {children}

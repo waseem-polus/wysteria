@@ -63,21 +63,24 @@ const SearchAction = ({ inputRef }) => {
 };
 
 const Input = forwardRef(
-    ({ onChange = () => {}, type = "text", ...props }, ref) => {
+    ({ className = "", onChange = () => {}, type = "text", ...props }, ref) => {
         const [value, setValue] = useState("");
-        
+
         const internalRef = useRef(null);
         useImperativeHandle(ref, () => internalRef.current, []);
 
         return (
-            <div className="group relative w-fit flex overflow-hidden rounded border border-zinc-400 bg-white align-middle focus-within:border-violet-500 focus-within:outline focus-within:outline-2 focus-within:outline-offset-[0.5px] focus-within:outline-violet-500 dark:border-zinc-600 dark:bg-zinc-800">
+            <div className="relative flex h-fit w-fit">
                 <input
-                    className="peer appearance-none flex flex-1 bg-transparent p-2"
-                    ref={internalRef}
+                    className={twMerge(
+                        "group peer flex w-fit appearance-none overflow-hidden rounded border border-zinc-400 bg-white p-2 align-middle focus-within:border-violet-500 focus-within:outline focus-within:outline-2 focus-within:outline-offset-[0.5px] focus-within:outline-violet-500 dark:border-zinc-600 dark:bg-zinc-800",
+                        className,
+                    )}
                     onChange={(e) => {
                         setValue(e.target.value);
                         onChange(e);
                     }}
+                    ref={internalRef}
                     type={type}
                     {...props}
                 />

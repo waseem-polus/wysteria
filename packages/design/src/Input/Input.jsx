@@ -7,6 +7,8 @@ import React, {
 import { Button } from "../Button";
 import { ChevronDown, ChevronUp, Eye, EyeOff, X } from "lucide-react";
 import { twMerge } from "tailwind-merge";
+import { Slot } from "@radix-ui/react-slot";
+import { cva } from "class-variance-authority";
 
 const InputActionButton = ({ children, className = "", ...props }) => {
     return (
@@ -62,18 +64,56 @@ const SearchAction = ({ inputRef }) => {
     );
 };
 
+const InputIcon = forwardRef(({ children, className = "", ...props }, ref) => {
+    return (
+        <Slot
+            ref={ref}
+            className={twMerge(
+                "absolute left-2 top-1/2 -translate-y-1/2 text-zinc-400",
+                className,
+            )}
+            size={18}
+            {...props}
+        >
+            {children}
+        </Slot>
+    );
+});
+InputIcon.displayName = "InputIcon";
+
 const Input = forwardRef(
-    ({ className = "", onChange = () => {}, type = "text", ...props }, ref) => {
+    (
+        {
+            children,
+            className = "",
+            onChange = () => {},
+            type = "text",
+            ...props
+        },
+        ref,
+    ) => {
         const [value, setValue] = useState("");
 
         const internalRef = useRef(null);
         useImperativeHandle(ref, () => internalRef.current, []);
 
+        const input = cva(
+            "group peer flex w-fit appearance-none overflow-hidden rounded border border-zinc-400 bg-white p-2 align-middle focus-within:border-violet-500 focus-within:outline focus-within:outline-2 focus-within:outline-offset-[0.5px] focus-within:outline-violet-500 dark:border-zinc-600 dark:bg-zinc-800",
+            {
+                variants: {
+                    padding: {
+                        icon: "pl-8",
+                    },
+                },
+            },
+        );
+
         return (
-            <div className="relative flex h-fit w-fit">
+            <label className="relative flex h-fit w-fit">
+                {children}
                 <input
                     className={twMerge(
-                        "group peer flex w-fit appearance-none overflow-hidden rounded border border-zinc-400 bg-white p-2 align-middle focus-within:border-violet-500 focus-within:outline focus-within:outline-2 focus-within:outline-offset-[0.5px] focus-within:outline-violet-500 dark:border-zinc-600 dark:bg-zinc-800",
+                        input({ padding: children ? "icon" : "" }),
                         className,
                     )}
                     onChange={(e) => {
@@ -91,10 +131,10 @@ const Input = forwardRef(
                 {type === "search" && value && (
                     <SearchAction inputRef={internalRef} />
                 )}
-            </div>
+            </label>
         );
     },
 );
 Input.displayName = "Input";
 
-export { Input };
+export { Input, InputIcon };

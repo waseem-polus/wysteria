@@ -2,15 +2,17 @@ import {
     WuiApp,
     Chip,
     Input,
+    InputIcon,
     Button,
     Container,
     TabGroup,
     Tab,
     TextField,
     NumberField,
-    PasswordField
+    PasswordField,
 } from "@wysteria/design";
-import { ComponentPreview,  Prop } from "../../components";
+import { ComponentPreview, Prop } from "../../components";
+import { Search } from "lucide-react";
 
 # Input
 
@@ -29,13 +31,7 @@ An interactive form element used to accept data from the user.
     </Container>
 </ComponentPreview>
 ```jsx
-<Input value="" placeholder="" caption error indicator>
-    <InputCaption>Caption</InputCaption>
-    <InputError>Error</InputError>
-    <InputIndicator>
-        <LoaderCircle />
-    </InputIndicator>
-</Input>
+<Input placeholder="Text Input" />
 ```
 
 ## Examples
@@ -51,13 +47,13 @@ An interactive form element used to accept data from the user.
 
     <Tab label="Code">
         ```js
-            <Input type="number" />
+        <Input type="number" placeholder="Number Input" />
         ```
     </Tab>
 
 </TabGroup>
 
-### Email 
+### Email
 
 <TabGroup>
     <Tab label="Preview">
@@ -68,7 +64,7 @@ An interactive form element used to accept data from the user.
 
     <Tab label="Code">
         ```js
-            <Input type="Email" />
+        <Input type="email" placeholder="Email Input" />
         ```
     </Tab>
 
@@ -85,24 +81,7 @@ An interactive form element used to accept data from the user.
 
     <Tab label="Code">
         ```js
-            <Input type="password" />
-        ```
-    </Tab>
-
-</TabGroup>
-
-### Search 
-
-<TabGroup>
-    <Tab label="Preview">
-        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-            <Input type="search" placeholder="Seach Input" />
-        </Container>
-    </Tab>
-
-    <Tab label="Code">
-        ```js
-            <Input type="search" />
+        <Input type="password" placeholder="Password Input" />
         ```
     </Tab>
 
@@ -119,7 +98,7 @@ An interactive form element used to accept data from the user.
 
     <Tab label="Code">
         ```js
-            <Input type="tel" />
+        <Input type="tel" placeholder="Phone Input" />
         ```
     </Tab>
 
@@ -136,7 +115,49 @@ An interactive form element used to accept data from the user.
 
     <Tab label="Code">
         ```js
-            <Input type="url" />
+        <Input type="url" placeholder="URL Input" />
+        ```
+    </Tab>
+
+</TabGroup>
+
+### Search
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input type="search" placeholder="Seach Input" />
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+            <Input type="search" placeholder="Seach Input" />
+        ```
+    </Tab>
+
+</TabGroup>
+
+### With Icon
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input type="search" placeholder="Seach...">
+                <InputIcon>
+                    <Search />
+                </InputIcon>
+            </Input>
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Input type="search" placeholder="Seach...">
+            <InputIcon>
+                <Search />
+            </InputIcon>
+        </Input>
         ```
     </Tab>
 

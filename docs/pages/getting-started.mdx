@@ -1,0 +1,55 @@
+import { TabGroup, Tab } from "@wysteria/design";
+import { Steps } from "nextra/components";
+import { Button } from "@wysteria/design";
+import ComponentPreview from "../components/ComponentPreview";
+
+# Getting Started
+
+A quick guide to get you started using Wysteria in your app.
+
+<br />
+
+<Steps>
+### Install Wysteria
+Add Wysteria to your project using the command line.
+
+```bash copy
+npm i @wysteria/design
+```
+
+### Wrap your project
+
+Wrap your project with the `WuiApp` component. This supplies styling for Wysteria's components. It also tells components like [Dialog](./components/dialog) or [Popover](./components/popover) where to render elements inside [Portals](https://www.radix-ui.com/primitives/docs/utilities/portal).
+
+```jsx filename="main.jsx" {4,8-10}
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import { WuiApp } from "@wysteria/design";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+        <WuiApp>
+            <App />
+        </WuiApp>
+    </React.StrictMode>,
+);
+```
+
+### Create your components
+
+We recommend styling with [Tailwind](https://tailwindcss.com/), but our components can be styled however you want. You can use raw css by adding ``className`` to any Wysteria component for example.
+
+```jsx filename="LoginDialog.jsx"
+
+```
+
+</Steps>
+
+### Demo
+
+Here's the completed demo.
+
+<ComponentPreview>
+    <Button>Login</Button>
+</ComponentPreview>

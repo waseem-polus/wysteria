@@ -132,7 +132,7 @@ An interactive form element used to accept data from the user.
 
     <Tab label="Code">
         ```js
-            <Input type="search" placeholder="Seach Input" />
+        <Input type="search" placeholder="Seach Input" />
         ```
     </Tab>
 
@@ -158,6 +158,23 @@ An interactive form element used to accept data from the user.
                 <Search />
             </InputIcon>
         </Input>
+        ```
+    </Tab>
+
+</TabGroup>
+
+### Disabled
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input placeholder="Disabled Input" disabled />
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Input placeholder="Disabled Input" disabled />
         ```
     </Tab>
 

@@ -8,12 +8,12 @@ import { Button } from "../Button";
 import { ChevronDown, ChevronUp, Eye, EyeOff, X } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { Slot } from "@radix-ui/react-slot";
-import { cva } from "class-variance-authority";
+import { input } from "./styles.js";
 
 const InputActionButton = ({ children, className = "", ...props }) => {
     return (
         <Button
-            className={twMerge("p-0", className)}
+            className={twMerge("p-[2px]", className)}
             variant="text"
             action="neutral"
             size="icon"
@@ -27,10 +27,16 @@ const InputActionButton = ({ children, className = "", ...props }) => {
 const NumberAction = ({ inputRef }) => {
     return (
         <div className="absolute right-1 flex h-full flex-col justify-center">
-            <InputActionButton onClick={() => inputRef.current.stepUp()}>
+            <InputActionButton
+                className="p-0"
+                onClick={() => inputRef.current.stepUp()}
+            >
                 <ChevronUp size={16} />
             </InputActionButton>
-            <InputActionButton onClick={() => inputRef.current.stepDown()}>
+            <InputActionButton
+                className="p-0"
+                onClick={() => inputRef.current.stepDown()}
+            >
                 <ChevronDown size={16} />
             </InputActionButton>
         </div>
@@ -69,7 +75,7 @@ const InputIcon = forwardRef(({ children, className = "", ...props }, ref) => {
         <Slot
             ref={ref}
             className={twMerge(
-                "absolute left-2 top-1/2 -translate-y-1/2 text-zinc-400",
+                "absolute left-2 top-1/2 -translate-y-1/2 cursor-text text-zinc-400 peer-disabled:cursor-not-allowed",
                 className,
             )}
             size={18}
@@ -97,19 +103,8 @@ const Input = forwardRef(
         const internalRef = useRef(null);
         useImperativeHandle(ref, () => internalRef.current, []);
 
-        const input = cva(
-            "group peer flex w-fit appearance-none overflow-hidden rounded border border-zinc-400 bg-white p-2 align-middle focus-within:border-violet-500 focus-within:outline focus-within:outline-2 focus-within:outline-offset-[0.5px] focus-within:outline-violet-500 dark:border-zinc-600 dark:bg-zinc-800",
-            {
-                variants: {
-                    padding: {
-                        icon: "pl-8",
-                    },
-                },
-            },
-        );
-
         return (
-            <label className="relative flex h-fit w-fit">
+            <label className="group shadow-none relative flex h-fit w-fit">
                 {children}
                 <input
                     className={twMerge(

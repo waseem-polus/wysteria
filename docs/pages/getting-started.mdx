@@ -14,7 +14,7 @@ import {
 } from "@wysteria/design";
 import { Lock, User } from "lucide-react";
 
-import ComponentPreview from "../components/ComponentPreview";
+import { ComponentPreview } from "../components";
 
 # Getting Started
 
@@ -117,8 +117,10 @@ Here's the completed demo.
         <DialogContent className="flex max-w-fit flex-col items-center gap-8 p-8">
             <DialogTitle>Login Form</DialogTitle>
             <div className="flex flex-col gap-6">
-                <Input className="w-64" placeholder="username..." >
-                    <InputIcon> <User /> </InputIcon>
+                <Input className="w-64" placeholder="username...">
+                    <InputIcon>
+                        <User />
+                    </InputIcon>
                 </Input>
 
                 <Input
@@ -126,7 +128,9 @@ Here's the completed demo.
                     className="w-64"
                     placeholder="password..."
                 >
-                    <InputIcon> <Lock /> </InputIcon>
+                    <InputIcon>
+                        <Lock />
+                    </InputIcon>
                 </Input>
             </div>
 

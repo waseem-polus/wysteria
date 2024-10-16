@@ -1,10 +1,9 @@
 {
-    "index": "Installation",
-    "setup": "Setup",
+    "index": "Introduction",
+    "getting-started": "Getting Started",
     "greenhouse": "Greenhouse",
     "---": {
         "type": "separator"
     },
-    "components": "Components",
-    "themes": "Themes"
+    "components": "Components"
 }

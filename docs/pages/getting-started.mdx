@@ -1,6 +1,19 @@
-import { TabGroup, Tab } from "@wysteria/design";
 import { Steps } from "nextra/components";
-import { Button } from "@wysteria/design";
+import {
+    TabGroup,
+    Tab,
+    Dialog,
+    DialogTitle,
+    DialogTrigger,
+    DialogClose,
+    Button,
+    DialogContent,
+    DialogFooter,
+    Input,
+    InputIcon,
+} from "@wysteria/design";
+import { Lock, User } from "lucide-react";
+
 import ComponentPreview from "../components/ComponentPreview";
 
 # Getting Started
@@ -38,10 +51,56 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 ### Create your components
 
-We recommend styling with [Tailwind](https://tailwindcss.com/), but our components can be styled however you want. You can use raw css by adding ``className`` to any Wysteria component for example.
+We recommend styling with [Tailwind](https://tailwindcss.com/), but our components can be styled however you want. You can use raw css by adding `className` to any Wysteria component for example.
 
 ```jsx filename="LoginDialog.jsx"
+import {
+    Button,
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogFooter,
+    DialogTitle,
+    DialogTrigger,
+    Input,
+    InputIcon,
+} from "@wysteria/design";
+import { Lock, User } from "lucide-react";
 
+const SignUpDialog = () => {
+    return (
+        <Dialog modal>
+            <DialogTrigger>
+                <Button> Login </Button>
+            </DialogTrigger>
+            <DialogContent className="flex max-w-fit flex-col items-center gap-8 p-8">
+                <DialogTitle>Login Form</DialogTitle>
+                <div className="flex flex-col gap-6">
+                    <Input className="w-64" placeholder="username...">
+                        <InputIcon> <User /> </InputIcon>
+                    </Input>
+
+                    <Input
+                        type="password"
+                        className="w-64"
+                        placeholder="password..."
+                    >
+                        <InputIcon> <Lock /> </InputIcon>
+                    </Input>
+                </div>
+
+                <DialogFooter className="mt-4 flex w-full justify-between">
+                    <DialogClose>
+                        <Button variant="text">Forgot Password?</Button>
+                    </DialogClose>
+                    <Button> Signup </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
+    );
+};
+
+export default SignUpDialog;
 ```
 
 </Steps>
@@ -51,5 +110,33 @@ We recommend styling with [Tailwind](https://tailwindcss.com/), but our componen
 Here's the completed demo.
 
 <ComponentPreview>
-    <Button>Login</Button>
+    <Dialog modal>
+        <DialogTrigger>
+            <Button> Login </Button>
+        </DialogTrigger>
+        <DialogContent className="flex max-w-fit flex-col items-center gap-8 p-8">
+            <DialogTitle>Login Form</DialogTitle>
+            <div className="flex flex-col gap-6">
+                <Input className="w-64" placeholder="username..." >
+                    <InputIcon> <User /> </InputIcon>
+                </Input>
+
+                <Input
+                    type="password"
+                    className="w-64"
+                    placeholder="password..."
+                >
+                    <InputIcon> <Lock /> </InputIcon>
+                </Input>
+            </div>
+
+            <DialogFooter className="mt-4 flex w-full justify-between">
+                <DialogClose>
+                    <Button variant="text">Forgot Password?</Button>
+                </DialogClose>
+                <Button> Signup </Button>
+            </DialogFooter>
+        </DialogContent>
+    </Dialog>
+
 </ComponentPreview>

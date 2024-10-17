@@ -12,7 +12,7 @@ import {
     PasswordField,
 } from "@wysteria/design";
 import { ComponentPreview, Prop } from "../../components";
-import { Search } from "lucide-react";
+import { CircleDashed, Hash, Phone, Mail, Link, Lock, Search } from "lucide-react";
 
 # Input
 
@@ -27,11 +27,11 @@ An interactive form element used to accept data from the user.
         direction="row"
         style={{ width: "100%" }}
     >
-        <Input placeholder="Text Input" />
+        <Input placeholder="Text..." />
     </Container>
 </ComponentPreview>
 ```jsx
-<Input placeholder="Text Input" />
+<Input placeholder="Text..." />
 ```
 
 ## Examples
@@ -41,13 +41,21 @@ An interactive form element used to accept data from the user.
 <TabGroup>
     <Tab label="Preview">
         <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-            <Input type="number" placeholder="Number Input" />
+            <Input type="number" placeholder="Number...">
+                <InputIcon>
+                    <Hash />
+                </InputIcon>
+            </Input>
         </Container>
     </Tab>
 
     <Tab label="Code">
         ```js
-        <Input type="number" placeholder="Number Input" />
+        <Input type="number" placeholder="Number...">
+            <InputIcon>
+                <Hash />
+            </InputIcon>
+        </Input>
         ```
     </Tab>
 
@@ -58,13 +66,21 @@ An interactive form element used to accept data from the user.
 <TabGroup>
     <Tab label="Preview">
         <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-            <Input type="email" placeholder="Email Input" />
+            <Input type="email" placeholder="Email...">
+                <InputIcon>
+                    <Mail />
+                </InputIcon>
+            </Input>
         </Container>
     </Tab>
 
     <Tab label="Code">
         ```js
-        <Input type="email" placeholder="Email Input" />
+        <Input type="email" placeholder="Email...">
+            <InputIcon>
+                <Mail />
+            </InputIcon>
+        </Input>
         ```
     </Tab>
 
@@ -75,13 +91,21 @@ An interactive form element used to accept data from the user.
 <TabGroup>
     <Tab label="Preview">
         <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-            <Input type="password" placeholder="Password Input" />
+            <Input type="password" placeholder="Password...">
+                <InputIcon>
+                    <Lock />
+                </InputIcon>
+            </Input>
         </Container>
     </Tab>
 
     <Tab label="Code">
         ```js
-        <Input type="password" placeholder="Password Input" />
+        <Input type="password" placeholder="Password...">
+            <InputIcon>
+                <Lock />
+            </InputIcon>
+        </Input>
         ```
     </Tab>
 
@@ -92,13 +116,21 @@ An interactive form element used to accept data from the user.
 <TabGroup>
     <Tab label="Preview">
         <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-            <Input type="tel" placeholder="Phone Input" />
+            <Input type="tel" placeholder="Phone..." >
+                <InputIcon>
+                    <Phone />
+                </InputIcon>
+            </Input>
         </Container>
     </Tab>
 
     <Tab label="Code">
         ```js
-        <Input type="tel" placeholder="Phone Input" />
+        <Input type="tel" placeholder="Phone..." >
+            <InputIcon>
+                <Phone />
+            </InputIcon>
+        </Input>
         ```
     </Tab>
 
@@ -109,36 +141,27 @@ An interactive form element used to accept data from the user.
 <TabGroup>
     <Tab label="Preview">
         <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-            <Input type="url" placeholder="URL Input" />
+            <Input type="url" placeholder="URL...">
+                <InputIcon>
+                    <Link />
+                </InputIcon>
+            </Input>
         </Container>
     </Tab>
 
     <Tab label="Code">
         ```js
-        <Input type="url" placeholder="URL Input" />
+        <Input type="url" placeholder="URL...">
+            <InputIcon>
+                <Link />
+            </InputIcon>
+        </Input>
         ```
     </Tab>
 
 </TabGroup>
 
 ### Search
-
-<TabGroup>
-    <Tab label="Preview">
-        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-            <Input type="search" placeholder="Seach Input" />
-        </Container>
-    </Tab>
-
-    <Tab label="Code">
-        ```js
-        <Input type="search" placeholder="Seach Input" />
-        ```
-    </Tab>
-
-</TabGroup>
-
-### With Icon
 
 <TabGroup>
     <Tab label="Preview">
@@ -168,13 +191,21 @@ An interactive form element used to accept data from the user.
 <TabGroup>
     <Tab label="Preview">
         <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-            <Input placeholder="Disabled Input" disabled />
+            <Input placeholder="Disabled..." disabled>
+                <InputIcon>
+                    <CircleDashed />
+                </InputIcon>
+            </Input>
         </Container>
     </Tab>
 
     <Tab label="Code">
         ```js
-        <Input placeholder="Disabled Input" disabled />
+        <Input placeholder="Disabled..." disabled>
+            <InputIcon>
+                <CircleDashed />
+            </InputIcon>
+        </Input>
         ```
     </Tab>
 

@@ -1,0 +1,222 @@
+import {
+    WuiApp,
+    Chip,
+    Input,
+    InputIcon,
+    Button,
+    Container,
+    TabGroup,
+    Tab,
+    TextField,
+    NumberField,
+    PasswordField,
+} from "@wysteria/design";
+import { ComponentPreview, Prop } from "../../components";
+import { CircleDashed, Hash, Phone, Mail, Link, Lock, Search } from "lucide-react";
+
+# Input
+
+An interactive form element used to accept data from the user.
+
+<ComponentPreview>
+    <Container
+        paddingVer="md"
+        gap="sm"
+        justify="center"
+        align="center"
+        direction="row"
+        style={{ width: "100%" }}
+    >
+        <Input placeholder="Text..." />
+    </Container>
+</ComponentPreview>
+```jsx
+<Input placeholder="Text..." />
+```
+
+## Examples
+
+### Number
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input type="number" placeholder="Number...">
+                <InputIcon>
+                    <Hash />
+                </InputIcon>
+            </Input>
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Input type="number" placeholder="Number...">
+            <InputIcon>
+                <Hash />
+            </InputIcon>
+        </Input>
+        ```
+    </Tab>
+
+</TabGroup>
+
+### Email
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input type="email" placeholder="Email...">
+                <InputIcon>
+                    <Mail />
+                </InputIcon>
+            </Input>
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Input type="email" placeholder="Email...">
+            <InputIcon>
+                <Mail />
+            </InputIcon>
+        </Input>
+        ```
+    </Tab>
+
+</TabGroup>
+
+### Password
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input type="password" placeholder="Password...">
+                <InputIcon>
+                    <Lock />
+                </InputIcon>
+            </Input>
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Input type="password" placeholder="Password...">
+            <InputIcon>
+                <Lock />
+            </InputIcon>
+        </Input>
+        ```
+    </Tab>
+
+</TabGroup>
+
+### Tel
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input type="tel" placeholder="Phone..." >
+                <InputIcon>
+                    <Phone />
+                </InputIcon>
+            </Input>
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Input type="tel" placeholder="Phone..." >
+            <InputIcon>
+                <Phone />
+            </InputIcon>
+        </Input>
+        ```
+    </Tab>
+
+</TabGroup>
+
+### URL
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input type="url" placeholder="URL...">
+                <InputIcon>
+                    <Link />
+                </InputIcon>
+            </Input>
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Input type="url" placeholder="URL...">
+            <InputIcon>
+                <Link />
+            </InputIcon>
+        </Input>
+        ```
+    </Tab>
+
+</TabGroup>
+
+### Search
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input type="search" placeholder="Seach...">
+                <InputIcon>
+                    <Search />
+                </InputIcon>
+            </Input>
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Input type="search" placeholder="Seach...">
+            <InputIcon>
+                <Search />
+            </InputIcon>
+        </Input>
+        ```
+    </Tab>
+
+</TabGroup>
+
+### Disabled
+
+<TabGroup>
+    <Tab label="Preview">
+        <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+            <Input placeholder="Disabled..." disabled>
+                <InputIcon>
+                    <CircleDashed />
+                </InputIcon>
+            </Input>
+        </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Input placeholder="Disabled..." disabled>
+            <InputIcon>
+                <CircleDashed />
+            </InputIcon>
+        </Input>
+        ```
+    </Tab>
+
+</TabGroup>
+
+## API Reference
+
+| Prop                     | Type      | Default |
+| ------------------------ | --------- | :-----: |
+| <Prop>placeholder</Prop> | `string`  |    -    |
+| <Prop>value</Prop>       | `string`  |    -    |
+| <Prop>indicator</Prop>   | `boolean` | `false` |
+| <Prop>caption</Prop>     | `boolean` | `false` |
+| <Prop>error</Prop>       | `boolean` | `false` |

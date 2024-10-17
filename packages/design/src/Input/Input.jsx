@@ -13,32 +13,39 @@ import { input } from "./styles.js";
 const InputActionButton = ({ children, className = "", ...props }) => {
     return (
         <Button
-            className={twMerge("p-[2px]", className)}
+            className={twMerge(
+                "grid h-auto place-content-center p-[2px] md:h-6",
+                className,
+            )}
             variant="text"
             action="neutral"
             size="icon"
             {...props}
         >
-            {children}
+            <Slot className="aspect-square h-5 md:h-4">{children}</Slot>
         </Button>
     );
 };
 
 const NumberAction = ({ inputRef }) => {
     return (
-        <div className="absolute right-1 flex h-full flex-col justify-center">
-            <InputActionButton
-                className="p-0"
+        <div className="invisible absolute right-1 flex h-full flex-col justify-center md:visible">
+            <Button
+                className="min-w-6 p-0"
                 onClick={() => inputRef.current.stepUp()}
+                variant="text"
+                action="neutral"
             >
                 <ChevronUp size={16} />
-            </InputActionButton>
-            <InputActionButton
-                className="p-0"
+            </Button>
+            <Button
+                className="min-w-6 p-0"
                 onClick={() => inputRef.current.stepDown()}
+                variant="text"
+                action="neutral"
             >
                 <ChevronDown size={16} />
-            </InputActionButton>
+            </Button>
         </div>
     );
 };
@@ -54,7 +61,7 @@ const PasswordAction = ({ inputRef }) => {
                     inputRef.current.type = showPassword ? "text" : "password";
                 }}
             >
-                {showPassword ? <Eye size={16} /> : <EyeOff size={16} />}
+                {showPassword ? <Eye /> : <EyeOff />}
             </InputActionButton>
         </div>
     );
@@ -64,7 +71,7 @@ const SearchAction = ({ inputRef }) => {
     return (
         <div className="absolute right-1 flex h-full flex-col justify-center">
             <InputActionButton onClick={() => (inputRef.current.value = "")}>
-                <X size={16} />
+                <X />
             </InputActionButton>
         </div>
     );
@@ -104,7 +111,7 @@ const Input = forwardRef(
         useImperativeHandle(ref, () => internalRef.current, []);
 
         return (
-            <label className="group shadow-none relative flex h-fit w-fit">
+            <label className="group relative flex h-fit w-fit shadow-none">
                 {children}
                 <input
                     className={twMerge(

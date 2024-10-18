@@ -1,21 +1,89 @@
-import { Icon, Link } from "@wysteria/design"
+import { Icon, Link, Container, TabGroup, Tab } from "@wysteria/design";
+import { ComponentPreview, Prop } from "../../components";
 
 # Link
+
 A hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
 
-## Icons
-if the ``showIcons`` prop is set to ``true``, a link will display the following icons if:
-|Icon|Name|Pattern|Example|
-|----|----|-------|-------|
-|<Icon name="Mail" color="#000" />|[Mail](https://lucide.dev/icons/mail)|Link starts with ``mailto:``|<Link link="mailto:example@wysteria.dev">Contact Us</Link>|
-|<Icon name="Phone" color="#000" />|[Phone](https://lucide.dev/icons/phone)|Link starts with ``tel:``|<Link link="tel:example@wysteria.dev">Call Us</Link>|
-|<Icon name="ExternalLink" color="#000" />|[External Link](https://lucide.dev/icons/external-link)|Link starts with ``http[s]://``|<Link title="SOme title here i guess" link="https://www.wysteria.dev">Visit Us</Link>|
+<Link
+    target="_blank"
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"
+>
+    API Reference
+</Link>
 
-## API
-|Prop|Type|Default|Description|
-|----|----|-------|-----------|
-|``children``|string||The text the hyperlink will display|
-|``link``|string||The link the hyperlink will lead to|
-|``showIcons``|boolean|`true`|Show icons for mail, phone, and external|
-|``target``|string||Specifies the context in which the link will open|
-|``title``|string||Shows as a tooltip on hover|
+<ComponentPreview>
+    <div className="rounded px-1 backdrop-blur-sm">
+        This is regular text <Link href="link">with a link</Link>
+    </div>
+</ComponentPreview>
+
+## Examples
+
+### External
+
+An <Link target="_blank" href="https://lucide.dev/icons/external-link" hideIcon>external link</Link> icon is appended if the link starts with `http[s]://`
+
+  <TabGroup>
+    <Tab label="Preview">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+        <Link href="https://www.wysteria.dev">Visit Us</Link>
+      </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Link href="https://www.wysteria.dev">Visit Us</Link>
+        ```
+    </Tab>
+
+  </TabGroup>
+
+### Email
+
+A <Link target="_blank" href="https://lucide.dev/icons/mail" hideIcon>mail</Link> icon is appended if the link starts with `mailto:`
+
+  <TabGroup>
+    <Tab label="Preview">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+        <Link href="mailto:example@wysteria.dev">Contact Us</Link>
+      </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Link href="mailto:example@wysteria.dev">Contact Us</Link>
+        ```
+    </Tab>
+
+  </TabGroup>
+
+### Phone
+
+A <Link target="_blank" href="https://lucide.dev/icons/phone" hideIcon>phone</Link> icon is appended if the link starts with `tel:`
+
+  <TabGroup>
+    <Tab label="Preview">
+      <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+        <Link href="tel:example@wysteria.dev">Call Us</Link>
+      </Container>
+    </Tab>
+
+    <Tab label="Code">
+        ```js
+        <Link href="tel:example@wysteria.dev">Call Us</Link>
+        ```
+    </Tab>
+
+  </TabGroup>
+
+## API Reference
+
+Supports any props the <Link target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" hideIcon>`<a>` element</Link> accepts.
+
+| Prop                                      | Type                                             | Default |
+| ----------------------------------------- | ------------------------------------------------ | :-----: |
+| <Prop>href</Prop>                         | `string`                                         |    -    |
+| <Prop>target</Prop>                       | `_self` `_blank` `_parent` `_top` `_unfencedTop` |    -    |
+| <Prop hint="hideLinkIcon">hideIcon</Prop> | `boolean`                                        | `false` |
+| <Prop>className</Prop>                    | `string`                                         |    -    |

@@ -3,25 +3,47 @@ import useToggle from "../hooks/useToggle";
 import { Button } from "./Button";
 import { forwardRef } from "react";
 
-const ToggleContext = createContext({ value: true });
+const ToggleContext = createContext({ pressed: true });
 
 const ToggleOn = ({ children }) => {
-    const { value } = useContext(ToggleContext);
-    return value && children;
+    const { pressed } = useContext(ToggleContext);
+    return pressed && children;
 };
 
 const ToggleOff = ({ children }) => {
-    const { value } = useContext(ToggleContext);
-    return !value && children;
+    const { pressed } = useContext(ToggleContext);
+    return !pressed && children;
 };
 
 const Toggle = forwardRef(
-    ({ children, initialValue = true, onChange = () => {}, ...props }, ref) => {
-        const [value, toggleValue] = useToggle(initialValue, onChange);
+    (
+        {
+            pressed: externalPressed,
+            children,
+            initialPressed = true,
+            onChange = () => {},
+            ...props
+        },
+        ref,
+    ) => {
+        const isControlled = externalPressed != undefined;
+
+        const [internalPressed, toggleInternalPressed] = useToggle(
+            isControlled ? externalPressed : initialPressed,
+            onChange,
+        );
 
         return (
-            <ToggleContext.Provider value={{ value }}>
-                <Button onClick={() => toggleValue()} ref={ref} {...props}>
+            <ToggleContext.Provider
+                value={{
+                    pressed: isControlled ? externalPressed : internalPressed,
+                }}
+            >
+                <Button
+                    onClick={() => toggleInternalPressed()}
+                    ref={ref}
+                    {...props}
+                >
                     {children}
                 </Button>
             </ToggleContext.Provider>

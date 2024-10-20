@@ -8,7 +8,7 @@ import { useOptionallyControlled } from "../hooks";
 
 const InputContext = createContext({ disabled: false, status: "neutral" });
 
-const PasswordAction = ({ onTogglePassword }) => {
+const PasswordAction = ({ onTogglePassword, disabled }) => {
     return (
         <div className="absolute right-1 flex h-full flex-col justify-center">
             <Toggle
@@ -17,6 +17,7 @@ const PasswordAction = ({ onTogglePassword }) => {
                 action="neutral"
                 size="icon"
                 onChange={onTogglePassword}
+                disabled={disabled}
             >
                 <ToggleOn>
                     <Eye className="aspect-square h-5 md:h-4" />
@@ -34,7 +35,10 @@ const InputIcon = forwardRef(({ children, className = "", ...props }, ref) => {
 
     return (
         <Slot
-            className={twMerge(inputIcon({ disabled, status }), className)}
+            className={twMerge(
+                inputIcon({ status: disabled ? "disabled" : status }),
+                className,
+            )}
             size={18}
             ref={ref}
             {...props}
@@ -95,6 +99,7 @@ const Input = forwardRef(
                     {type === "password" && (
                         <PasswordAction
                             onTogglePassword={handleTogglePassword}
+                            disabled={disabled}
                         />
                     )}
                 </label>

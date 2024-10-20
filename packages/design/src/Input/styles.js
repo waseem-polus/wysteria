@@ -26,6 +26,7 @@ const inputIcon = cva(
                 error: "text-red-500 dark:text-red-400",
                 success: "text-emerald-500 dark:text-emerald-400",
                 neutral: "text-zinc-400 dark:zinc-500",
+                disabled: "text-zinc-400 cursor-not-allowed"
             },
         },
     },

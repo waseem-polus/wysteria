@@ -1,10 +1,12 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState, createContext, useContext } from "react";
 import { Toggle, ToggleOff, ToggleOn } from "../Button";
 import { Eye, EyeClosed } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { Slot } from "@radix-ui/react-slot";
-import { input } from "./styles.js";
+import { input, inputIcon } from "./styles.js";
 import { useOptionallyControlled } from "../hooks";
+
+const InputContext = createContext({ disabled: false, status: "neutral" });
 
 const PasswordAction = ({ onTogglePassword }) => {
     return (
@@ -28,14 +30,13 @@ const PasswordAction = ({ onTogglePassword }) => {
 };
 
 const InputIcon = forwardRef(({ children, className = "", ...props }, ref) => {
+    const { disabled, status } = useContext(InputContext);
+
     return (
         <Slot
-            ref={ref}
-            className={twMerge(
-                "absolute left-2 top-1/2 -translate-y-1/2 cursor-text text-zinc-400 peer-disabled:cursor-not-allowed",
-                className,
-            )}
+            className={twMerge(inputIcon({ disabled, status }), className)}
             size={18}
+            ref={ref}
             {...props}
         >
             {children}
@@ -48,12 +49,13 @@ const Input = forwardRef(
     (
         {
             children,
+            type = "text",
             value: externalValue,
             defaultValue = "",
-            className = "",
             onChange = () => {},
-            type = "text",
-            disableActions = false,
+            className = "",
+            status = "neutral",
+            disabled,
             ...props
         },
         ref,
@@ -70,25 +72,33 @@ const Input = forwardRef(
         };
 
         return (
-            <label className="group relative flex h-fit w-fit shadow-none">
-                {children}
-                <input
-                    className={twMerge(
-                        input({ padding: children ? "icon" : "" }),
-                        className,
+            <InputContext.Provider value={{ disabled, status }}>
+                <label className="group relative flex h-fit w-fit shadow-none">
+                    {children}
+                    <input
+                        className={twMerge(
+                            input({
+                                padding: children ? "icon" : "",
+                                status,
+                            }),
+                            className,
+                        )}
+                        type={internalType}
+                        value={value}
+                        onChange={(e) => {
+                            handleChange(e, e.target.value);
+                        }}
+                        disabled={disabled}
+                        ref={ref}
+                        {...props}
+                    />
+                    {type === "password" && (
+                        <PasswordAction
+                            onTogglePassword={handleTogglePassword}
+                        />
                     )}
-                    value={value}
-                    onChange={(e) => {
-                        handleChange(e, e.target.value);
-                    }}
-                    ref={ref}
-                    type={internalType}
-                    {...props}
-                />
-                {!disableActions && type === "password" && (
-                    <PasswordAction onTogglePassword={handleTogglePassword} />
-                )}
-            </label>
+                </label>
+            </InputContext.Provider>
         );
     },
 );

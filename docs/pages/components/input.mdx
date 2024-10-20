@@ -12,7 +12,17 @@ import {
     PasswordField,
 } from "@wysteria/design";
 import { ComponentPreview, Prop } from "../../components";
-import { CircleDashed, Hash, Phone, Mail, Link, Lock, Search } from "lucide-react";
+import {
+    CircleDashed,
+    Hash,
+    Phone,
+    Mail,
+    Link,
+    Lock,
+    Search,
+    CircleCheck,
+    CircleAlert,
+} from "lucide-react";
 
 # Input
 
@@ -136,14 +146,14 @@ An interactive form element used to accept data from the user.
 
 </TabGroup>
 
-### URL
+### Error
 
 <TabGroup>
     <Tab label="Preview">
         <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-            <Input type="url" placeholder="URL...">
+            <Input placeholder="Error..." status="error">
                 <InputIcon>
-                    <Link />
+                    <CircleAlert />
                 </InputIcon>
             </Input>
         </Container>
@@ -151,9 +161,9 @@ An interactive form element used to accept data from the user.
 
     <Tab label="Code">
         ```js
-        <Input type="url" placeholder="URL...">
+        <Input placeholder="Error..." status="error">
             <InputIcon>
-                <Link />
+                <CircleAlert />
             </InputIcon>
         </Input>
         ```
@@ -161,14 +171,14 @@ An interactive form element used to accept data from the user.
 
 </TabGroup>
 
-### Search
+### Success
 
 <TabGroup>
     <Tab label="Preview">
         <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
-            <Input type="search" placeholder="Seach...">
+            <Input placeholder="Success..." status="success">
                 <InputIcon>
-                    <Search />
+                    <CircleCheck />
                 </InputIcon>
             </Input>
         </Container>
@@ -176,9 +186,9 @@ An interactive form element used to accept data from the user.
 
     <Tab label="Code">
         ```js
-        <Input type="search" placeholder="Seach...">
+        <Input placeholder="Success..." status="success">
             <InputIcon>
-                <Search />
+                <CircleCheck />
             </InputIcon>
         </Input>
         ```
@@ -213,10 +223,11 @@ An interactive form element used to accept data from the user.
 
 ## API Reference
 
-| Prop                     | Type      | Default |
-| ------------------------ | --------- | :-----: |
-| <Prop>placeholder</Prop> | `string`  |    -    |
-| <Prop>value</Prop>       | `string`  |    -    |
-| <Prop>indicator</Prop>   | `boolean` | `false` |
-| <Prop>caption</Prop>     | `boolean` | `false` |
-| <Prop>error</Prop>       | `boolean` | `false` |
+| Prop                      | Type                                                    |  Default  |
+| ------------------------- | ------------------------------------------------------- | :-------: |
+| <Prop>type</Prop>         | `text` `number` `email` `password` `tel` `url` `search` |  `text`   |
+| <Prop>status</Prop>       | `neutral` `error` `success`                             | `neutral` |
+| <Prop>placeholder</Prop>  | `string`                                                |     -     |
+| <Prop>value</Prop>        | `string`                                                |     -     |
+| <Prop>defaultValue</Prop> | `string`                                                |     -     |
+| <Prop>onChange</Prop>     | `(e) => void`                                           |     -     |

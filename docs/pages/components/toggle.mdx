@@ -1,5 +1,5 @@
 import { ComponentPreview,  Prop } from "../../components";
-import { Toggle } from "@wysteria/design";
+import { Toggle, ToggleOn, ToggleOff } from "@wysteria/design";
 import { BellRing, BellOff } from "lucide-react";
 
 # Toggle
@@ -7,13 +7,23 @@ import { BellRing, BellOff } from "lucide-react";
 A two-state button that can be either on or off.
 
 <ComponentPreview>
-    <Toggle size="icon" offChildren={<BellOff size={20} />}>
-        <BellRing size={20} />
+    <Toggle size="icon">
+        <ToggleOn>
+            <BellRing size={20} />
+        </ToggleOn>
+        <ToggleOff>
+            <BellOff size={20} />
+        </ToggleOff>
     </Toggle>
 </ComponentPreview>
 ```jsx
-<Toggle offChildren={<BellOff size={20} />}>
-    <BellRing size={20} />
+<Toggle size="icon">
+    <ToggleOn>
+        <BellOff size={20} />
+    </ToggleOn>
+    <ToggleOff>
+        <BellRing size={20} />
+    </ToggleOff>
 </Toggle>
 ```
 
@@ -21,8 +31,8 @@ A two-state button that can be either on or off.
 
 Toggle accepts any [Button](/components/button) prop in addition to its own
 
-| Prop                      | Type         | Default |
-| ------------------------- | ------------ | :-----: |
-| <Prop>initialValue</Prop> | `boolean`    | `true`  |
-| <Prop>onChange</Prop>     | `() => void` |    -    |
-| <Prop>offChildren</Prop>  |              |         |
+| Prop                        | Type                         | Default |
+| --------------------------- | ---------------------------- | :-----: |
+| <Prop>initialPressed</Prop> | `boolean`                    | `true`  |
+| <Prop>pressed</Prop>        | `boolean`                    |    -    |
+| <Prop>onChange</Prop>       | `(pressed: boolean) => void` |    -    |

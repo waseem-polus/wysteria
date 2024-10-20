@@ -4,7 +4,7 @@ import React, {
     useImperativeHandle,
     useState,
 } from "react";
-import { Button } from "../Button";
+import { Button, Toggle, ToggleOff, ToggleOn } from "../Button";
 import { ChevronDown, ChevronUp, Eye, EyeClosed, X } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { Slot, Slottable } from "@radix-ui/react-slot";
@@ -66,19 +66,21 @@ const NumberAction = ({ onStepUp, onStepDown }) => {
 };
 
 const PasswordAction = ({ onTogglePassword }) => {
-    const [showPassword, setShowPassword] = useState(false);
-
     return (
         <div className="absolute right-1 flex h-full flex-col justify-center">
-            <InputActionButton
-                onClick={() => {
-                    onTogglePassword(!showPassword);
-                    setShowPassword(!showPassword);
-                }}
-            >
-                <InputActionIcon>
-                    {showPassword ? <Eye /> : <EyeClosed />}
-                </InputActionIcon>
+            <InputActionButton asChild>
+                <Toggle onChange={onTogglePassword}>
+                    <ToggleOn>
+                        <InputActionIcon>
+                            <Eye />
+                        </InputActionIcon>
+                    </ToggleOn>
+                    <ToggleOff>
+                        <InputActionIcon>
+                            <EyeClosed />
+                        </InputActionIcon>
+                    </ToggleOff>
+                </Toggle>
             </InputActionButton>
         </div>
     );

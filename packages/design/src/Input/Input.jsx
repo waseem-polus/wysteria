@@ -1,14 +1,10 @@
-import React, {
-    forwardRef,
-    useRef,
-    useImperativeHandle,
-    useState,
-} from "react";
+import React, { forwardRef, useRef, useImperativeHandle, useState } from "react";
 import { Button, Toggle, ToggleOff, ToggleOn } from "../Button";
 import { ChevronDown, ChevronUp, Eye, EyeClosed, X } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { Slot, Slottable } from "@radix-ui/react-slot";
 import { input } from "./styles.js";
+import { useOptionallyControlled } from "../hooks";
 
 const InputActionButton = ({
     children,
@@ -119,20 +115,28 @@ const Input = forwardRef(
     (
         {
             children,
+            value: externalValue,
+            defaultValue = "",
             className = "",
             onChange = () => {},
             type = "text",
+            disableActions = false,
             ...props
         },
         ref,
     ) => {
-        const [value, setValue] = useState("");
+        const [internalType, setInternalType] = useState(type);
+        const [value, handleChange] = useOptionallyControlled(
+            externalValue,
+            defaultValue,
+            onChange,
+        );
 
         const internalRef = useRef(null);
         useImperativeHandle(ref, () => internalRef.current, []);
 
         const handleTogglePassword = (showPassword) => {
-            internalRef.current.type = showPassword ? "text" : "password";
+            setInternalType(showPassword ? "text" : "password");
         };
 
         const handleStepUp = () => {
@@ -144,7 +148,8 @@ const Input = forwardRef(
         };
 
         const handleClear = () => {
-            setValue("");
+            const newValue = defaultValue ?? "";
+            handleChange({ target: { value: newValue } }, newValue);
         };
 
         return (
@@ -157,23 +162,22 @@ const Input = forwardRef(
                     )}
                     value={value}
                     onChange={(e) => {
-                        setValue(e.target.value);
-                        onChange(e);
+                        handleChange(e, e.target.value);
                     }}
                     ref={internalRef}
-                    type={type}
+                    type={internalType}
                     {...props}
                 />
-                {type === "number" && (
+                {!disableActions && type === "number" && (
                     <NumberAction
                         onStepDown={handleStepDown}
                         onStepUp={handleStepUp}
                     />
                 )}
-                {type === "password" && (
+                {!disableActions && type === "password" && (
                     <PasswordAction onTogglePassword={handleTogglePassword} />
                 )}
-                {type === "search" && value.length > 0 && (
+                {!disableActions && type === "search" && value.length > 0 && (
                     <SearchAction onClear={handleClear} />
                 )}
             </label>

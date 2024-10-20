@@ -8,7 +8,7 @@ import { Button } from "../Button";
 import { ChevronDown, ChevronUp, Eye, EyeOff, X } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { Slot } from "@radix-ui/react-slot";
-import { input } from "./styles.js";
+import { input } from "./styles";
 
 const InputActionButton = ({ children, className = "", ...props }) => {
     return (
@@ -109,17 +109,6 @@ const Input = forwardRef(
 
         const internalRef = useRef(null);
         useImperativeHandle(ref, () => internalRef.current, []);
-
-        const input = cva(
-            "group peer flex w-fit appearance-none overflow-hidden rounded border border-zinc-400 bg-white p-2 align-middle focus-within:border-violet-500 focus-within:outline focus-within:outline-2 focus-within:outline-offset-[0.5px] focus-within:outline-violet-500 dark:border-zinc-600 dark:bg-zinc-800",
-            {
-                variants: {
-                    padding: {
-                        icon: "pl-8",
-                    },
-                },
-            },
-        );
 
         return (
             <label className="group relative flex h-fit w-fit shadow-none">

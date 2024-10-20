@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 const input = cva(
-    "peer flex w-fit appearance-none overflow-hidden rounded border disabled:cursor-not-allowed placeholder-zinc-400 disabled:border-dashed disabled:bg-zinc-50 dark:disabled:bg-zinc-800 bg-white p-2 align-middle group-focus-within:outline group-focus-within:outline-2 group-focus-within:outline-offset-[0.5px] dark:bg-zinc-800",
+    "peer flex w-fit appearance-none overflow-hidden rounded border disabled:cursor-not-allowed placeholder-zinc-400  dark:placeholder:text-zinc-300 dark:disabled:placeholder-zinc-400 disabled:border-dashed disabled:bg-zinc-50 dark:disabled:bg-zinc-800 bg-white p-2 align-middle group-focus-within:outline group-focus-within:outline-2 group-focus-within:outline-offset-[0.5px] dark:bg-zinc-800",
     {
         variants: {
             status: {
@@ -18,18 +18,15 @@ const input = cva(
     },
 );
 
-const inputIcon = cva(
-    "absolute left-2 top-1/2 -translate-y-1/2 cursor-text peer-disabled:cursor-not-allowed",
-    {
-        variants: {
-            status: {
-                error: "text-red-500 dark:text-red-400",
-                success: "text-emerald-500 dark:text-emerald-400",
-                neutral: "text-zinc-400 dark:zinc-500",
-                disabled: "text-zinc-400 cursor-not-allowed"
-            },
+const inputIcon = cva("absolute left-2 top-1/2 -translate-y-1/2 cursor-text", {
+    variants: {
+        status: {
+            error: "text-red-500 dark:text-red-400",
+            success: "text-emerald-500 dark:text-emerald-400",
+            neutral: "text-zinc-400 dark:zinc-500",
+            disabled: "text-zinc-400 cursor-not-allowed",
         },
     },
-);
+});
 
 export { input, inputIcon };

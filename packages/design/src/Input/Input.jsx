@@ -8,7 +8,7 @@ import { useOptionallyControlled } from "../hooks";
 
 const InputContext = createContext({ disabled: false, status: "neutral" });
 
-const PasswordAction = ({ onTogglePassword, disabled }) => {
+const PasswordAction = ({ onTogglePassword }) => {
     return (
         <div className="absolute right-1 flex h-full flex-col justify-center">
             <Toggle
@@ -17,7 +17,6 @@ const PasswordAction = ({ onTogglePassword, disabled }) => {
                 action="neutral"
                 size="icon"
                 onChange={onTogglePassword}
-                disabled={disabled}
             >
                 <ToggleOn>
                     <Eye className="aspect-square h-5 md:h-4" />
@@ -96,10 +95,9 @@ const Input = forwardRef(
                         ref={ref}
                         {...props}
                     />
-                    {type === "password" && (
+                    {type === "password" && !disabled && (
                         <PasswordAction
                             onTogglePassword={handleTogglePassword}
-                            disabled={disabled}
                         />
                     )}
                 </label>

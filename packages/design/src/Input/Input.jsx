@@ -5,14 +5,21 @@ import React, {
     useState,
 } from "react";
 import { Button } from "../Button";
-import { ChevronDown, ChevronUp, Eye, EyeOff, X } from "lucide-react";
+import { ChevronDown, ChevronUp, Eye, EyeClosed, X } from "lucide-react";
 import { twMerge } from "tailwind-merge";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { input } from "./styles.js";
 
-const InputActionButton = ({ children, className = "", ...props }) => {
+const InputActionButton = ({
+    children,
+    asChild = false,
+    className = "",
+    ...props
+}) => {
+    const Comp = asChild ? Slot : Button;
+
     return (
-        <Button
+        <Comp
             className={twMerge(
                 "grid h-auto place-content-center p-[2px] md:h-6",
                 className,
@@ -22,17 +29,25 @@ const InputActionButton = ({ children, className = "", ...props }) => {
             size="icon"
             {...props}
         >
-            <Slot className="aspect-square h-5 md:h-4">{children}</Slot>
-        </Button>
+            <Slottable>{children}</Slottable>
+        </Comp>
     );
 };
 
-const NumberAction = ({ inputRef }) => {
+const InputActionIcon = ({ children, className = "" }) => {
+    return (
+        <Slot className={twMerge("aspect-square h-5 md:h-4", className)}>
+            {children}
+        </Slot>
+    );
+};
+
+const NumberAction = ({ onStepUp, onStepDown }) => {
     return (
         <div className="invisible absolute right-1 flex h-full flex-col justify-center md:visible">
             <Button
                 className="min-w-6 p-0"
-                onClick={() => inputRef.current.stepUp()}
+                onClick={onStepUp}
                 variant="text"
                 action="neutral"
             >
@@ -40,7 +55,7 @@ const NumberAction = ({ inputRef }) => {
             </Button>
             <Button
                 className="min-w-6 p-0"
-                onClick={() => inputRef.current.stepDown()}
+                onClick={onStepDown}
                 variant="text"
                 action="neutral"
             >
@@ -50,28 +65,32 @@ const NumberAction = ({ inputRef }) => {
     );
 };
 
-const PasswordAction = ({ inputRef }) => {
+const PasswordAction = ({ onTogglePassword }) => {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
         <div className="absolute right-1 flex h-full flex-col justify-center">
             <InputActionButton
                 onClick={() => {
+                    onTogglePassword(!showPassword);
                     setShowPassword(!showPassword);
-                    inputRef.current.type = showPassword ? "text" : "password";
                 }}
             >
-                {showPassword ? <Eye /> : <EyeOff />}
+                <InputActionIcon>
+                    {showPassword ? <Eye /> : <EyeClosed />}
+                </InputActionIcon>
             </InputActionButton>
         </div>
     );
 };
 
-const SearchAction = ({ inputRef }) => {
+const SearchAction = ({ onClear }) => {
     return (
         <div className="absolute right-1 flex h-full flex-col justify-center">
-            <InputActionButton onClick={() => (inputRef.current.value = "")}>
-                <X />
+            <InputActionButton onClick={onClear}>
+                <InputActionIcon>
+                    <X />
+                </InputActionIcon>
             </InputActionButton>
         </div>
     );
@@ -110,6 +129,22 @@ const Input = forwardRef(
         const internalRef = useRef(null);
         useImperativeHandle(ref, () => internalRef.current, []);
 
+        const handleTogglePassword = (showPassword) => {
+            internalRef.current.type = showPassword ? "text" : "password";
+        };
+
+        const handleStepUp = () => {
+            internalRef.current.stepUp();
+        };
+
+        const handleStepDown = () => {
+            internalRef.current.stepDown();
+        };
+
+        const handleClear = () => {
+            setValue("");
+        };
+
         return (
             <label className="group relative flex h-fit w-fit shadow-none">
                 {children}
@@ -118,6 +153,7 @@ const Input = forwardRef(
                         input({ padding: children ? "icon" : "" }),
                         className,
                     )}
+                    value={value}
                     onChange={(e) => {
                         setValue(e.target.value);
                         onChange(e);
@@ -126,12 +162,17 @@ const Input = forwardRef(
                     type={type}
                     {...props}
                 />
-                {type === "number" && <NumberAction inputRef={internalRef} />}
-                {type === "password" && (
-                    <PasswordAction inputRef={internalRef} />
+                {type === "number" && (
+                    <NumberAction
+                        onStepDown={handleStepDown}
+                        onStepUp={handleStepUp}
+                    />
                 )}
-                {type === "search" && value && (
-                    <SearchAction inputRef={internalRef} />
+                {type === "password" && (
+                    <PasswordAction onTogglePassword={handleTogglePassword} />
+                )}
+                {type === "search" && value.length > 0 && (
+                    <SearchAction onClear={handleClear} />
                 )}
             </label>
         );

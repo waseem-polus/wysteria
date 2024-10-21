@@ -1,5 +1,5 @@
 import React, { createContext, useContext, forwardRef } from "react";
-import useToggle from "../hooks/useToggle";
+import { useToggle } from "../hooks";
 import { Button } from "./Button";
 
 const ToggleContext = createContext({ pressed: true });

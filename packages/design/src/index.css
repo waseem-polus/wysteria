@@ -4,6 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  input[type=number].appearance-none::-webkit-inner-spin-button,
+  input[type=number].appearance-none::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number].appearance-none {
+    -moz-appearance: textfield;
+    appearance: none;
+  }
+}
+
 :root {
   --wui-padding-xxxl: 3rem;
   --wui-padding-xxl: 2rem;
@@ -58,25 +71,10 @@
   --wui-color-warning-900: #805C00;
 }
 
-.wui-app p,
-.wui-app h1,
-.wui-app h2,
-.wui-app h3,
-.wui-app h4,
-.wui-app h5,
-.wui-app h6,
-.wui-app label {
-  margin: 0;
-  padding: 0;
-
-  font-family: 'Work Sans', sans-serif;
-}
-
 body,
 #root,
 html,
-.wui-app,
-.App {
+.wui-app {
   position: relative;
 
   width: 100%;
@@ -88,35 +86,10 @@ html,
   box-sizing: border-box;
 }
 
-.wui-app::selection {
-  background-color: var(--wui-color-accent-100);
-}
-
-/* Works on Firefox */
-* {
-  scrollbar-width: auto;
-  scrollbar-color: var(--wui-color-base-700) var(--wui-color-clear);
-}
-
-/* Works on Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 4px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: var(--wui-color-base-500);
-  border-radius: 20px;
-}
-
 .wui-app {
   margin: 0;
-  font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.wui-app code {
-  font-family: 'Space Mono', monospace;
 }
 
 .padding-xxxl {

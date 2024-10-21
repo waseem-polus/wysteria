@@ -1,2 +1,3 @@
-export { default as ComponentPreview } from "./ComponentPreview";
-export { default as Prop } from "./Prop";
+export * from "./ComponentPreview";
+export * from "./ComponentExample";
+export * from "./Prop";

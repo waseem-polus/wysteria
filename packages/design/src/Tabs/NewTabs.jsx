@@ -1,9 +1,12 @@
 import React, { forwardRef, createContext, useContext } from "react";
 import * as RadixTabs from "@radix-ui/react-tabs";
 import { twMerge } from "tailwind-merge";
-import { tabs, tabsList } from "./styles";
+import { tabs, tabsList, tabTrigger } from "./styles";
 
-const TabsContext = createContext({ orientation: "horizontal" });
+const TabsContext = createContext({
+    orientation: "horizontal",
+    variant: "text",
+});
 
 const TabsContent = forwardRef(
     ({ children, className = "", ...props }, ref) => {
@@ -22,9 +25,11 @@ TabsContent.displayName = "TabsContent";
 
 const TabsTrigger = forwardRef(
     ({ children, className = "", ...props }, ref) => {
+        const { variant } = useContext(TabsContext);
+
         return (
             <RadixTabs.Trigger
-                className={twMerge("", className)}
+                className={twMerge(tabTrigger({ variant }), className)}
                 ref={ref}
                 {...props}
             >
@@ -52,11 +57,17 @@ TabsList.displayName = "TabsList";
 
 const Tabs = forwardRef(
     (
-        { children, orientation = "horizontal", className = "", ...props },
+        {
+            children,
+            variant = "text",
+            orientation = "horizontal",
+            className = "",
+            ...props
+        },
         ref,
     ) => {
         return (
-            <TabsContext.Provider value={{ orientation }}>
+            <TabsContext.Provider value={{ orientation, variant }}>
                 <RadixTabs.Root
                     className={twMerge(tabs({ orientation }), className)}
                     ref={ref}

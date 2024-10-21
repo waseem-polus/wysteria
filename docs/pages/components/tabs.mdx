@@ -4,6 +4,8 @@ import {
     TabsList,
     TabsTrigger,
     TabsContent,
+    Tab,
+    TabGroup,
 } from "@wysteria/design";
 import { ComponentPreview, Prop } from "../../components";
 
@@ -42,6 +44,17 @@ A set of layered sections of content—known as tab panels—that are displayed 
 
 ## Examples
 
+### Filled 
+
+<Tabs defaultValue="tab1" orientation="vertical" variant="filled">
+    <TabsList>
+        <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+        <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+    </TabsList>
+    <TabsContent value="tab1">Content 1</TabsContent>
+    <TabsContent value="tab2">Content 2</TabsContent>
+</Tabs>
+
 ### Vertical
 
 <Tabs defaultValue="tab1" orientation="vertical">
@@ -52,3 +65,46 @@ A set of layered sections of content—known as tab panels—that are displayed 
     <TabsContent value="tab1">Content 1</TabsContent>
     <TabsContent value="tab2">Content 2</TabsContent>
 </Tabs>
+
+
+<TabGroup filled>
+  <Tab label="Tab 1">
+    Content 1 
+  </Tab>
+
+  <Tab label="Tab 2">
+    Content 2
+  </Tab>
+
+  <Tab label="Tab 3" disabled>
+    Content 3
+  </Tab>
+</TabGroup>
+
+<TabGroup>
+  <Tab label="Tab 1">
+    Content 1 
+  </Tab>
+
+  <Tab label="Tab 2">
+    Content 2
+  </Tab>
+
+  <Tab label="Tab 3" disabled>
+    Content 3
+  </Tab>
+</TabGroup>
+
+<TabGroup vertical>
+  <Tab label="Tab 1">
+    Content 1 
+  </Tab>
+
+  <Tab label="Tab 2">
+    Content 2
+  </Tab>
+
+  <Tab label="Tab 3" disabled>
+    Content 3
+  </Tab>
+</TabGroup>

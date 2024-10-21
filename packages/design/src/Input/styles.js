@@ -9,7 +9,7 @@ const input = cva(
                 success:
                     "group-focus-within:outline-emerald-400 border-emerald-500 dark:border-emerald-400 ring-emerald-200 dark:ring-0",
                 neutral:
-                    "group-focus-within:outline-violet-500 group-focus-within:border-violet-500 dark:border-zinc-600 border-zinc-400 ",
+                    "group-focus-within:outline-violet-500 group-focus-within:border-violet-500 dark:border-zinc-600 border-zinc-400",
             },
             padding: {
                 icon: "pl-8",

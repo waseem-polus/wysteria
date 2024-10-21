@@ -28,6 +28,7 @@ A set of layered sections of content—known as tab panels—that are displayed 
         <TabsContent value="tab2">Content 2</TabsContent>
     </Tabs>
 </ComponentPreview>
+
 ```jsx copy
 <Tabs defaultValue="tab1">
     <TabsList>
@@ -38,3 +39,16 @@ A set of layered sections of content—known as tab panels—that are displayed 
     <TabsContent value="tab2">Content 2</TabsContent>
 </Tabs>
 ```
+
+## Examples
+
+### Vertical
+
+<Tabs defaultValue="tab1" orientation="vertical">
+    <TabsList>
+        <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+        <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+    </TabsList>
+    <TabsContent value="tab1">Content 1</TabsContent>
+    <TabsContent value="tab2">Content 2</TabsContent>
+</Tabs>

@@ -1,91 +1,45 @@
-import React, {
-    forwardRef,
-    useRef,
-    useImperativeHandle,
-    useState,
-} from "react";
-import { Button } from "../Button";
-import { ChevronDown, ChevronUp, Eye, EyeOff, X } from "lucide-react";
+import React, { forwardRef, useState, createContext, useContext } from "react";
+import { Toggle, ToggleOff, ToggleOn } from "../Button";
+import { Eye, EyeClosed } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { Slot } from "@radix-ui/react-slot";
-import { input } from "./styles";
+import { input, inputIcon } from "./styles.js";
+import { useOptionallyControlled } from "../hooks";
 
-const InputActionButton = ({ children, className = "", ...props }) => {
-    return (
-        <Button
-            className={twMerge(
-                "grid h-auto place-content-center p-[2px] md:h-6",
-                className,
-            )}
-            variant="text"
-            action="neutral"
-            size="icon"
-            {...props}
-        >
-            <Slot className="aspect-square h-5 md:h-4">{children}</Slot>
-        </Button>
-    );
-};
+const InputContext = createContext({ disabled: false, status: "neutral" });
 
-const NumberAction = ({ inputRef }) => {
-    return (
-        <div className="invisible absolute right-1 flex h-full flex-col justify-center md:visible">
-            <Button
-                className="min-w-6 p-0"
-                onClick={() => inputRef.current.stepUp()}
-                variant="text"
-                action="neutral"
-            >
-                <ChevronUp size={16} />
-            </Button>
-            <Button
-                className="min-w-6 p-0"
-                onClick={() => inputRef.current.stepDown()}
-                variant="text"
-                action="neutral"
-            >
-                <ChevronDown size={16} />
-            </Button>
-        </div>
-    );
-};
-
-const PasswordAction = ({ inputRef }) => {
-    const [showPassword, setShowPassword] = useState(false);
-
+const PasswordAction = ({ onTogglePassword }) => {
     return (
         <div className="absolute right-1 flex h-full flex-col justify-center">
-            <InputActionButton
-                onClick={() => {
-                    setShowPassword(!showPassword);
-                    inputRef.current.type = showPassword ? "text" : "password";
-                }}
+            <Toggle
+                className="grid h-auto place-content-center p-[2px] md:h-6"
+                variant="text"
+                action="neutral"
+                size="icon"
+                onChange={onTogglePassword}
             >
-                {showPassword ? <Eye /> : <EyeOff />}
-            </InputActionButton>
-        </div>
-    );
-};
-
-const SearchAction = ({ inputRef }) => {
-    return (
-        <div className="absolute right-1 flex h-full flex-col justify-center">
-            <InputActionButton onClick={() => (inputRef.current.value = "")}>
-                <X />
-            </InputActionButton>
+                <ToggleOn>
+                    <Eye className="aspect-square h-5 md:h-4" />
+                </ToggleOn>
+                <ToggleOff>
+                    <EyeClosed className="aspect-square h-5 md:h-4" />
+                </ToggleOff>
+            </Toggle>
         </div>
     );
 };
 
 const InputIcon = forwardRef(({ children, className = "", ...props }, ref) => {
+    const { disabled, status } = useContext(InputContext);
+
     return (
         <Slot
-            ref={ref}
             className={twMerge(
-                "absolute left-2 top-1/2 -translate-y-1/2 cursor-text text-zinc-400 peer-disabled:cursor-not-allowed",
+                inputIcon({ status: disabled ? "disabled" : status }),
                 className,
             )}
             size={18}
+            ref={ref}
             {...props}
         >
             {children}
@@ -98,42 +52,56 @@ const Input = forwardRef(
     (
         {
             children,
-            className = "",
-            onChange = () => {},
             type = "text",
+            value: externalValue,
+            defaultValue = "",
+            onChange = () => {},
+            className = "",
+            status = "neutral",
+            disabled,
             ...props
         },
         ref,
     ) => {
-        const [value, setValue] = useState("");
+        const [internalType, setInternalType] = useState(type);
+        const [value, handleChange] = useOptionallyControlled(
+            externalValue,
+            defaultValue,
+            onChange,
+        );
 
-        const internalRef = useRef(null);
-        useImperativeHandle(ref, () => internalRef.current, []);
+        const handleTogglePassword = (showPassword) => {
+            setInternalType(showPassword ? "text" : "password");
+        };
 
         return (
-            <label className="group relative flex h-fit w-fit shadow-none">
-                {children}
-                <input
-                    className={twMerge(
-                        input({ padding: children ? "icon" : "" }),
-                        className,
+            <InputContext.Provider value={{ disabled, status }}>
+                <label className="group relative flex h-fit w-fit shadow-none">
+                    {children}
+                    <input
+                        className={twMerge(
+                            input({
+                                padding: children ? "icon" : "",
+                                status,
+                            }),
+                            className,
+                        )}
+                        type={internalType}
+                        value={value}
+                        onChange={(e) => {
+                            handleChange(e, e.target.value);
+                        }}
+                        disabled={disabled}
+                        ref={ref}
+                        {...props}
+                    />
+                    {type === "password" && !disabled && (
+                        <PasswordAction
+                            onTogglePassword={handleTogglePassword}
+                        />
                     )}
-                    onChange={(e) => {
-                        setValue(e.target.value);
-                        onChange(e);
-                    }}
-                    ref={internalRef}
-                    type={type}
-                    {...props}
-                />
-                {type === "number" && <NumberAction inputRef={internalRef} />}
-                {type === "password" && (
-                    <PasswordAction inputRef={internalRef} />
-                )}
-                {type === "search" && value && (
-                    <SearchAction inputRef={internalRef} />
-                )}
-            </label>
+                </label>
+            </InputContext.Provider>
         );
     },
 );

@@ -1,0 +1,40 @@
+import {
+    Link,
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "@wysteria/design";
+import { ComponentPreview, Prop } from "../../components";
+
+# Tabs
+
+A set of layered sections of content—known as tab panels—that are displayed one at a time.
+
+<Link
+    target="_blank"
+    href="https://www.radix-ui.com/primitives/docs/components/tabs"
+>
+    API Reference
+</Link>
+
+<ComponentPreview>
+    <Tabs defaultValue="tab1">
+        <TabsList>
+            <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+            <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+        </TabsList>
+        <TabsContent value="tab1">Content 1</TabsContent>
+        <TabsContent value="tab2">Content 2</TabsContent>
+    </Tabs>
+</ComponentPreview>
+```jsx copy
+<Tabs defaultValue="tab1">
+    <TabsList>
+        <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+        <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+    </TabsList>
+    <TabsContent value="tab1">Content 1</TabsContent>
+    <TabsContent value="tab2">Content 2</TabsContent>
+</Tabs>
+```

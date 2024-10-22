@@ -1,7 +1,22 @@
 {
-    "index": "Introduction",
-    "getting-started": "Getting Started",
-    "greenhouse": "Greenhouse",
+    "index": {
+        "title": "Introduction",
+        "theme": {
+            "breadCrumb": false
+        }
+    },
+    "getting-started": {
+        "title": "Getting Started",
+        "theme": {
+            "breadCrumb": false
+        }
+    },
+    "greenhouse": {
+        "title": "Greenhouse",
+        "theme": {
+            "breadCrumb": false
+        }
+    },
     "---": {
         "type": "separator"
     },

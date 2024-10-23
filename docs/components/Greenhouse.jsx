@@ -1,5 +1,5 @@
 import React from "react";
-import { GitPullRequestArrow, CircleDot } from "lucide-react";
+import { GitPullRequestArrow, CircleDot, CircleCheck } from "lucide-react";
 
 const NewAddition = ({ name, children, pr }) => {
     return (
@@ -19,16 +19,16 @@ const NewAddition = ({ name, children, pr }) => {
                 target="_blank"
                 rel="noreferrer"
                 href={`https://github.com/waseem-polus/wysteria/pull/${pr}`}
-                className="absolute top-7 right-8 hover:underline outline-none border-none flex items-center gap-1 rounded-full text-sm text-zinc-500 visited:text-zinc-500 dark:text-zinc-400 visited:dark:text-zinc-400"
+                className="absolute right-8 top-7 flex items-center gap-1 rounded-full border-none text-sm text-zinc-500 outline-none visited:text-zinc-500 hover:underline dark:text-zinc-400 visited:dark:text-zinc-400"
             >
-                <GitPullRequestArrow strokeWidth={1.5} size={14} />
+                <GitPullRequestArrow className="text-violet-600 dark:text-violet-400" strokeWidth={1.5} size={14} />
                 {pr}
             </a>
         </div>
     );
 };
 
-const ComingSoon = ({ children, name, issue = "" }) => {
+const ComingSoon = ({ children, name, issue = "", closed = false }) => {
     return (
         <div className="flex flex-col gap-2">
             <div className="mt-5 flex gap-2">
@@ -40,9 +40,21 @@ const ComingSoon = ({ children, name, issue = "" }) => {
                         target="_blank"
                         rel="noreferrer"
                         href={`https://github.com/waseem-polus/wysteria/issues/${issue}`}
-                        className="flex items-center gap-1 rounded-full text-sm text-zinc-600 underline-offset-2 visited:text-zinc-600 hover:underline dark:text-zinc-300 visited:dark:text-zinc-300"
+                        className="group flex items-center gap-1 rounded-full text-sm text-zinc-600 underline-offset-2 visited:text-zinc-600 hover:underline dark:text-zinc-300 visited:dark:text-zinc-300"
                     >
-                        <CircleDot strokeWidth={1.5} size={14} />
+                        {closed ? (
+                            <CircleCheck
+                                strokeWidth={1.5}
+                                size={14}
+                                className="text-violet-600 dark:text-violet-400"
+                            />
+                        ) : (
+                            <CircleDot
+                                strokeWidth={1.5}
+                                size={14}
+                                className="text-green-600"
+                            />
+                        )}
                         {issue}
                     </a>
                 )}

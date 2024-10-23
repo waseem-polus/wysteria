@@ -1,43 +1,43 @@
-import { NewComponent } from "../components";
+import { Link } from "@wysteria/design";
+import { NewAddition, ComingSoon } from "../components";
 
 # Greenhouse
 
-Here's a sneak peek at components currently in active development and those planned for the future:
+Are you as excited about our growing collection of components as we are? 
+You can track the development progress of these components on our <Link target="_blank" href="https://github.com/waseem-polus/wysteria/issues">GitHub page</Link>
 
-### Freshly Sprouted
+## Freshly Sprouted
 
 Newly added components that are available right now!
 
-<div className="mt-2 grid grid-rows-3 sm:grid-rows-1 sm:grid-cols-3 gap-3">
-    <NewComponent
-        name="Chip"
-        description="Interactive badges used to represent user-generated content."
-    />
-    <NewComponent
-        name="Dialog"
-        description="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert."
-    />
-    <NewComponent
-        name="Popover"
-        description="Displays rich content in a portal, triggered by a button."
-    />
+<div className="mt-2 grid grid-rows-3 gap-3 sm:grid-cols-3 sm:grid-rows-1">
+    <NewAddition name="Dialog" pr="99">
+        A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+    </NewAddition>
+
+    <NewAddition name="Chip" pr="102" >
+        Interactive badges used to represent user-generated content.
+    </NewAddition>
+
+    <NewAddition name="Popover" pr="103">
+        Displays rich content in a portal, triggered by a button.
+    </NewAddition>
+
 </div>
 
-### Blooming Soon
+## Blooming Soon
 
 Currently in active development, and will be added very soon.
 
--   TODO
+<ComingSoon name="Accordion" issue="115">
+    A vertically stacked set of interactive headings that each reveal an
+    associated section of content.
+</ComingSoon>
 
-You can track the development progress of these components on our [GitHub page](https://github.com/waseem-polus/wysteria/issues).
+<ComingSoon name="Form">
+    Used collect information from users using a set of validation rules.
+</ComingSoon>
 
-### Seedling Ideas
-
-On the roadmap but no planned realease date yet.
-
--   Grid Layout
--   Callout
--   Switch
--   Accordion
-
-Just like wisteria vines start as small seeds and grow into stunning displays, our components are evolving and expanding. We can't wait to share them with you!
+<ComingSoon name="Card" issue="7">
+    A container that visually groups related content and actions.
+</ComingSoon>

@@ -1,50 +1,38 @@
-import React, { useState } from "react";
-import { Icon } from "../Icon";
-import classNames from "classnames";
+import React from "react";
+import { twMerge } from "tailwind-merge";
+import { button } from "./styles";
+import { forwardRef } from "react";
 
-import "./Button.css";
+const Button = forwardRef(
+    (
+        {
+            onClick,
+            children = null,
+            size = "normal",
+            variant = "filled",
+            action = "progressive",
+            disabled = false,
+            className = "",
+            ...props
+        },
+        ref,
+    ) => {
+        return (
+            <button
+                className={twMerge(
+                    button({ variant, action, size }),
+                    className,
+                )}
+                onClick={onClick}
+                disabled={disabled}
+                ref={ref}
+                {...props}
+            >
+                {children}
+            </button>
+        );
+    },
+);
+Button.displayName = "Button";
 
-export const Button = ({
-	onClick, 
-	children = null, 
-	padding = "md",
-	variant = "filled", 
-	actionType = "progressive", 
-	leftIcon = null, 
-	rightIcon = null,
-	disabled = false
-}) => {
-	const [isHovering, setIsHovering] = useState(false);
-	const [isClicking, setIsClicking] = useState(false);
-  
-	let buttonClass = classNames(
-		`button button--${variant}`,
-		`button--${actionType}`,
-		`padding-${padding}`,
-		{ 
-			"button--icon-only": children === null,
-			"button--hover": !disabled && isHovering,
-			"button--active": !disabled,
-			"button--click": !disabled && isClicking
-		}
-	);
-
-	return (
-		<button 
-			className={buttonClass} 
-			onClick={onClick} 
-      
-			disabled={disabled}
-
-			onMouseDown={() => setIsClicking(true)}
-			onMouseUp={() => setIsClicking(false)}
-
-			onMouseEnter={() => setIsHovering(true)}
-			onMouseLeave={() => setIsHovering(false)} 
-		>
-			{leftIcon != null && <Icon size={20} strokeWidth={1.5} name={leftIcon} />}
-			{children}
-			{rightIcon != null && <Icon size={20} strokeWidth={1.5} name={rightIcon} />}
-		</button>
-	);
-};
+export { Button };

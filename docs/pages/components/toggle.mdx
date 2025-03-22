@@ -1,0 +1,38 @@
+import { ComponentPreview,  Prop } from "../../components";
+import { Toggle, ToggleOn, ToggleOff } from "@wysteria/design";
+import { BellRing, BellOff } from "lucide-react";
+
+# Toggle
+
+A two-state button that can be either on or off.
+
+<ComponentPreview>
+    <Toggle size="icon">
+        <ToggleOn>
+            <BellRing size={20} />
+        </ToggleOn>
+        <ToggleOff>
+            <BellOff size={20} />
+        </ToggleOff>
+    </Toggle>
+</ComponentPreview>
+```jsx
+<Toggle size="icon">
+    <ToggleOn>
+        <BellOff size={20} />
+    </ToggleOn>
+    <ToggleOff>
+        <BellRing size={20} />
+    </ToggleOff>
+</Toggle>
+```
+
+## API Reference
+
+Toggle accepts any [Button](/components/button) prop in addition to its own
+
+| Prop                        | Type                         | Default |
+| --------------------------- | ---------------------------- | :-----: |
+| <Prop>initialPressed</Prop> | `boolean`                    | `true`  |
+| <Prop>pressed</Prop>        | `boolean`                    |    -    |
+| <Prop>onChange</Prop>       | `(pressed: boolean) => void` |    -    |

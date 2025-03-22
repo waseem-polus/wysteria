@@ -1,10 +1,15 @@
-import React from "react";
+import React, { createContext, useRef } from "react";
 import "./index.css";
 
+export const RootContext = createContext(null);
+
 export const WuiApp = ({ children }) => {
-	return (
-		<div className="wui-app">
-			{children}
-		</div>
-	);
+    const root = useRef(null);
+    return (
+        <RootContext.Provider value={{ root }}>
+            <div ref={root} className="wui-app">
+                {children}
+            </div>
+        </RootContext.Provider>
+    );
 };

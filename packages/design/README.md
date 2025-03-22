@@ -26,7 +26,7 @@ yarn add @wysteria/design
 
 ## Usage
 
-To use the components in your project, import them as follows:
+To use Wysteria components in your project, import them as follows:
 
 ```javascript
 import { ComponentName } from '@wysteria/design';
@@ -34,15 +34,13 @@ import { ComponentName } from '@wysteria/design';
 // Use ComponentName in your React application
 ```
 
-For detailed usage examples, refer to the [documentation](#documentation) below.
-
 ## Documentation
 
-Explore the full documentation and examples for each component on our [documentation website](https://wysteria.dev).
+Explore the capabilities of Wysteria as well as detailed usage examples on our [documentation website](https://wysteria.dev).
 
 Here are some key sections of the documentation:
 - [Getting Started](https://wysteria.dev)
-- [Component API Reference](https://wysteria.dev/components/button)
+- [Our Roadmap](https://wysteria.dev/greenhouse)
 
 ## License
 

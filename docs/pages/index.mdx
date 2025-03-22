@@ -1,32 +1,147 @@
-import {TabGroup, Tab} from "@wysteria/design"
+import { Steps } from "nextra/components";
+import {
+    TabGroup,
+    Tab,
+    Dialog,
+    DialogTitle,
+    DialogTrigger,
+    DialogClose,
+    Button,
+    DialogContent,
+    DialogFooter,
+    Input,
+    InputIcon,
+} from "@wysteria/design";
+import { Lock, User } from "lucide-react";
 
-# How to Install?
+import { ComponentPreview } from "../components";
 
-The Design installation of wui offers opinionated, pre-styled components.
+# Getting Started
 
-<TabGroup>
-    <Tab label="npm">        
-        ``` bash copy
-        npm i @wysteria/design react react-dom
-        ```
-    </Tab>
+A quick guide to get you started using Wysteria in your app.
 
-    <Tab label="yarn">
-        ``` bash copy
-        yarn add @wysteria/design react react-dom
-        ```
-    </Tab>
+<br />
 
-    <Tab label="pnpm">        
-        ``` bash copy
-        pnpm add @wysteria/design react react-dom
-        ```
-    </Tab>
-</TabGroup>
+<Steps>
+### Install Wysteria
+Add Wysteria to your project using the command line.
 
-## Peer Dependencies
-The project depends on the following dependencies to be included in your project:
-``` json
-react: "^18",
-react-dom: "^18"
+```bash copy
+npm i @wysteria/design
 ```
+
+### Wrap your project
+
+Wrap your project with the `WuiApp` component. This supplies styling for Wysteria's components. It also tells components like [Dialog](./components/dialog) or [Popover](./components/popover) where to render elements inside [Portals](https://www.radix-ui.com/primitives/docs/utilities/portal).
+
+```jsx filename="main.jsx" {4,8-10}
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import { WuiApp } from "@wysteria/design";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+        <WuiApp>
+            <App />
+        </WuiApp>
+    </React.StrictMode>,
+);
+```
+
+### Create your components
+
+We recommend styling with [Tailwind](https://tailwindcss.com/), but our components can be styled however you want. You can use raw css by adding `className` to any Wysteria component for example.
+
+```jsx filename="LoginDialog.jsx"
+import {
+    Button,
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogFooter,
+    DialogTitle,
+    DialogTrigger,
+    Input,
+    InputIcon,
+} from "@wysteria/design";
+import { Lock, User } from "lucide-react";
+
+const SignUpDialog = () => {
+    return (
+        <Dialog modal>
+            <DialogTrigger>
+                <Button> Login </Button>
+            </DialogTrigger>
+            
+            <DialogContent className="flex max-w-fit flex-col items-center gap-8 p-8">
+                <DialogTitle>Login Form</DialogTitle>
+
+                <div className="flex flex-col gap-6">
+                    <Input className="w-64" placeholder="username...">
+                        <InputIcon> <User /> </InputIcon>
+                    </Input>
+                    <Input
+                        type="password"
+                        className="w-64"
+                        placeholder="password..."
+                    >
+                        <InputIcon> <Lock /> </InputIcon>
+                    </Input>
+                </div>
+
+                <DialogFooter className="mt-4 flex w-full justify-between">
+                    <DialogClose>
+                        <Button variant="text">Forgot Password?</Button>
+                    </DialogClose>
+                    <Button> Signup </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
+    );
+};
+
+export default SignUpDialog;
+```
+
+</Steps>
+
+### Demo
+
+Here's the completed demo.
+
+<ComponentPreview>
+    <Dialog modal>
+        <DialogTrigger>
+            <Button> Login </Button>
+        </DialogTrigger>
+        <DialogContent className="flex max-w-fit flex-col items-center gap-8 p-8">
+            <DialogTitle>Login Form</DialogTitle>
+            <div className="flex flex-col gap-6">
+                <Input className="w-64" placeholder="username...">
+                    <InputIcon>
+                        <User />
+                    </InputIcon>
+                </Input>
+
+                <Input
+                    type="password"
+                    className="w-64"
+                    placeholder="password..."
+                >
+                    <InputIcon>
+                        <Lock />
+                    </InputIcon>
+                </Input>
+            </div>
+
+            <DialogFooter className="mt-4 flex w-full justify-between">
+                <DialogClose>
+                    <Button variant="text">Forgot Password?</Button>
+                </DialogClose>
+                <Button> Signup </Button>
+            </DialogFooter>
+        </DialogContent>
+    </Dialog>
+
+</ComponentPreview>

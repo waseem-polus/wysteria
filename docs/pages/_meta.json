@@ -1,10 +1,18 @@
 {
-    "index": "Installation",
-    "setup": "Setup",
-    "greenhouse": "Greenhouse",
+    "index": {
+        "title": "Getting Started",
+        "theme": {
+            "breadCrumb": false
+        }
+    },
+    "greenhouse": {
+        "title": "Greenhouse",
+        "theme": {
+            "breadCrumb": false
+        }
+    },
     "---": {
         "type": "separator"
-      },
-    "components": "Components",
-    "themes": "Themes"
+    },
+    "components": "Components"
 }

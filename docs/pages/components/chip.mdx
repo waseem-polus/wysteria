@@ -1,7 +1,163 @@
-import { Callout } from 'nextra/components'
+import { ComponentPreview,  Prop } from "../../components";
+import { Container, TabGroup, Tab, Chip, ChipAction } from "@wysteria/design";
+import { Home, User, Plus, Info } from "lucide-react";
 
 # Chip
- 
-<Callout emoji="🌸">
-  Oops! It looks like our documentation for this component is still growing, just like a wisteria vine climbing up a trellis.
-</Callout>
+
+Interactive badges used to represent user-generated content.
+
+<ComponentPreview>
+    <Chip>
+        Chip
+        <ChipAction />
+    </Chip>
+</ComponentPreview>
+
+```jsx
+<Chip>
+    Chip
+    <ChipAction />
+</Chip>
+```
+
+## Examples
+
+### Icon
+
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Chip>
+          <User size={16}/> 
+          {"Chip"}
+      </Chip>
+    </Container>
+
+  </Tab>
+
+  <Tab label="Code">
+    ```jsx
+      <Chip>
+          <User size={16}/>
+          Chip
+      </Chip>
+    ```
+  </Tab>
+
+</TabGroup>
+
+### Custom Action
+
+`ChipAction` is a button to interact with the chip. It accepts the same props as a [`Button`](/components/button).
+
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Chip>
+          <User size={16}/> 
+          {"Chip"}
+          <ChipAction>
+            <Plus size={16} />
+          </ChipAction>
+      </Chip>
+    </Container>
+
+  </Tab>
+
+  <Tab label="Code">
+    ```jsx
+      <Chip>
+          <User size={16}/>
+          Chip
+          <ChipAction>
+            <Plus size={16} />
+          </ChipAction>
+      </Chip>
+    ```
+  </Tab>
+
+</TabGroup>
+
+### Destructive
+
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Chip action="destructive">
+          {"Chip"}
+          <ChipAction />
+      </Chip>
+    </Container>
+
+  </Tab>
+
+  <Tab label="Code">
+    ```jsx
+      <Chip action="destructive">
+          Chip
+          <ChipAction />
+      </Chip>
+    ```
+  </Tab>
+
+</TabGroup>
+
+### Neutral
+
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Chip action="neutral">
+          {"Chip"}
+          <ChipAction>
+            <Info size={16} />
+          </ChipAction>
+      </Chip>
+    </Container>
+
+  </Tab>
+
+  <Tab label="Code">
+    ```jsx
+      <Chip action="neutral">
+          Chip
+          <ChipAction>
+            <Info size={16} />
+          </ChipAction>
+      </Chip>
+    ```
+  </Tab>
+
+</TabGroup>
+
+### Outline
+
+<TabGroup>
+  <Tab label="Preview">
+    <Container paddingVer="md" gap="sm" justify="space-evenly" align="center" direction="row" style={{minHeight: "5rem"}}>
+      <Chip variant="outline">
+          {"Chip"}
+          <ChipAction />
+      </Chip>
+    </Container>
+
+  </Tab>
+
+  <Tab label="Code">
+    ```jsx
+      <Chip variant="outline">
+          Chip
+          <ChipAction />
+      </Chip>
+    ```
+  </Tab>
+
+</TabGroup>
+
+## API Reference
+
+| Prop                   | Type                                  |    Default    |
+| ---------------------- | ------------------------------------- | :-----------: |
+| <Prop>variant</Prop>   | `filled` `outline`                    |   `filled`    |
+| <Prop>action</Prop>    | `progressive` `destructive` `neutral` | `progressive` |
+| <Prop>className</Prop> | `string`                              |       -       |

@@ -1,53 +1,57 @@
 {
-  "name": "@wysteria/design",
-  "type": "module",
-  "version": "0.2.2",
-  "description": "React Component Design System",
-  "license": "MIT",
-  "author": {
-    "name": "Waseem Polus",
-    "url": "https://github.com/waseem-polus"
-  },
-  "keywords": [
-    "react",
-    "components",
-    "ui",
-    "wui"
-  ],
-  "homepage": "https://github.com/waseem-polus/wui-design",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/wui-design.umd.cjs",
-  "module": "./dist/wui-design.js",
-  "exports": {
-    ".": {
-      "import": "./dist/wui-design.js",
-      "require": "./dist/wui-design.umd.cjs"
+    "name": "@wysteria/design",
+    "type": "module",
+    "version": "0.3.0",
+    "description": "A collection of reusable React components to help streamline the development of web applications",
+    "license": "MIT",
+    "author": {
+        "name": "Waseem Polus",
+        "url": "https://github.com/waseem-polus"
+    },
+    "keywords": [
+        "react",
+        "components",
+        "ui",
+        "wui",
+        "wysteria"
+    ],
+    "homepage": "https://wysteria.dev",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/wui-design.umd.cjs",
+    "module": "./dist/wui-design.js",
+    "exports": {
+        ".": {
+            "import": "./dist/wui-design.js",
+            "require": "./dist/wui-design.umd.cjs"
+        },
+        "./style.css": "./dist/style.css"
+    },
+    "scripts": {
+        "build": "vite build",
+        "dry": "npm publish --dry-run",
+        "pub": "npm publish --access public"
+    },
+    "dependencies": {
+        "@radix-ui/react-dialog": "^1.1.1",
+        "@radix-ui/react-popover": "^1.1.1",
+        "@radix-ui/react-slot": "^1.1.0",
+        "@vitejs/plugin-react": "^4.0.3",
+        "class-variance-authority": "^0.7.0",
+        "classnames": "^2.3.2",
+        "lucide-react": "^0.453.0",
+        "tailwind-merge": "^2.5.2",
+        "tailwindcss": "^3.4.10"
+    },
+    "peerDependencies": {
+        "react": "^18",
+        "react-dom": "^18",
+        "tailwindcss": "^3.4.10"
+    },
+    "devDependencies": {
+        "prettier": "^3.3.3",
+        "prettier-plugin-tailwindcss": "^0.6.6",
+        "vite": "^4.4.5"
     }
-  },
-  "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "vitest --coverage",
-    "test:ci": "npm run test -- run",
-    "test:ui": "npm run test -- --ui",
-    "test:watch": "npm run test -- --watch",
-    "dry": "npm publish --dry-run",
-    "pub": "npm publish --access public"
-  },
-  "dependencies": {
-    "classnames": "^2.3.2",
-    "lucide-react": "^0.263.1",
-    "vite-plugin-css-injected-by-js": "^3.3.0"
-  },
-  "peerDependencies": {
-    "react": "^18",
-    "react-dom": "^18"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.3",
-    "vite": "^4.4.5"
-  }
 }

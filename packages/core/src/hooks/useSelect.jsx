@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
 export const useSelect = (options, initial, onChange) => {
-	const [selected, setSelected] = useState(initial);
+    const [selected, setSelected] = useState(initial);
 	
-	useEffect(() => onChange(selected), [selected]);
+    useEffect(() => onChange(selected), [selected]);
 	
-	const resetSelected = () => setSelected(initial);
+    const resetSelected = () => setSelected(initial);
 
-	return [options, selected, setSelected, resetSelected];
+    return [options, selected, setSelected, resetSelected];
 };

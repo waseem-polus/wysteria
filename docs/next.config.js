@@ -34,7 +34,7 @@ try {
     resolveDependencies();
 } catch (error) {
     console.error(
-        `Failed during the ${isProdEnv? "Production" : "Preview"} build process:`,
+        `Failed during the ${isProdEnv ? "Production" : "Preview"} build process:`,
         error,
     );
     process.exit(1);
@@ -43,5 +43,8 @@ try {
 const withNextra = require("nextra")({
     theme: "nextra-theme-docs",
     themeConfig: "./theme.config.jsx",
+    mdxOptions: {
+        development: !isProdEnv,
+    },
 });
 module.exports = withNextra();

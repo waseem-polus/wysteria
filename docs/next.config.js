@@ -1,20 +1,12 @@
 const { execSync } = require("child_process");
 const path = require("path");
 
-const isProdEnv = process.env.VERCEL_ENV === "production";
-
 const execWithDir = (command, dir) => {
     console.log(`Executing: ${command} in ${dir}`);
     execSync(command, { stdio: "inherit", cwd: dir });
 };
 
-const resolveDependencies = () => {
-    if (isProdEnv) {
-        console.log("Building for Production Environment...");
-        execWithDir("npm install -y", path.resolve(__dirname));
-        return;
-    }
-
+try {
     console.log("Building for Preview Environment...");
 
     const monotrepoRootDir = path.resolve(__dirname, "../");
@@ -28,15 +20,8 @@ const resolveDependencies = () => {
 
     execWithDir("npm install -y", docsDir);
     execWithDir("npm link @wysteria/design", docsDir);
-};
-
-try {
-    resolveDependencies();
 } catch (error) {
-    console.error(
-        `Failed during the ${isProdEnv ? "Production" : "Preview"} build process:`,
-        error,
-    );
+    console.error(`Failed during the build process:`, error);
     process.exit(1);
 }
 
@@ -44,7 +29,7 @@ const withNextra = require("nextra")({
     theme: "nextra-theme-docs",
     themeConfig: "./theme.config.jsx",
     mdxOptions: {
-        development: !isProdEnv,
+        development: process.env.VERCEL_ENV === "development",
     },
 });
 module.exports = withNextra();
